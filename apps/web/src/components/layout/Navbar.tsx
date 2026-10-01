@@ -5,6 +5,7 @@ import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { Activity, LogOut, ShieldCheck, Stethoscope, User, Menu, X } from 'lucide-react';
 import { UserRole } from '@vetvision/shared-types';
+import { ThemeToggle } from '../ui/ThemeToggle';
 
 export function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
@@ -56,6 +57,8 @@ export function Navbar() {
 
         {/* User / Auth CTA */}
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle variant="dropdown" />
+
           {isAuthenticated && user ? (
             <div className="flex items-center gap-3">
               <Link to={getDashboardRoute()}>
@@ -95,13 +98,16 @@ export function Navbar() {
           )}
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-muted-foreground hover:text-foreground"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile controls */}
+        <div className="flex md:hidden items-center gap-1.5">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-muted-foreground hover:text-foreground"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Dropdown */}

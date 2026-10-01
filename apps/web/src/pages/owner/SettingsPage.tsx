@@ -4,9 +4,11 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../..
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { Alert, AlertTitle, AlertDescription } from '../../components/ui/Alert';
-import { KeyRound, ShieldAlert } from 'lucide-react';
+import { KeyRound, ShieldAlert, Palette, Sun, Moon, Monitor, Check } from 'lucide-react';
+import { useTheme, Theme } from '../../context/ThemeContext';
 
 export function SettingsPage() {
+  const { theme, setTheme } = useTheme();
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -41,9 +43,78 @@ export function SettingsPage() {
   return (
     <div className="container max-w-2xl py-8 space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground">Security Settings</h1>
-        <p className="text-sm text-muted-foreground mt-0.5">Manage session credentials and account security</p>
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">Preferences & Security</h1>
+        <p className="text-sm text-muted-foreground mt-0.5">Customize your interface appearance and account credentials</p>
       </div>
+
+      {/* Theme & Appearance Card */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Palette className="h-5 w-5 text-emerald-600" /> Interface Theme
+          </CardTitle>
+          <CardDescription className="text-xs">
+            Choose your preferred color theme across the VetVision AI platform.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              {
+                id: 'light' as Theme,
+                label: 'Light Mode',
+                desc: 'Clean, high-contrast daytime interface',
+                icon: Sun,
+                iconColor: 'text-amber-500'
+              },
+              {
+                id: 'dark' as Theme,
+                label: 'Dark Mode',
+                desc: 'Sleek, low-glare nighttime palette',
+                icon: Moon,
+                iconColor: 'text-indigo-400'
+              },
+              {
+                id: 'system' as Theme,
+                label: 'System Match',
+                desc: 'Follows your operating system settings',
+                icon: Monitor,
+                iconColor: 'text-emerald-500'
+              }
+            ].map((option) => {
+              const Icon = option.icon;
+              const isSelected = theme === option.id;
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => setTheme(option.id)}
+                  className={`p-4 rounded-xl border text-left transition-all duration-200 relative flex flex-col justify-between ${
+                    isSelected
+                      ? 'border-primary ring-2 ring-primary/20 bg-primary/5 shadow-sm'
+                      : 'border-border hover:border-border/80 hover:bg-muted/50'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <div className={`p-2 rounded-lg bg-card border border-border/60 ${option.iconColor}`}>
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      {isSelected && (
+                        <div className="h-5 w-5 rounded-full bg-primary text-white flex items-center justify-center">
+                          <Check className="h-3 w-3" />
+                        </div>
+                      )}
+                    </div>
+                    <p className="font-semibold text-sm text-foreground">{option.label}</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">{option.desc}</p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>
