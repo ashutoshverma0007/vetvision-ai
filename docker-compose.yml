@@ -1,0 +1,89 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: vetvision-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: vetvision_ai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - vetvision-network
+
+  ai:
+    build:
+      context: ./services/ai
+      dockerfile: Dockerfile
+    container_name: vetvision-ai-service
+    restart: unless-stopped
+    environment:
+      PORT: 8000
+      HOST: "0.0.0.0"
+      INTERNAL_SECRET: dev-internal-ai-secret-key-32-bytes-long
+      MODEL_FRAMEWORK: "PYTORCH"
+      CONFIDENCE_THRESHOLD: "0.65"
+    volumes:
+      - ./data/storage:/app/storage:ro
+    ports:
+      - "8000:8000"
+    networks:
+      - vetvision-network
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    container_name: vetvision-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ai:
+        condition: service_started
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      DATABASE_URL: postgresql://postgres:postgrespassword@postgres:5432/vetvision_ai?schema=public
+      SESSION_SECRET: production-session-secret-change-to-64-random-chars
+      AI_SERVICE_URL: http://ai:8000
+      AI_SERVICE_INTERNAL_SECRET: dev-internal-ai-secret-key-32-bytes-long
+      STORAGE_PROVIDER: local
+      STORAGE_LOCAL_DIR: /app/data/storage
+      APPLICATION_URL: http://localhost:5173
+      CORS_ORIGIN: http://localhost:5173,http://localhost:80
+    volumes:
+      - storage_data:/app/data/storage
+    ports:
+      - "4000:4000"
+    networks:
+      - vetvision-network
+
+  web:
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    container_name: vetvision-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+    networks:
+      - vetvision-network
+
+volumes:
+  postgres_data:
+  storage_data:
+
+networks:
+  vetvision-network:
+    driver: bridge

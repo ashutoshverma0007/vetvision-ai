@@ -40,3 +40,12 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Local file storage & database artifacts
+data/
+uploads/
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.db
+services/ai/weights/

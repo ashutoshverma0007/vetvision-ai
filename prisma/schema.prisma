@@ -1,0 +1,439 @@
+// ==============================================================================
+// VetVision AI Prisma Relational Schema (PostgreSQL)
+// ==============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ------------------------------------------------------------------------------
+// Enums
+// ------------------------------------------------------------------------------
+
+enum UserRole {
+  OWNER
+  VETERINARIAN
+  ADMIN
+}
+
+enum VetVerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum AnimalSpecies {
+  CATTLE
+  DOG
+  CAT
+  HORSE
+  SHEEP
+  GOAT
+  OTHER
+}
+
+enum AnimalSex {
+  MALE
+  FEMALE
+  MALE_NEUTERED
+  FEMALE_SPAYED
+  UNKNOWN
+}
+
+enum RecordType {
+  GENERAL_CHECKUP
+  VACCINATION
+  INJURY
+  SKIN_LESION
+  SURGERY
+  LAB_WORK
+  FOLLOW_UP
+  OTHER
+}
+
+enum MedicationStatus {
+  ACTIVE
+  COMPLETED
+  DISCONTINUED
+}
+
+enum ScanStatus {
+  UPLOADED
+  PROCESSING
+  COMPLETED
+  FAILED
+  REVIEW_REQUIRED
+}
+
+enum PredictionStatus {
+  AVAILABLE
+  LOW_CONFIDENCE
+  MODEL_UNAVAILABLE
+  FAILED
+}
+
+enum PredictedClass {
+  NORMAL
+  MILD
+  SEVERE
+}
+
+enum ModelFramework {
+  PYTORCH
+  ONNX
+  TENSORFLOW
+}
+
+enum ModelStatus {
+  ACTIVE
+  INACTIVE
+  DEPRECATED
+  CANDIDATE
+}
+
+enum ConsultationStatus {
+  REQUESTED
+  ACCEPTED
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+// ------------------------------------------------------------------------------
+// Models
+// ------------------------------------------------------------------------------
+
+model User {
+  id               String    @id @default(uuid())
+  email            String    @unique
+  passwordHash     String    @map("password_hash")
+  role             UserRole  @default(OWNER)
+  firstName        String    @map("first_name")
+  lastName         String    @map("last_name")
+  phone            String?
+  emailVerifiedAt  DateTime? @map("email_verified_at")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  animals               Animal[]
+  sessions              Session[]
+  veterinarianProfile   VeterinarianProfile?
+  auditLogs             AuditLog[]
+  ownerConsultations    Consultation[]        @relation("OwnerConsultations")
+  vetConsultations      Consultation[]        @relation("VetConsultations")
+  consultationMessages  ConsultationMessage[]
+  healthRecordsAuthored HealthRecord[]        @relation("HealthRecordAuthor")
+  vaccinationsGiven     Vaccination[]         @relation("VaccinationVet")
+  medicationsPrescribed Medication[]          @relation("MedicationPrescriber")
+  uploadedScans         Scan[]                @relation("ScanUploader")
+  fileAssets            FileAsset[]
+
+  @@index([email])
+  @@index([role])
+  @@map("users")
+}
+
+model VeterinarianProfile {
+  id                 String                @id @default(uuid())
+  userId             String                @unique @map("user_id")
+  licenseNumber      String                @map("license_number")
+  specialization     String                @default("General Practice")
+  experienceYears    Int                   @default(0) @map("experience_years")
+  clinicName         String?               @map("clinic_name")
+  bio                String?
+  verificationStatus VetVerificationStatus @default(PENDING) @map("verification_status")
+  createdAt          DateTime              @default(now()) @map("created_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([verificationStatus])
+  @@map("veterinarian_profiles")
+}
+
+model Session {
+  id               String    @id @default(uuid())
+  userId           String    @map("user_id")
+  sessionTokenHash String    @unique @map("session_token_hash")
+  expiresAt        DateTime  @map("expires_at")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  revokedAt        DateTime? @map("revoked_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([sessionTokenHash])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+model FileAsset {
+  id               String   @id @default(uuid())
+  ownerId          String   @map("owner_id")
+  storageKey       String   @unique @map("storage_key")
+  originalFilename String   @map("original_filename")
+  mimeType         String   @map("mime_type")
+  sizeBytes        Int      @map("size_bytes")
+  checksum         String
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  // Relations
+  owner                User                  @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  animals              Animal[]              @relation("AnimalProfileImage")
+  scans                Scan[]
+  consultationMessages ConsultationMessage[]
+
+  @@index([ownerId])
+  @@index([storageKey])
+  @@map("file_assets")
+}
+
+model Animal {
+  id                   String        @id @default(uuid())
+  ownerId              String        @map("owner_id")
+  name                 String
+  species              AnimalSpecies @default(CATTLE)
+  breed                String?
+  sex                  AnimalSex     @default(UNKNOWN)
+  dateOfBirth          DateTime?     @map("date_of_birth")
+  weight               Float?
+  color                String?
+  identificationNumber String?       @map("identification_number")
+  profileImageId       String?       @map("profile_image_id")
+  notes                String?
+  createdAt            DateTime      @default(now()) @map("created_at")
+  updatedAt            DateTime      @updatedAt @map("updated_at")
+
+  // Relations
+  owner         User           @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  profileImage  FileAsset?     @relation("AnimalProfileImage", fields: [profileImageId], references: [id], onDelete: SetNull)
+  healthRecords HealthRecord[]
+  vaccinations  Vaccination[]
+  medications   Medication[]
+  scans         Scan[]
+  consultations Consultation[]
+
+  @@index([ownerId])
+  @@index([species])
+  @@map("animals")
+}
+
+model HealthRecord {
+  id          String     @id @default(uuid())
+  animalId    String     @map("animal_id")
+  recordedBy  String     @map("recorded_by")
+  recordType  RecordType @default(GENERAL_CHECKUP) @map("record_type")
+  title       String
+  description String
+  diagnosis   String?
+  treatment   String?
+  recordedAt  DateTime   @default(now()) @map("recorded_at")
+  createdAt   DateTime   @default(now()) @map("created_at")
+
+  // Relations
+  animal Animal @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  author User   @relation("HealthRecordAuthor", fields: [recordedBy], references: [id], onDelete: Cascade)
+
+  @@index([animalId])
+  @@index([recordedBy])
+  @@index([recordedAt])
+  @@map("health_records")
+}
+
+model Vaccination {
+  id               String    @id @default(uuid())
+  animalId         String    @map("animal_id")
+  vaccineName      String    @map("vaccine_name")
+  administeredDate DateTime  @map("administered_date")
+  nextDueDate      DateTime? @map("next_due_date")
+  dose             String?
+  veterinarianId   String?   @map("veterinarian_id")
+  notes            String?
+  createdAt        DateTime  @default(now()) @map("created_at")
+
+  // Relations
+  animal       Animal @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  veterinarian User?  @relation("VaccinationVet", fields: [veterinarianId], references: [id], onDelete: SetNull)
+
+  @@index([animalId])
+  @@index([veterinarianId])
+  @@index([nextDueDate])
+  @@map("vaccinations")
+}
+
+model Medication {
+  id           String           @id @default(uuid())
+  animalId     String           @map("animal_id")
+  prescribedBy String?          @map("prescribed_by")
+  name         String
+  dosage       String
+  frequency    String
+  startDate    DateTime         @map("start_date")
+  endDate      DateTime?        @map("end_date")
+  instructions String?
+  status       MedicationStatus @default(ACTIVE)
+  createdAt    DateTime         @default(now()) @map("created_at")
+
+  // Relations
+  animal     Animal @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  prescriber User?  @relation("MedicationPrescriber", fields: [prescribedBy], references: [id], onDelete: SetNull)
+
+  @@index([animalId])
+  @@index([prescribedBy])
+  @@index([status])
+  @@map("medications")
+}
+
+model Scan {
+  id               String     @id @default(uuid())
+  animalId         String     @map("animal_id")
+  uploadedBy       String     @map("uploaded_by")
+  fileAssetId      String     @map("file_asset_id")
+  bodyPart         String?    @map("body_part")
+  captureTimestamp DateTime   @default(now()) @map("capture_timestamp")
+  status           ScanStatus @default(UPLOADED)
+  modelVersionId   String?    @map("model_version_id")
+  createdAt        DateTime   @default(now()) @map("created_at")
+  completedAt      DateTime?  @map("completed_at")
+
+  // Relations
+  animal       Animal        @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  uploader     User          @relation("ScanUploader", fields: [uploadedBy], references: [id], onDelete: Cascade)
+  fileAsset    FileAsset     @relation(fields: [fileAssetId], references: [id], onDelete: Cascade)
+  modelVersion ModelVersion? @relation(fields: [modelVersionId], references: [id], onDelete: SetNull)
+  prediction   Prediction?
+
+  @@index([animalId])
+  @@index([uploadedBy])
+  @@index([status])
+  @@index([captureTimestamp])
+  @@map("scans")
+}
+
+model Prediction {
+  id                   String           @id @default(uuid())
+  scanId               String           @unique @map("scan_id")
+  modelVersionId       String?          @map("model_version_id")
+  predictedClass       PredictedClass?  @map("predicted_class")
+  confidence           Float?
+  normalProbability    Float?           @map("normal_probability")
+  mildProbability      Float?           @map("mild_probability")
+  severeProbability    Float?           @map("severe_probability")
+  inferenceTimeMs      Float?           @map("inference_time_ms")
+  preprocessingVersion String?          @map("preprocessing_version")
+  deviceType           String?          @map("device_type")
+  status               PredictionStatus @default(MODEL_UNAVAILABLE)
+  createdAt            DateTime         @default(now()) @map("created_at")
+
+  // Relations
+  scan         Scan          @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  modelVersion ModelVersion? @relation(fields: [modelVersionId], references: [id], onDelete: SetNull)
+
+  @@index([scanId])
+  @@index([modelVersionId])
+  @@index([status])
+  @@map("predictions")
+}
+
+model ModelVersion {
+  id                String         @id @default(uuid())
+  name              String
+  version           String         @unique
+  framework         ModelFramework @default(PYTORCH)
+  artifactUri       String         @map("artifact_uri")
+  modelSizeBytes    Int?           @map("model_size_bytes")
+  inputWidth        Int            @default(224) @map("input_width")
+  inputHeight       Int            @default(224) @map("input_height")
+  accuracy          Float?
+  precision         Float?
+  recall            Float?
+  f1Score           Float?         @map("f1_score")
+  validationDataset String?        @map("validation_dataset")
+  status            ModelStatus    @default(CANDIDATE)
+  notes             String?
+  createdAt         DateTime       @default(now()) @map("created_at")
+
+  // Relations
+  scans       Scan[]
+  predictions Prediction[]
+
+  @@index([version])
+  @@index([status])
+  @@map("model_versions")
+}
+
+model Consultation {
+  id             String             @id @default(uuid())
+  animalId       String             @map("animal_id")
+  ownerId        String             @map("owner_id")
+  veterinarianId String?            @map("veterinarian_id")
+  subject        String
+  description    String
+  status         ConsultationStatus @default(REQUESTED)
+  scheduledAt    DateTime?          @map("scheduled_at")
+  startedAt      DateTime?          @map("started_at")
+  completedAt    DateTime?          @map("completed_at")
+  createdAt      DateTime           @default(now()) @map("created_at")
+
+  // Relations
+  animal       Animal                @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  owner        User                  @relation("OwnerConsultations", fields: [ownerId], references: [id], onDelete: Cascade)
+  veterinarian User?                 @relation("VetConsultations", fields: [veterinarianId], references: [id], onDelete: SetNull)
+  messages     ConsultationMessage[]
+
+  @@index([animalId])
+  @@index([ownerId])
+  @@index([veterinarianId])
+  @@index([status])
+  @@map("consultations")
+}
+
+model ConsultationMessage {
+  id             String    @id @default(uuid())
+  consultationId String    @map("consultation_id")
+  senderId       String    @map("sender_id")
+  message        String
+  attachmentId   String?   @map("attachment_id")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  readAt         DateTime? @map("read_at")
+
+  // Relations
+  consultation Consultation @relation(fields: [consultationId], references: [id], onDelete: Cascade)
+  sender       User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  attachment   FileAsset?   @relation(fields: [attachmentId], references: [id], onDelete: SetNull)
+
+  @@index([consultationId])
+  @@index([senderId])
+  @@index([createdAt])
+  @@map("consultation_messages")
+}
+
+model AuditLog {
+  id           String   @id @default(uuid())
+  actorId      String?  @map("actor_id")
+  action       String
+  resourceType String   @map("resource_type")
+  resourceId   String?  @map("resource_id")
+  ipAddress    String?  @map("ip_address")
+  userAgent    String?  @map("user_agent")
+  metadata     Json?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  // Relations
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([actorId])
+  @@index([action])
+  @@index([resourceType])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
