@@ -16,13 +16,16 @@
     "lint": "npm run lint --workspaces --if-present",
     "test": "vitest run",
     "test:ai": "python -m pytest services/ai/tests",
+    "db:local": "node scripts/start-local-db.mjs",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@prisma/client": "^5.22.0",
     "@types/node": "^22.10.2",
+    "embedded-postgres": "^18.4.0-beta.17",
     "prettier": "^3.4.2",
     "prisma": "^5.22.0",
     "tsx": "^4.19.2",

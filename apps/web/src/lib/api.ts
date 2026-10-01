@@ -47,8 +47,14 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   try {
     data = await response.json();
   } catch {
+    if (response.status >= 500) {
+      throw new ApiError(
+        'Backend API server is unreachable on port 4000. Please ensure the backend server and database are running.',
+        'BACKEND_UNAVAILABLE'
+      );
+    }
     throw new ApiError(
-      `Network response parse failed: ${response.statusText}`,
+      `Network response parse failed (${response.status} ${response.statusText}).`,
       'PARSE_ERROR'
     );
   }
