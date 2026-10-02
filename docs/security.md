@@ -37,4 +37,17 @@ VetVision AI handles sensitive animal health records, veterinary professional cr
 
 ### 2.6 Sensitive Data Logging & Leakage
 - **Redaction Engine:** Structured JSON logger automatically scrubs keys matching `password`, `token`, `secret`, `authorization`, `cookie`, `apiKey`, and `privateKey`.
+- **Zero OTP Logging:** OTP codes are strictly excluded from logging at all levels.
 - **Production Masking:** Unhandled 500 exceptions suppress stack traces and internal database errors when `NODE_ENV === 'production'`.
+
+### 2.7 Email OTP Registration & Fail-Closed Guardrails
+- **Two-Stage Deferred Account Creation:** When a user initiates registration via `POST /api/v1/auth/register`, VetVision AI stores a temporary `PendingRegistration` record with Argon2id-hashed credentials. The permanent `User` record is **strictly NOT created** until verification succeeds.
+- **Zero-Storage Principle:** OTP values are generated, managed, and verified exclusively through the upstream provider (MSG91 Email OTP V5 API). No plaintext or hashed OTP codes are stored in the local database.
+- **Fail-Closed Architecture:** If the OTP provider configuration (`MSG91_AUTH_KEY`, `MSG91_EMAIL_TEMPLATE_ID`) is missing, requests fail closed immediately with `CONFIGURATION_REQUIRED` (HTTP 500), preventing unverified account creation.
+- **Provider Abstraction (`EmailOtpProvider`):** All provider-specific calls are encapsulated behind a pluggable interface, facilitating painless integration of alternative providers without changing registration contracts.
+- **Brute-Force & Flood Controls:**
+  - **Cooldown:** Enforces a 60-second resend cooldown (`RESEND_COOLDOWN`, HTTP 429).
+  - **Attempt Throttling:** Capped at 5 verification attempts before the pending registration is purged (`MAX_ATTEMPTS_EXCEEDED`, HTTP 403).
+  - **TTL Expiration:** Pending registration records automatically expire after 10 minutes (`OTP_EXPIRED`, HTTP 400).
+- **Atomic Permanent User & Session Provisioning:** Upon valid OTP verification, an atomic database transaction creates the permanent `User` record, sets `emailVerifiedAt`, provisions any associated `VeterinarianProfile`, purges the pending registration, and issues an authenticated `HttpOnly` session.
+- **Bypass Prevention:** Direct API requests to protected routes or unverified login attempts are rejected with 401 Unauthorized. Page refresh preserves user email context via client-side storage without granting unauthorized session privileges.

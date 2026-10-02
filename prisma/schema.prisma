@@ -140,6 +140,25 @@ model User {
   @@map("users")
 }
 
+model PendingRegistration {
+  id               String    @id @default(uuid())
+  email            String    @unique
+  firstName        String    @map("first_name")
+  lastName         String    @map("last_name")
+  passwordHash     String    @map("password_hash")
+  phone            String?
+  role             UserRole  @default(OWNER)
+  veterinarianData Json?     @map("veterinarian_data")
+  attempts         Int       @default(0)
+  lastSentAt       DateTime  @default(now()) @map("last_sent_at")
+  expiresAt        DateTime  @map("expires_at")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+
+  @@index([email])
+  @@map("pending_registrations")
+}
+
 model VeterinarianProfile {
   id                 String                @id @default(uuid())
   userId             String                @unique @map("user_id")

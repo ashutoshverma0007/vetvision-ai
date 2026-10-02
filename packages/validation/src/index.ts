@@ -59,6 +59,25 @@ export const changePasswordSchema = z.object({
 
 export type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
 
+export const sendOtpSchema = z.object({
+  email: z.string().trim().email('Invalid email address').max(255)
+});
+
+export type SendOtpInput = z.infer<typeof sendOtpSchema>;
+
+export const verifyOtpSchema = z.object({
+  email: z.string().trim().email('Invalid email address').max(255),
+  otp: z.string().trim().regex(/^\d{4,8}$/, 'Verification code must be between 4 and 8 digits')
+});
+
+export type VerifyOtpInput = z.infer<typeof verifyOtpSchema>;
+
+export const resendOtpSchema = z.object({
+  email: z.string().trim().email('Invalid email address').max(255)
+});
+
+export type ResendOtpInput = z.infer<typeof resendOtpSchema>;
+
 export const updateUserProfileSchema = z.object({
   firstName: z.string().trim().min(1).max(100).optional(),
   lastName: z.string().trim().min(1).max(100).optional(),

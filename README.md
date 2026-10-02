@@ -78,6 +78,15 @@ STORAGE_LOCAL_DIR=./data/storage
 # Internal AI Service Configuration
 AI_SERVICE_URL=http://localhost:8000
 AI_SERVICE_INTERNAL_SECRET="internal-vetvision-ai-service-shared-secret-key"
+
+# Email OTP Service Configuration (MSG91)
+# Fail-closed: Must be set in production to enable account registration
+MSG91_AUTH_KEY="your-msg91-auth-key"
+MSG91_EMAIL_TEMPLATE_ID="your-msg91-email-otp-template-id"
+MSG91_OTP_API_URL="https://control.msg91.com/api/v5/otp"
+OTP_EXPIRY_MINUTES=10
+OTP_RESEND_COOLDOWN_SECONDS=60
+OTP_MAX_ATTEMPTS=5
 ```
 
 ---

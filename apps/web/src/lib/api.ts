@@ -79,7 +79,20 @@ export const api = {
         body: JSON.stringify(credentials)
       }),
     register: (payload: any) =>
-      request<{ user: UserSummary }>('/api/v1/auth/register', {
+      request<{ email: string; requireOtp: boolean; cooldownSeconds: number; message: string }>(
+        '/api/v1/auth/register',
+        {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        }
+      ),
+    verifyOtp: (payload: { email: string; otp: string }) =>
+      request<{ user: UserSummary }>('/api/v1/auth/otp/verify', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      }),
+    resendOtp: (payload: { email: string }) =>
+      request<{ email: string; cooldownSeconds: number; message: string }>('/api/v1/auth/otp/resend', {
         method: 'POST',
         body: JSON.stringify(payload)
       }),

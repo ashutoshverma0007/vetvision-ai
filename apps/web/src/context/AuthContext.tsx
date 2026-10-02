@@ -7,7 +7,9 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (credentials: { email: string; password: string }) => Promise<void>;
-  register: (payload: any) => Promise<void>;
+  register: (payload: any) => Promise<{ email: string; requireOtp: boolean; cooldownSeconds: number; message: string }>;
+  verifyOtp: (payload: { email: string; otp: string }) => Promise<void>;
+  resendOtp: (payload: { email: string }) => Promise<{ email: string; cooldownSeconds: number; message: string }>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
@@ -49,11 +51,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(true);
     try {
       const res = await api.auth.register(payload);
+      return res;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const verifyOtp = async (payload: { email: string; otp: string }) => {
+    setIsLoading(true);
+    try {
+      const res = await api.auth.verifyOtp(payload);
       setUser(res.user as any);
       await refreshUser();
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const resendOtp = async (payload: { email: string }) => {
+    return await api.auth.resendOtp(payload);
   };
 
   const logout = async () => {
@@ -72,6 +88,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isLoading,
         login,
         register,
+        verifyOtp,
+        resendOtp,
         logout,
         refreshUser
       }}

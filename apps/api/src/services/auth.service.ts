@@ -209,6 +209,24 @@ export class AuthService {
     return { rawToken, session };
   }
 
+  public async createSessionWithTx(tx: any, userId: string) {
+    const rawToken = crypto.randomBytes(32).toString('hex');
+    const sessionTokenHash = this.hashSessionToken(rawToken);
+
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + SESSION_DURATION_DAYS);
+
+    const session = await tx.session.create({
+      data: {
+        userId,
+        sessionTokenHash,
+        expiresAt
+      }
+    });
+
+    return { rawToken, session };
+  }
+
   public async getMe(userId: string) {
     const user = await prisma.user.findUnique({
       where: { id: userId },

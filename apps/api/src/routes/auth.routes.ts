@@ -1,8 +1,16 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { authService } from '../services/auth.service.js';
 import { authenticateSession } from '../middleware/auth.middleware.js';
-import { registerSchema, loginSchema, changePasswordSchema } from '@vetvision/validation';
+import {
+  registerSchema,
+  loginSchema,
+  changePasswordSchema,
+  sendOtpSchema,
+  verifyOtpSchema,
+  resendOtpSchema
+} from '@vetvision/validation';
 import { config } from '@vetvision/config';
+import { emailOtpService } from '../services/email-otp.service.js';
 
 export const authRouter = Router();
 
@@ -18,19 +26,67 @@ function setSessionCookie(res: Response, token: string, expiresAt: Date) {
   });
 }
 
-// POST /api/v1/auth/register
+// POST /api/v1/auth/register (Initiates pending registration and sends Email OTP)
 authRouter.post('/register', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const validated = registerSchema.parse(req.body);
     const ip = req.ip || req.socket.remoteAddress;
     const userAgent = req.headers['user-agent'];
 
-    const result = await authService.register(validated, ip, userAgent);
+    const result = await emailOtpService.initiateSignup(validated, ip, userAgent);
+
+    res.status(202).json({
+      success: true,
+      data: result
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST /api/v1/auth/otp/send
+authRouter.post('/otp/send', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { email } = sendOtpSchema.parse(req.body);
+    const result = await emailOtpService.resendOtp(email);
+
+    res.status(200).json({
+      success: true,
+      data: result
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST /api/v1/auth/otp/verify (Verifies Email OTP, creates permanent User, creates Session)
+authRouter.post('/otp/verify', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { email, otp } = verifyOtpSchema.parse(req.body);
+    const ip = req.ip || req.socket.remoteAddress;
+    const userAgent = req.headers['user-agent'];
+
+    const result = await emailOtpService.verifyAndCreateUser(email, otp, ip, userAgent);
     setSessionCookie(res, result.sessionToken, result.expiresAt);
 
     res.status(201).json({
       success: true,
       data: { user: result.user }
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST /api/v1/auth/otp/resend (Resends Email OTP with cooldown enforcement)
+authRouter.post('/otp/resend', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { email } = resendOtpSchema.parse(req.body);
+    const result = await emailOtpService.resendOtp(email);
+
+    res.status(200).json({
+      success: true,
+      data: result
     });
   } catch (error) {
     next(error);

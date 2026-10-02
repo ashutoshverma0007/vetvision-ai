@@ -353,3 +353,38 @@ export interface AIInferenceResponse {
   deviceType?: string;
   errorMessage?: string;
 }
+
+// ==============================================================================
+// OTP Verification Contracts
+// ==============================================================================
+export interface SendOtpRequest {
+  email: string;
+}
+
+export interface SendOtpResponse {
+  email: string;
+  requireOtp: boolean;
+  cooldownSeconds: number;
+  message: string;
+}
+
+export interface VerifyOtpRequest {
+  email: string;
+  otp: string;
+}
+
+export interface VerifyOtpResponse {
+  user: UserSummary;
+  message: string;
+}
+
+export interface ResendOtpRequest {
+  email: string;
+}
+
+export interface ResendOtpResponse {
+  email: string;
+  cooldownSeconds: number;
+  message: string;
+}
+

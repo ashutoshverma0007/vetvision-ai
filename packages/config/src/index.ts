@@ -45,6 +45,15 @@ const envSchema = z.object({
   SMTP_PASS: z.string().optional().default(''),
   SMTP_SECURE: z.coerce.boolean().default(false),
 
+  // MSG91 Email OTP Service Configuration (Server-Side Only)
+  MSG91_AUTH_KEY: z.string().optional().default(''),
+  MSG91_TEMPLATE_ID: z.string().optional().default(''),
+  MSG91_EMAIL_TEMPLATE_ID: z.string().optional().default(''),
+  MSG91_OTP_API_URL: z.string().url().default('https://control.msg91.com/api/v5/otp'),
+  OTP_EXPIRY_MINUTES: z.coerce.number().default(10),
+  OTP_RESEND_COOLDOWN_SECONDS: z.coerce.number().default(60),
+  OTP_MAX_ATTEMPTS: z.coerce.number().default(5),
+
   // Rate Limiting & CORS
   RATE_LIMIT_WINDOW_MS: z.coerce.number().default(15 * 60 * 1000),
   RATE_LIMIT_MAX_REQUESTS: z.coerce.number().default(1000),
