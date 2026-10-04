@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "pipeline_version": "1.0.0",
+    "manifest_timestamp_utc": "2026-10-04T01:16:08.430428+00:00",
+    "dataset_source": "lumpy_unbalanced/lumpy",
+    "audit_source_dir": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\reports\\unbalanced",
+    "manifest_output_dir": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\reports",
+    "disclaimer": "Research manifest for machine learning experimentation. Not certified as a clinical diagnostic benchmark."
+  },
+  "counts": {
+    "original": {
+      "total": 1019,
+      "normal": 697,
+      "mild": 231,
+      "severe": 91
+    },
+    "usable": {
+      "total": 994,
+      "normal": 691,
+      "mild": 219,
+      "severe": 84,
+      "percentages": {
+        "normal": 69.52,
+        "mild": 22.03,
+        "severe": 8.45
+      }
+    },
+    "excluded": {
+      "total": 25,
+      "by_reason": {
+        "exact_duplicate_same_class": 2,
+        "cross_class_exact_conflict": 6,
+        "cross_class_near_duplicate_conflict": 17
+      },
+      "by_class": {
+        "normal": 6,
+        "mild": 12,
+        "severe": 7
+      }
+    }
+  },
+  "near_duplicate_groups": {
+    "total_same_class_groups_eligible": 97,
+    "total_images_participating_in_groups": 196,
+    "by_class": {
+      "normal_groups": 56,
+      "mild_groups": 24,
+      "severe_groups": 17
+    }
+  },
+  "validation_status": {
+    "all_leakage_checks_passed": true,
+    "cross_class_exact_leaked": 0,
+    "cross_class_near_leaked": 0,
+    "source_dataset_intact": true
+  }
+}

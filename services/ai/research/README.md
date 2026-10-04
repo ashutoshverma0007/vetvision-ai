@@ -139,3 +139,25 @@ When the author duplicated `Mild_106.png` and `Mild_56.png` during the naive bal
 4. **Group-Aware Stratified Splitting:** Partition near-duplicate clusters together so that no cluster spans across train/val/test splits.
 5. **Channel Standardization:** Strip the 10 alpha channels (`RGBA -> RGB`).
 6. **Principled Class Weighting / Augmentation:** Handle class imbalance at train time via focal loss, class-weighted cross-entropy, or controlled photometric augmentations rather than raw file duplication.
+
+---
+
+## 8. Research Manifest & Leakage Control Pipeline
+
+To operationalize the audit findings into a reproducible research dataset, run:
+
+```bash
+python services/ai/research/build_research_manifest.py
+```
+
+### 8.1 Methodology: Handling Conflicts & Duplicates
+- **Deduplication:** For groups of byte-for-byte identical images with matching labels, exactly **one representative image** is kept. Redundant copies are marked `EXCLUDED` with reason `EXACT_DUPLICATE_SAME_CLASS`.
+- **Exclusion of Cross-Class Conflicts:** When exact or near-duplicate images have conflicting clinical labels (e.g. labeled both `Normal` and `Mild`), **all images in the conflicting component are marked `EXCLUDED`** (`CROSS_CLASS_EXACT_DUPLICATE_CONFLICT` or `CROSS_CLASS_NEAR_DUPLICATE_LABEL_CONFLICT`).
+- **Rationale against Arbitrary Resolution:** Without expert veterinary re-annotation of the raw cattle photographs, arbitrarily selecting `Normal` over `Mild` or `Mild` over `Severe` introduces synthetic label noise. In medical machine learning, contaminated or ambiguous samples must be quarantined to prevent biased loss gradients and test set poisoning.
+- **Group Preservation:** Same-class near-duplicate clusters are retained as `USABLE`, each tagged with a unique `near_duplicate_group` ID (e.g. `ND-SAME-0001`). These groups ensure all perceptual variants of a lesion remain grouped together in the same split (GroupKFold) during future partitioning.
+
+### 8.2 Scientific Disclaimer
+> [!NOTE]
+> **Research Dataset Notice:**
+> The resulting manifest defines a curated research dataset for computer vision experiments and algorithmic evaluation. It is **not certified as a clinical diagnostic benchmark** or a regulatory-grade veterinary standard.
+
