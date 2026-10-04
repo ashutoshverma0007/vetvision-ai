@@ -1,0 +1,75 @@
+{
+  "comparison_metadata": {
+    "balanced_source": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\data\\lsd\\LumpySkinDisease_DataHub\\LumpySkinDisease_DataHub\\data-processed\\lumpy_balanced\\lumpy1",
+    "unbalanced_source": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\data\\lsd\\LumpySkinDisease_DataHub\\LumpySkinDisease_DataHub\\data-processed\\lumpy_unbalanced\\lumpy"
+  },
+  "dataset_level": {
+    "total_images": {
+      "balanced": 2091,
+      "unbalanced": 1019
+    },
+    "corrupted_images": {
+      "balanced": 0,
+      "unbalanced": 0
+    },
+    "unique_sha256_images": {
+      "balanced": 756,
+      "unbalanced": 1014
+    },
+    "exact_duplicate_files": {
+      "balanced": 1791,
+      "unbalanced": 10
+    },
+    "exact_duplicate_groups": {
+      "balanced": 456,
+      "unbalanced": 5
+    },
+    "cross_class_exact_duplicate_groups": {
+      "balanced": 2,
+      "unbalanced": 3
+    },
+    "near_duplicate_pairs_hamming_le_4": {
+      "balanced": 1346,
+      "unbalanced": 115
+    },
+    "cross_class_near_duplicate_pairs": {
+      "balanced": 147,
+      "unbalanced": 10
+    }
+  },
+  "class_distribution": {
+    "Normal": {
+      "balanced_count": 697,
+      "balanced_pct": 33.33,
+      "unbalanced_count": 697,
+      "unbalanced_pct": 68.4
+    },
+    "Mild": {
+      "balanced_count": 697,
+      "balanced_pct": 33.33,
+      "unbalanced_count": 231,
+      "unbalanced_pct": 22.67
+    },
+    "Severe": {
+      "balanced_count": 697,
+      "balanced_pct": 33.33,
+      "unbalanced_count": 91,
+      "unbalanced_pct": 8.93
+    }
+  },
+  "color_modes": {
+    "RGB": {
+      "balanced": 2062,
+      "unbalanced": 1009
+    },
+    "RGBA": {
+      "balanced": 29,
+      "unbalanced": 10
+    }
+  },
+  "provenance_and_integrity_synthesis": {
+    "key_insight": "lumpy_balanced is an artificially naive oversampled expansion of lumpy_unbalanced, created by copying Mild (+466 exact duplicate copies) and Severe (+606 exact duplicate copies) without augmentations.",
+    "contamination_warning": "Both datasets contain cross-class duplicate contamination where the exact same cow image is labeled both Normal and Mild (3 groups in unbalanced, 2 in balanced).",
+    "recommendation": "Training directly on either dataset without deduplication and label disambiguation violates clinical validity and causes severe train-test data leakage."
+  }
+}

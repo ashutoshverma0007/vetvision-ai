@@ -6,7 +6,7 @@ The `services/ai/research/` module hosts the reproducible dataset audit pipeline
 
 > [!IMPORTANT]
 > **Strict Research Guardrails:**
-> - **Read-Only:** The raw source dataset is strictly read-only. Images are never renamed, moved, altered, augmented, or deleted.
+> - **Read-Only:** The raw source datasets are strictly read-only. Images are never renamed, moved, altered, augmented, or deleted.
 > - **Zero Model Training:** This phase audits the dataset baseline. No model training, hyperparameter tuning, or evaluation is conducted here.
 > - **Zero Fabricated Accuracy:** Ground-truth metrics and contamination warnings are calculated directly from raw pixel and cryptographic hashes.
 
@@ -37,10 +37,14 @@ pip install -r services/ai/research/requirements-research.txt
 
 ## 3. How to Run the Audit
 
-Execute `dataset_audit.py` by providing the absolute or relative path to the image dataset:
-
+### Audit the Balanced Dataset (`lumpy_balanced`)
 ```bash
-python services/ai/research/dataset_audit.py "C:\Users\Ashutosh Verma\OneDrive\Desktop\VET VISION AI\data\lsd\LumpySkinDisease_DataHub\LumpySkinDisease_DataHub\data-processed\lumpy_balanced\lumpy1"
+python services/ai/research/dataset_audit.py "C:\Users\Ashutosh Verma\OneDrive\Desktop\VET VISION AI\data\lsd\LumpySkinDisease_DataHub\LumpySkinDisease_DataHub\data-processed\lumpy_balanced\lumpy1" --output-dir "services/ai/research/reports/balanced"
+```
+
+### Audit the Original Unbalanced Dataset (`lumpy_unbalanced`)
+```bash
+python services/ai/research/dataset_audit.py "C:\Users\Ashutosh Verma\OneDrive\Desktop\VET VISION AI\data\lsd\LumpySkinDisease_DataHub\LumpySkinDisease_DataHub\data-processed\lumpy_unbalanced\lumpy" --output-dir "services/ai/research/reports/unbalanced"
 ```
 
 ### Command-Line Arguments
@@ -56,59 +60,82 @@ python services/ai/research/dataset_audit.py "C:\Users\Ashutosh Verma\OneDrive\D
 
 ## 4. Generated Audit Artifacts
 
-Running the pipeline populates `services/ai/research/reports/` with five reproducible artifacts:
+The pipeline generates isolated report folders for each dataset as well as a comparative synthesis under `services/ai/research/reports/`:
 
-| Artifact | Format | Description |
-|---|---|---|
-| [`dataset_audit.json`](file:///services/ai/research/reports/dataset_audit.json) | JSON | Complete machine-readable summary covering metadata, class distribution, dimension statistics, channel profiles, duplicate metrics, and cross-class contamination warnings. |
-| [`image_inventory.csv`](file:///services/ai/research/reports/image_inventory.csv) | CSV | Full inventory of every discovered file (filename, relative path, class, width, height, channels, mode, aspect ratio, bytes, SHA-256 hash, and 64-bit dHash hex). |
-| [`class_distribution.png`](file:///services/ai/research/reports/class_distribution.png) | PNG | Publication-quality 300 DPI visualization illustrating class counts and balance percentages. |
-| [`duplicate_report.csv`](file:///services/ai/research/reports/duplicate_report.csv) | CSV | Granular report of all exact duplicate groups (identical SHA-256), including file counts, file paths, and cross-class conflict flags. |
-| [`near_duplicate_report.csv`](file:///services/ai/research/reports/near_duplicate_report.csv) | CSV | Perceptual near-duplicate candidate pairs (dHash Hamming distance $\le$ threshold) identifying structural similarities and cross-class contradictions. |
-
----
-
-## 5. Audit Results: Baseline Findings (`lumpy1` Dataset)
-
-The baseline audit conducted on the `lumpy1` balanced cattle Lumpy Skin Disease dataset yielded critical insights:
-
-### 5.1 Volume & Class Balance
-- **Total Images Scanned:** `2,091`
-- **Corrupted / Unreadable Images:** `0` (100% readable files)
-- **Normal Class:** `697` images (`33.33%`)
-- **Mild Class:** `697` images (`33.33%`)
-- **Severe Class:** `697` images (`33.33%`)
-- **Apparent Balance:** Perfectly balanced 1:1:1 prior to deduplication.
-
-### 5.2 Resolution & Format Profile
-- **File Extensions:** 100% `.png` (`2,091` files)
-- **Dimensions:** Uniform `256 x 256` pixels across all 2,091 images (min: 256, max: 256, mean: 256.0).
-- **Aspect Ratio:** Exact `1.0` (square format).
-- **Color Modes:**
-  - `RGB` (3-channel): `2,062` images (`98.6%`)
-  - `RGBA` (4-channel with alpha transparency): `29` images (`1.4%`)
-  - *Recommendation:* Preprocessing must discard or composite alpha channels prior to model ingestion to avoid shape mismatches.
-
-### 5.3 Cryptographic Integrity & Exact Duplicates (SHA-256)
-- **Unique SHA-256 Hashes:** Only `756` unique images exist across all `2,091` files.
-- **Exact Duplicate Groups:** `456` groups comprising `1,791` redundant copies.
-- **Redundancy Rate:** **63.8%** of the dataset consists of duplicated image content.
-- **Critical Cross-Class Contamination Discovered:**
-  - `2` duplicate groups contain images with conflicting clinical labels:
-    - Group `EXACT-0003` (`cf0decc9...`): `Normal450.png` has the **exact identical image bytes** as `Mild1002.png`, `Mild1056.png`, `Mild1186.png`, `Mild1257.png`, and `Mild918.png`.
-    - Group `EXACT-0147` (`611ef573...`): `Normal410.png` has the **exact identical image bytes** as `Mild1268.png`.
-  - *Impact:* Training on un-deduplicated data would cause data leakage between train/val/test splits and force the neural network to learn conflicting gradients for identical pixels.
-
-### 5.4 Perceptual Near-Duplicates (64-bit dHash, Distance $\le$ 4)
-- **Near-Duplicate Candidate Pairs:** `1,346` pairs of distinct SHA-256 images.
-- **Cross-Class Near-Duplicates:** `147` pairs have different clinical labels despite high perceptual structural similarity.
+```
+services/ai/research/reports/
+├── balanced/
+│   ├── dataset_audit.json
+│   ├── image_inventory.csv
+│   ├── class_distribution.png
+│   ├── duplicate_report.csv
+│   └── near_duplicate_report.csv
+├── unbalanced/
+│   ├── dataset_audit.json
+│   ├── image_inventory.csv
+│   ├── class_distribution.png
+│   ├── duplicate_report.csv
+│   └── near_duplicate_report.csv
+├── balanced_vs_unbalanced_comparison.json
+└── balanced_vs_unbalanced_distribution.png
+```
 
 ---
 
-## 6. Next Steps for Dataset Preparation (Pre-Training Phase)
+## 5. Comprehensive Comparison: Balanced vs. Unbalanced
 
-Before commencing any model training, the following data cleaning steps should be designed:
-1. **Deduplication:** Remove redundant exact duplicate copies, retaining one canonical image per unique hash.
-2. **Label Disambiguation:** Resolve or quarantine the 2 cross-class exact duplicate groups (`Normal` vs `Mild`).
-3. **Leak-Free Partitioning:** Group-aware splitting so that near-duplicate variants are restricted to the same partition (avoiding test set data contamination).
-4. **Channel Normalization:** Convert `RGBA` images to `RGB` consistently.
+| Audit Metric | Unbalanced Dataset (`lumpy`) | Balanced Dataset (`lumpy1`) | Analysis & Root Cause |
+|---|---|---|---|
+| **Total Images** | **1,019** | **2,091** | Balanced dataset added **1,072** images (+105.2%). |
+| **Normal Count** | **697** (68.40%) | **697** (33.33%) | **Identical**: Normal was kept 100% unchanged. |
+| **Mild Count** | **231** (22.67%) | **697** (33.33%) | Artificially inflated by **+466 copies**. |
+| **Severe Count** | **91** (8.93%) | **697** (33.33%) | Artificially inflated by **+606 copies** (~7.6x duplicate rate). |
+| **Class Imbalance Ratio** | **7.66 : 2.54 : 1.0** | **1.0 : 1.0 : 1.0** | Apparent 1:1 balance in `lumpy1` is an artifact of naive duplication. |
+| **Corrupted Images** | **0** (0.0%) | **0** (0.0%) | All images are readable in both datasets. |
+| **File Formats** | **100% PNG** | **100% PNG** | Uniform PNG encoding across both datasets. |
+| **Dimensions (W x H)** | **256 x 256** | **256 x 256** | Uniform 256x256 square format across both datasets. |
+| **Color Modes** | RGB: 1,009 / RGBA: 10 | RGB: 2,062 / RGBA: 29 | Alpha channels duplicated along with RGB content. |
+| **Unique SHA-256 Hashes** | **1,014** (of 1,019) | **756** (of 2,091) | **Critical**: Balanced has *fewer* unique images than unbalanced! |
+| **Exact Duplicate Files** | **10** files (0.98%) | **1,791** files (85.65%) | **63.8% of total volume** in balanced is redundant duplicates. |
+| **Exact Duplicate Groups** | **5** groups | **456** groups | Multiplied by a factor of 91x due to naive oversampling. |
+| **Cross-Class Exact Duplicates** | **3 groups** | **2 groups** | **Severe Contamination**: Identical pixels labeled both Normal and Mild! |
+| **Near-Duplicate Pairs ($d \le 4$)** | **115** pairs | **1,346** pairs | Massive pairwise similarity inflation. |
+| **Cross-Class Near-Duplicates** | **10** pairs | **147** pairs | Perceptual overlap between classes multiplied by copying. |
+| **Naming Convention** | `Mild_XXX.png`, `Normal_Skin_XXX.png` | `MildXXX.png`, `NormalXXX.png` | Renamed and re-indexed during oversampling script. |
+
+---
+
+## 6. Critical Findings: Dataset Provenance & Contamination Analysis
+
+### 6.1 The "Balanced" Illusion
+Our audits reveal the exact mechanism used to create the `lumpy_balanced` dataset:
+1. The author started with `lumpy_unbalanced` (1,019 images: 697 Normal, 231 Mild, 91 Severe).
+2. Rather than acquiring new samples or employing clinical data collection, the author naively **duplicated existing Mild and Severe images byte-for-byte** with new filenames until every class reached 697 images.
+3. This resulted in:
+   - `Mild`: 231 original images expanded to 697 (each image duplicated ~3 times).
+   - `Severe`: 91 original images expanded to 697 (each image duplicated ~7.6 times).
+
+### 6.2 Pre-Existing Cross-Class Contamination
+The original `lumpy_unbalanced` dataset **already had 3 cross-class duplicates** before any balancing took place:
+1. `Mild_106.png` == `Normal_Skin_429.png` (SHA-256: `cf0decc9...`)
+2. `Mild_161.png` == `Normal_Skin_588.png` (SHA-256: `2999ccc0...`)
+3. `Mild_56.png` == `Normal_Skin_242.png` (SHA-256: `611ef573...`)
+
+When the author duplicated `Mild_106.png` and `Mild_56.png` during the naive balancing process, this contradictory label contamination was replicated across multiple files (e.g. `Mild1002.png`, `Mild1056.png`, `Mild1186.png`, `Mild1257.png`, `Mild918.png` vs. `Normal450.png`).
+
+> [!WARNING]
+> **Data Leakage & Invalidation Guarantee:**
+> If an ML model is trained on `lumpy_balanced` without deduplication:
+> 1. Duplicate images will inevitably end up in both the training set and the validation/test sets, resulting in **heavily fabricated validation accuracy**.
+> 2. The loss function will be penalized with contradictory gradients because the model is instructed that the exact same pixels are both "Normal" and "Mild".
+
+---
+
+## 7. Next Steps for Dataset Preparation (Pre-Training Phase)
+
+1. **Discard Naive Oversampling:** Reject `lumpy_balanced` as a training source.
+2. **Canonical Deduplication:** Deduplicate the original `lumpy_unbalanced` dataset to establish a clean base of ~1,014 unique images.
+3. **Quarantine Contaminated Samples:** Remove or manually review the 3 cross-class duplicate pairs.
+4. **Group-Aware Stratified Splitting:** Partition near-duplicate clusters together so that no cluster spans across train/val/test splits.
+5. **Channel Standardization:** Strip the 10 alpha channels (`RGBA -> RGB`).
+6. **Principled Class Weighting / Augmentation:** Handle class imbalance at train time via focal loss, class-weighted cross-entropy, or controlled photometric augmentations rather than raw file duplication.
