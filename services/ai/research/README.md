@@ -161,3 +161,36 @@ python services/ai/research/build_research_manifest.py
 > **Research Dataset Notice:**
 > The resulting manifest defines a curated research dataset for computer vision experiments and algorithmic evaluation. It is **not certified as a clinical diagnostic benchmark** or a regulatory-grade veterinary standard.
 
+---
+
+## 9. Reproducible Leakage-Controlled Dataset Splitter
+
+To partition the curated research dataset into deterministic, leakage-controlled **TRAIN**, **VALIDATION**, and **TEST** sets (~70% / 15% / 15%), run:
+
+```bash
+python services/ai/research/split_dataset.py
+```
+
+### 9.1 Partitioning Guardrails & Integrity Guarantees
+1. **Group Containment (Zero Boundary Crossing):** Every same-class near-duplicate group (97 groups, 196 images) remains 100% within one split.
+2. **Cryptographic Disjointness:** SHA-256 hash overlap across all partition pairs (`TRAIN ∩ VAL`, `TRAIN ∩ TEST`, `VAL ∩ TEST`) is strictly **0**.
+3. **Quarantine Enforcement:** Zero excluded images (exact duplicate copies or cross-class conflicts) enter any split.
+4. **Stratification Fidelity:** Class proportions (~69.5% Normal, ~22.0% Mild, ~8.5% Severe) are preserved across all splits.
+5. **Deterministic Seed:** Partitions are generated using a fixed random seed (`--seed 42`).
+
+### 9.2 Split Breakdown
+
+| Split | Total Images | Usable % | Normal | Mild | Severe | Near-Duplicate Groups |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **TRAIN** | **696** | **70.02%** | 484 (69.5%) | 153 (22.0%) | 59 (8.5%) | 70 (39 Normal / 18 Mild / 13 Severe) |
+| **VALIDATION** | **150** | **15.09%** | 104 (69.3%) | 33 (22.0%) | 13 (8.7%) | 15 (9 Normal / 3 Mild / 3 Severe) |
+| **TEST** | **148** | **14.89%** | 103 (69.6%) | 33 (22.3%) | 12 (8.1%) | 12 (8 Normal / 3 Mild / 1 Severe) |
+| **Total** | **994** | **100.00%** | **691** | **219** | **84** | **97 groups (0 crossing boundaries)** |
+
+### 9.3 Generated Partition Artifacts
+- `services/ai/research/reports/dataset_split.csv`
+- `services/ai/research/reports/dataset_split_summary.json`
+- `services/ai/research/reports/split_distribution.png`
+- `services/ai/research/reports/split_validation_report.md`
+
+
