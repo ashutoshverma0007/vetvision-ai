@@ -1,0 +1,5 @@
+# Research Phase Dependencies (Independent of Production AI Service)
+# Install via: pip install -r services/ai/research/requirements-research.txt
+matplotlib>=3.8.0,<4.0.0
+numpy>=1.26.0,<3.0.0
+pillow>=10.4.0,<12.0.0

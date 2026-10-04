@@ -1,0 +1,131 @@
+{
+  "audit_metadata": {
+    "pipeline_version": "1.0.0",
+    "audit_timestamp_utc": "2026-10-03T23:57:46.261704+00:00",
+    "dataset_root_path": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\data\\lsd\\LumpySkinDisease_DataHub\\LumpySkinDisease_DataHub\\data-processed\\lumpy_balanced\\lumpy1",
+    "dataset_folder_name": "lumpy1",
+    "total_files_discovered": 2091,
+    "valid_images_count": 2091,
+    "corrupted_images_count": 0,
+    "execution_time_seconds": 6.0
+  },
+  "class_distribution": {
+    "counts": {
+      "Mild": 697,
+      "Normal": 697,
+      "Severe": 697
+    },
+    "percentages": {
+      "Mild": 33.33,
+      "Normal": 33.33,
+      "Severe": 33.33
+    },
+    "is_perfectly_balanced": true
+  },
+  "file_format_profile": {
+    "extensions": {
+      ".png": 2091
+    },
+    "color_modes": {
+      "RGB": 2062,
+      "RGBA": 29
+    },
+    "channels": {
+      "3": 2062,
+      "4": 29
+    }
+  },
+  "dimension_profile": {
+    "width_pixels": {
+      "min": 256.0,
+      "max": 256.0,
+      "mean": 256.0,
+      "median": 256.0,
+      "std": 0.0
+    },
+    "height_pixels": {
+      "min": 256.0,
+      "max": 256.0,
+      "mean": 256.0,
+      "median": 256.0,
+      "std": 0.0
+    },
+    "aspect_ratio": {
+      "min": 1.0,
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0
+    },
+    "distinct_resolutions": [
+      {
+        "width": 256,
+        "height": 256,
+        "count": 2091
+      }
+    ]
+  },
+  "duplicate_and_integrity_profile": {
+    "unique_sha256_hashes": 756,
+    "exact_duplicate_files_count": 1791,
+    "exact_duplicate_groups_count": 456,
+    "cross_class_exact_duplicate_groups_count": 2,
+    "duplicate_filenames_across_dirs_count": 0,
+    "near_duplicate_candidate_pairs_count": 1346,
+    "cross_class_near_duplicate_pairs_count": 147,
+    "near_duplicate_hamming_threshold": 4
+  },
+  "anomalies_and_inconsistencies": {
+    "corrupted_files": [],
+    "unrecognized_class_filenames": [],
+    "alpha_channel_transparency_images": {
+      "count": 29,
+      "filenames": [
+        "Mild1004.png",
+        "Mild749.png",
+        "Mild773.png",
+        "Mild778.png",
+        "Normal238.png",
+        "Normal279.png",
+        "Normal368.png",
+        "Normal493.png",
+        "Normal540.png",
+        "Normal569.png",
+        "Normal658.png",
+        "Normal8.png",
+        "Severe1421.png",
+        "Severe1513.png",
+        "Severe1518.png",
+        "Severe1545.png",
+        "Severe1632.png",
+        "Severe1651.png",
+        "Severe1689.png",
+        "Severe1700.png"
+      ]
+    },
+    "cross_class_exact_duplicates": [
+      {
+        "group_id": "EXACT-0003",
+        "sha256": "cf0decc97e5f837e8fb407fc33383b47dc401e442fd6d13ef6ce401534072a2f",
+        "conflicting_classes": "Mild;Normal",
+        "files": [
+          "Mild1002.png",
+          "Mild1056.png",
+          "Mild1186.png",
+          "Mild1257.png",
+          "Mild918.png",
+          "Normal450.png"
+        ]
+      },
+      {
+        "group_id": "EXACT-0147",
+        "sha256": "611ef573c5047bf5fdd8130b503f09aa3550fe698834d0b7b2629654aa6fc701",
+        "conflicting_classes": "Mild;Normal",
+        "files": [
+          "Mild1268.png",
+          "Normal410.png"
+        ]
+      }
+    ]
+  }
+}
