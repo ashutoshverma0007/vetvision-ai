@@ -93,105 +93,152 @@ async function main() {
     }
   });
 
-  // 5. Seed Animals for Owner
-  const bella = await prisma.animal.create({
-    data: {
+  // 5. Seed Animals for Owner (Idempotent)
+  let bella = await prisma.animal.findFirst({
+    where: { ownerId: ownerUser.id, identificationNumber: 'RFID-982000412389102' }
+  });
+  if (!bella) {
+    bella = await prisma.animal.create({
+      data: {
+        ownerId: ownerUser.id,
+        name: 'Bella',
+        species: AnimalSpecies.CATTLE,
+        breed: 'Holstein Friesian',
+        sex: AnimalSex.FEMALE,
+        dateOfBirth: new Date('2023-03-15'),
+        weight: 580.5,
+        color: 'Black and White',
+        identificationNumber: 'RFID-982000412389102',
+        notes: 'High-yield dairy heifer. Monitored for skin nodules on lateral neck.'
+      }
+    });
+  }
+
+  let apollo = await prisma.animal.findFirst({
+    where: { ownerId: ownerUser.id, identificationNumber: 'RFID-982000554129841' }
+  });
+  if (!apollo) {
+    apollo = await prisma.animal.create({
+      data: {
+        ownerId: ownerUser.id,
+        name: 'Apollo',
+        species: AnimalSpecies.CATTLE,
+        breed: 'Angus',
+        sex: AnimalSex.MALE,
+        dateOfBirth: new Date('2022-08-10'),
+        weight: 810.0,
+        color: 'Solid Black',
+        identificationNumber: 'RFID-982000554129841',
+        notes: 'Breeding bull in pasture 4. Routine checkups normal.'
+      }
+    });
+  }
+
+  let maxDog = await prisma.animal.findFirst({
+    where: { ownerId: ownerUser.id, identificationNumber: 'CHIP-981020004912' }
+  });
+  if (!maxDog) {
+    maxDog = await prisma.animal.create({
+      data: {
+        ownerId: ownerUser.id,
+        name: 'Max',
+        species: AnimalSpecies.DOG,
+        breed: 'Border Collie',
+        sex: AnimalSex.MALE_NEUTERED,
+        dateOfBirth: new Date('2021-05-20'),
+        weight: 22.4,
+        color: 'Black and White',
+        identificationNumber: 'CHIP-981020004912',
+        notes: 'Active working ranch dog. Up-to-date on rabies and DHPP.'
+      }
+    });
+  }
+
+  // Deduplicate any legacy duplicate animals created by previous non-idempotent seed runs
+  const duplicateAnimals = await prisma.animal.findMany({
+    where: {
       ownerId: ownerUser.id,
-      name: 'Bella',
-      species: AnimalSpecies.CATTLE,
-      breed: 'Holstein Friesian',
-      sex: AnimalSex.FEMALE,
-      dateOfBirth: new Date('2023-03-15'),
-      weight: 580.5,
-      color: 'Black and White',
-      identificationNumber: 'RFID-982000412389102',
-      notes: 'High-yield dairy heifer. Monitored for skin nodules on lateral neck.'
+      identificationNumber: { in: ['RFID-982000412389102', 'RFID-982000554129841', 'CHIP-981020004912'] },
+      id: { notIn: [bella.id, apollo.id, maxDog.id] }
     }
   });
+  for (const dup of duplicateAnimals) {
+    await prisma.animal.delete({ where: { id: dup.id } }).catch(() => {});
+  }
 
-  const apollo = await prisma.animal.create({
-    data: {
-      ownerId: ownerUser.id,
-      name: 'Apollo',
-      species: AnimalSpecies.CATTLE,
-      breed: 'Angus',
-      sex: AnimalSex.MALE,
-      dateOfBirth: new Date('2022-08-10'),
-      weight: 810.0,
-      color: 'Solid Black',
-      identificationNumber: 'RFID-982000554129841',
-      notes: 'Breeding bull in pasture 4. Routine checkups normal.'
-    }
+  // 6. Seed Health Records (Idempotent)
+  const existingRecord = await prisma.healthRecord.findFirst({
+    where: { animalId: bella.id, title: 'Initial Cutaneous Evaluation - Neck Nodules' }
   });
+  if (!existingRecord) {
+    await prisma.healthRecord.create({
+      data: {
+        animalId: bella.id,
+        recordedBy: vetUser.id,
+        recordType: RecordType.SKIN_LESION,
+        title: 'Initial Cutaneous Evaluation - Neck Nodules',
+        description: 'Localized firm, circumscribed nodules observed on the left lateral neck and shoulder region. No pyrexia detected at time of exam.',
+        diagnosis: 'Suspected mild cutaneous viral eruption; differential includes early Lumpy Skin Disease.',
+        treatment: 'Isolate from primary herd, administer prophylactic antipyretic if temperature exceeds 39.5C, follow up with imaging scan.',
+        recordedAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+      }
+    });
+  }
 
-  const maxDog = await prisma.animal.create({
-    data: {
-      ownerId: ownerUser.id,
-      name: 'Max',
-      species: AnimalSpecies.DOG,
-      breed: 'Border Collie',
-      sex: AnimalSex.MALE_NEUTERED,
-      dateOfBirth: new Date('2021-05-20'),
-      weight: 22.4,
-      color: 'Black and White',
-      identificationNumber: 'CHIP-981020004912',
-      notes: 'Active working ranch dog. Up-to-date on rabies and DHPP.'
-    }
+  // 7. Seed Vaccinations (Idempotent)
+  const existingBellaVac = await prisma.vaccination.findFirst({
+    where: { animalId: bella.id, vaccineName: 'Lumpy Skin Disease Live Attenuated Vaccine (Neethling Strain)' }
   });
+  if (!existingBellaVac) {
+    await prisma.vaccination.create({
+      data: {
+        animalId: bella.id,
+        vaccineName: 'Lumpy Skin Disease Live Attenuated Vaccine (Neethling Strain)',
+        administeredDate: new Date('2024-04-10'),
+        nextDueDate: new Date('2025-04-10'),
+        dose: '2.0 mL Subcutaneous',
+        veterinarianId: vetUser.id,
+        notes: 'Annual booster administered without adverse reaction.'
+      }
+    });
+  }
 
-  // 6. Seed Health Records
-  await prisma.healthRecord.create({
-    data: {
-      animalId: bella.id,
-      recordedBy: vetUser.id,
-      recordType: RecordType.SKIN_LESION,
-      title: 'Initial Cutaneous Evaluation - Neck Nodules',
-      description: 'Localized firm, circumscribed nodules observed on the left lateral neck and shoulder region. No pyrexia detected at time of exam.',
-      diagnosis: 'Suspected mild cutaneous viral eruption; differential includes early Lumpy Skin Disease.',
-      treatment: 'Isolate from primary herd, administer prophylactic antipyretic if temperature exceeds 39.5C, follow up with imaging scan.',
-      recordedAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
-    }
+  const existingMaxVac = await prisma.vaccination.findFirst({
+    where: { animalId: maxDog.id, vaccineName: 'Rabies 3-Year & DHPP-L4' }
   });
+  if (!existingMaxVac) {
+    await prisma.vaccination.create({
+      data: {
+        animalId: maxDog.id,
+        vaccineName: 'Rabies 3-Year & DHPP-L4',
+        administeredDate: new Date('2024-06-01'),
+        nextDueDate: new Date('2027-06-01'),
+        dose: '1.0 mL Subcutaneous',
+        veterinarianId: vetUser.id,
+        notes: 'Rabies certificate #TX-2024-8819 issued.'
+      }
+    });
+  }
 
-  // 7. Seed Vaccinations
-  await prisma.vaccination.create({
-    data: {
-      animalId: bella.id,
-      vaccineName: 'Lumpy Skin Disease Live Attenuated Vaccine (Neethling Strain)',
-      administeredDate: new Date('2024-04-10'),
-      nextDueDate: new Date('2025-04-10'),
-      dose: '2.0 mL Subcutaneous',
-      veterinarianId: vetUser.id,
-      notes: 'Annual booster administered without adverse reaction.'
-    }
+  // 8. Seed Medications (Idempotent)
+  const existingMed = await prisma.medication.findFirst({
+    where: { animalId: bella.id, name: 'Flunixin Meglumine' }
   });
-
-  await prisma.vaccination.create({
-    data: {
-      animalId: maxDog.id,
-      vaccineName: 'Rabies 3-Year & DHPP-L4',
-      administeredDate: new Date('2024-06-01'),
-      nextDueDate: new Date('2027-06-01'),
-      dose: '1.0 mL Subcutaneous',
-      veterinarianId: vetUser.id,
-      notes: 'Rabies certificate #TX-2024-8819 issued.'
-    }
-  });
-
-  // 8. Seed Medications
-  await prisma.medication.create({
-    data: {
-      animalId: bella.id,
-      prescribedBy: vetUser.id,
-      name: 'Flunixin Meglumine',
-      dosage: '2.2 mg/kg',
-      frequency: 'Once daily IV for 3 days',
-      startDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
-      endDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
-      instructions: 'Administer slow intravenous injection. Observe milk withholding period of 36 hours.',
-      status: MedicationStatus.COMPLETED
-    }
-  });
+  if (!existingMed) {
+    await prisma.medication.create({
+      data: {
+        animalId: bella.id,
+        prescribedBy: vetUser.id,
+        name: 'Flunixin Meglumine',
+        dosage: '2.2 mg/kg',
+        frequency: 'Once daily IV for 3 days',
+        startDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
+        endDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
+        instructions: 'Administer slow intravenous injection. Observe milk withholding period of 36 hours.',
+        status: MedicationStatus.COMPLETED
+      }
+    });
+  }
 
   // 9. Seed Model Versions
   await prisma.modelVersion.upsert({
@@ -240,34 +287,43 @@ async function main() {
     }
   });
 
-  // 10. Seed Consultation & Messages
-  const consultation = await prisma.consultation.create({
-    data: {
+  // 10. Seed Consultation & Messages (Idempotent)
+  let consultation = await prisma.consultation.findFirst({
+    where: {
       animalId: bella.id,
       ownerId: ownerUser.id,
-      veterinarianId: vetUser.id,
-      subject: 'Review of neck lesion nodule progression',
-      description: 'Noticed three new circumscribed bumps appearing near the left shoulder over the weekend. Seeking clinical review.',
-      status: ConsultationStatus.IN_PROGRESS,
-      scheduledAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+      subject: 'Review of neck lesion nodule progression'
     }
   });
+  if (!consultation) {
+    consultation = await prisma.consultation.create({
+      data: {
+        animalId: bella.id,
+        ownerId: ownerUser.id,
+        veterinarianId: vetUser.id,
+        subject: 'Review of neck lesion nodule progression',
+        description: 'Noticed three new circumscribed bumps appearing near the left shoulder over the weekend. Seeking clinical review.',
+        status: ConsultationStatus.IN_PROGRESS,
+        scheduledAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+      }
+    });
 
-  await prisma.consultationMessage.create({
-    data: {
-      consultationId: consultation.id,
-      senderId: ownerUser.id,
-      message: 'Hello Dr. Vance, I uploaded a scan of the shoulder area taken this morning. Please let me know your thoughts on the lesion count.'
-    }
-  });
+    await prisma.consultationMessage.create({
+      data: {
+        consultationId: consultation.id,
+        senderId: ownerUser.id,
+        message: 'Hello Dr. Vance, I uploaded a scan of the shoulder area taken this morning. Please let me know your thoughts on the lesion count.'
+      }
+    });
 
-  await prisma.consultationMessage.create({
-    data: {
-      consultationId: consultation.id,
-      senderId: vetUser.id,
-      message: 'Hello John, I have received the consultation request and will examine the scan and Bella’s historical timeline shortly. Keep her separated in paddock B until we review.'
-    }
-  });
+    await prisma.consultationMessage.create({
+      data: {
+        consultationId: consultation.id,
+        senderId: vetUser.id,
+        message: 'Hello John, I have received the consultation request and will examine the scan and Bella’s historical timeline shortly. Keep her separated in paddock B until we review.'
+      }
+    });
+  }
 
   console.log('✅ Seed completed successfully!');
   console.log('--------------------------------------------------');
