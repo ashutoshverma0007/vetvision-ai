@@ -14,6 +14,7 @@ import { AboutPage } from './pages/public/AboutPage';
 import { HowItWorksPage } from './pages/public/HowItWorksPage';
 import { LoginPage } from './pages/public/LoginPage';
 import { RegisterPage } from './pages/public/RegisterPage';
+import { VerifyEmailPage } from './pages/public/VerifyEmailPage';
 
 // Owner Pages
 import { OwnerDashboardPage } from './pages/owner/OwnerDashboardPage';
@@ -59,6 +60,7 @@ function RootLayout() {
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
 
           {/* Owner Protected Routes */}
           <Route

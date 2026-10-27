@@ -6,9 +6,9 @@ interface AuthContextType {
   user: (UserSummary & { veterinarianProfile?: VeterinarianProfile | null }) | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (credentials: { email: string; password: string }) => Promise<void>;
+  login: (credentials: { email: string; password: string }) => Promise<UserSummary>;
   register: (payload: any) => Promise<{ email: string; requireOtp: boolean; cooldownSeconds: number; message: string }>;
-  verifyOtp: (payload: { email: string; otp: string }) => Promise<void>;
+  verifyOtp: (payload: { email: string; otp: string }) => Promise<UserSummary>;
   resendOtp: (payload: { email: string }) => Promise<{ email: string; cooldownSeconds: number; message: string }>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
@@ -40,8 +40,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await api.auth.login(credentials);
       setUser(res.user as any);
-      // Fetch full profile including vet profile if available
-      await refreshUser();
+      try {
+        const fullProfile = await api.auth.me();
+        if (fullProfile?.user) {
+          setUser(fullProfile.user as any);
+          return fullProfile.user;
+        }
+      } catch {
+        // Preserve res.user if secondary call fails
+      }
+      return res.user;
     } finally {
       setIsLoading(false);
     }
@@ -62,7 +70,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await api.auth.verifyOtp(payload);
       setUser(res.user as any);
-      await refreshUser();
+      try {
+        const fullProfile = await api.auth.me();
+        if (fullProfile?.user) {
+          setUser(fullProfile.user as any);
+          return fullProfile.user;
+        }
+      } catch {
+        // Preserve res.user
+      }
+      return res.user;
     } finally {
       setIsLoading(false);
     }
