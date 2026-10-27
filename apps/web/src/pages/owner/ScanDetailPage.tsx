@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { api } from '../../lib/api';
 import { Scan, PredictedClass, PredictionStatus } from '@vetvision/shared-types';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
@@ -16,12 +16,14 @@ import {
   CheckCircle2,
   AlertTriangle,
   MessageSquareText,
-  Loader2
+  Loader2,
+  Stethoscope
 } from 'lucide-react';
 import { formatDateTime } from '../../lib/utils';
 
 export function ScanDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [scan, setScan] = useState<Scan | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -291,6 +293,30 @@ export function ScanDetailPage() {
                   <span className="text-foreground font-semibold uppercase">{prediction?.deviceType || 'CPU'}</span>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Action to Request Veterinary Review Linked to this Scan */}
+          <Card className="border border-primary/20 bg-primary/5">
+            <CardContent className="p-4 space-y-3">
+              <div className="flex items-center gap-2 text-sm font-semibold text-primary">
+                <Stethoscope className="h-4 w-4" />
+                <span>Veterinary Clinical Review</span>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Connect directly with a verified veterinarian to review this scan, evaluate clinical symptoms, and receive official diagnosis & treatment notes.
+              </p>
+              <Button
+                className="w-full gap-2 font-medium"
+                onClick={() =>
+                  navigate(
+                    `/consultations?animalId=${scan.animalId}&scanId=${scan.id}`
+                  )
+                }
+              >
+                <Stethoscope className="h-4 w-4" />
+                Request Consultation for this Scan
+              </Button>
             </CardContent>
           </Card>
         </div>

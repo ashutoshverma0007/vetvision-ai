@@ -179,6 +179,7 @@ export type CreateScanInput = z.infer<typeof createScanSchema>;
 
 export const createConsultationSchema = z.object({
   animalId: z.string().uuid('Valid animal ID is required'),
+  scanId: z.string().uuid().optional().nullable(),
   veterinarianId: z.string().uuid().optional().nullable(),
   subject: z.string().trim().min(3, 'Subject must be at least 3 characters').max(200),
   description: z.string().trim().min(10, 'Description must be at least 10 characters').max(5000),
@@ -188,8 +189,18 @@ export const createConsultationSchema = z.object({
 export type CreateConsultationInput = z.infer<typeof createConsultationSchema>;
 
 export const updateConsultationStatusSchema = z.object({
-  status: z.nativeEnum(ConsultationStatus)
+  status: z.nativeEnum(ConsultationStatus),
+  declineReason: z.string().trim().max(1000).optional().nullable(),
+  scheduledAt: z.coerce.date().optional().nullable()
 });
+
+export type UpdateConsultationStatusInput = z.infer<typeof updateConsultationStatusSchema>;
+
+export const scheduleConsultationSchema = z.object({
+  scheduledAt: z.coerce.date()
+});
+
+export type ScheduleConsultationInput = z.infer<typeof scheduleConsultationSchema>;
 
 export const createConsultationMessageSchema = z.object({
   message: z.string().trim().min(1, 'Message cannot be empty').max(5000),
@@ -199,13 +210,20 @@ export const createConsultationMessageSchema = z.object({
 export type CreateConsultationMessageInput = z.infer<typeof createConsultationMessageSchema>;
 
 export const createClinicalNoteSchema = z.object({
-  diagnosis: z.string().trim().min(1, 'Diagnosis is required').max(5000),
-  treatment: z.string().trim().min(1, 'Treatment is required').max(5000),
-  notes: z.string().trim().max(5000).optional().nullable(),
-  followUpDate: z.coerce.date().optional().nullable()
+  presentingConcern: z.string().trim().min(2, 'Presenting concern is required').max(2000),
+  historyObservations: z.string().trim().max(5000).optional().nullable(),
+  examinationFindings: z.string().trim().min(2, 'Examination findings are required').max(5000),
+  assessment: z.string().trim().min(2, 'Assessment is required').max(5000),
+  recommendations: z.string().trim().min(2, 'Recommendations are required').max(5000),
+  followUpDate: z.coerce.date().optional().nullable(),
+  followUpInstructions: z.string().trim().max(3000).optional().nullable(),
+  isOwnerVisible: z.boolean().default(true)
 });
 
 export type CreateClinicalNoteInput = z.infer<typeof createClinicalNoteSchema>;
+
+export const updateClinicalNoteSchema = createClinicalNoteSchema.partial();
+export type UpdateClinicalNoteInput = z.infer<typeof updateClinicalNoteSchema>;
 
 // ==============================================================================
 // Veterinarian Profile Schemas

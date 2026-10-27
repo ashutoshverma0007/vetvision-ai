@@ -133,6 +133,7 @@ model User {
   vaccinationsGiven     Vaccination[]         @relation("VaccinationVet")
   medicationsPrescribed Medication[]          @relation("MedicationPrescriber")
   uploadedScans         Scan[]                @relation("ScanUploader")
+  clinicalNotesAuthored ClinicalNote[]        @relation("VetClinicalNotes")
   fileAssets            FileAsset[]
 
   @@index([email])
@@ -330,6 +331,7 @@ model Scan {
   fileAsset    FileAsset     @relation(fields: [fileAssetId], references: [id], onDelete: Cascade)
   modelVersion ModelVersion? @relation(fields: [modelVersionId], references: [id], onDelete: SetNull)
   prediction   Prediction?
+  consultations Consultation[]
 
   @@index([animalId])
   @@index([uploadedBy])
@@ -393,6 +395,7 @@ model ModelVersion {
 model Consultation {
   id             String             @id @default(uuid())
   animalId       String             @map("animal_id")
+  scanId         String?            @map("scan_id")
   ownerId        String             @map("owner_id")
   veterinarianId String?            @map("veterinarian_id")
   subject        String
@@ -401,15 +404,20 @@ model Consultation {
   scheduledAt    DateTime?          @map("scheduled_at")
   startedAt      DateTime?          @map("started_at")
   completedAt    DateTime?          @map("completed_at")
+  declineReason  String?            @map("decline_reason")
   createdAt      DateTime           @default(now()) @map("created_at")
+  updatedAt      DateTime           @default(now()) @updatedAt @map("updated_at")
 
   // Relations
-  animal       Animal                @relation(fields: [animalId], references: [id], onDelete: Cascade)
-  owner        User                  @relation("OwnerConsultations", fields: [ownerId], references: [id], onDelete: Cascade)
-  veterinarian User?                 @relation("VetConsultations", fields: [veterinarianId], references: [id], onDelete: SetNull)
-  messages     ConsultationMessage[]
+  animal        Animal                @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  scan          Scan?                 @relation(fields: [scanId], references: [id], onDelete: SetNull)
+  owner         User                  @relation("OwnerConsultations", fields: [ownerId], references: [id], onDelete: Cascade)
+  veterinarian  User?                 @relation("VetConsultations", fields: [veterinarianId], references: [id], onDelete: SetNull)
+  messages      ConsultationMessage[]
+  clinicalNotes ClinicalNote[]
 
   @@index([animalId])
+  @@index([scanId])
   @@index([ownerId])
   @@index([veterinarianId])
   @@index([status])
@@ -434,6 +442,31 @@ model ConsultationMessage {
   @@index([senderId])
   @@index([createdAt])
   @@map("consultation_messages")
+}
+
+model ClinicalNote {
+  id                   String    @id @default(uuid())
+  consultationId       String    @map("consultation_id")
+  veterinarianId       String    @map("veterinarian_id")
+  presentingConcern    String?   @map("presenting_concern")
+  historyObservations   String?   @map("history_observations")
+  examinationFindings  String?   @map("examination_findings")
+  assessment           String
+  recommendations      String
+  followUpDate         DateTime? @map("follow_up_date")
+  followUpInstructions String?   @map("follow_up_instructions")
+  isOwnerVisible       Boolean   @default(true) @map("is_owner_visible")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  updatedAt            DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  consultation Consultation @relation(fields: [consultationId], references: [id], onDelete: Cascade)
+  veterinarian User         @relation("VetClinicalNotes", fields: [veterinarianId], references: [id], onDelete: Cascade)
+
+  @@index([consultationId])
+  @@index([veterinarianId])
+  @@index([isOwnerVisible])
+  @@map("clinical_notes")
 }
 
 model AuditLog {

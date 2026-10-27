@@ -287,7 +287,11 @@ async function main() {
     }
   });
 
-  // 10. Seed Consultation & Messages (Idempotent)
+  // 10. Seed Consultation, Clinical Notes & Messages (Idempotent)
+  const bellaScan = await prisma.scan.findFirst({
+    where: { animalId: bella.id }
+  });
+
   let consultation = await prisma.consultation.findFirst({
     where: {
       animalId: bella.id,
@@ -299,12 +303,28 @@ async function main() {
     consultation = await prisma.consultation.create({
       data: {
         animalId: bella.id,
+        scanId: bellaScan?.id || null,
         ownerId: ownerUser.id,
         veterinarianId: vetUser.id,
         subject: 'Review of neck lesion nodule progression',
         description: 'Noticed three new circumscribed bumps appearing near the left shoulder over the weekend. Seeking clinical review.',
         status: ConsultationStatus.IN_PROGRESS,
         scheduledAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+      }
+    });
+
+    await prisma.clinicalNote.create({
+      data: {
+        consultationId: consultation.id,
+        veterinarianId: vetUser.id,
+        presentingConcern: 'Three circumscribed bumps near left shoulder',
+        historyObservations: 'Reported by owner over the weekend; alert and eating normally.',
+        examinationFindings: 'Multiple 1-2 cm firm cutaneous nodules on lateral neck and left shoulder.',
+        assessment: 'Presumptive localized Lumpy Skin Disease (Mild)',
+        recommendations: 'Continue paddock B isolation. Clean water trough daily. Monitor rectal temperature morning and evening.',
+        followUpDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+        followUpInstructions: 'Report immediately if nodule diameter exceeds 3 cm or pyrexia develops.',
+        isOwnerVisible: true
       }
     });
 
@@ -320,8 +340,13 @@ async function main() {
       data: {
         consultationId: consultation.id,
         senderId: vetUser.id,
-        message: 'Hello John, I have received the consultation request and will examine the scan and Bella’s historical timeline shortly. Keep her separated in paddock B until we review.'
+        message: 'Hello John, I have received the consultation request and examined the scan. Clinical evaluation has been recorded.'
       }
+    });
+  } else if (!consultation.scanId && bellaScan) {
+    await prisma.consultation.update({
+      where: { id: consultation.id },
+      data: { scanId: bellaScan.id }
     });
   }
 

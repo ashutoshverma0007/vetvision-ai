@@ -9,6 +9,7 @@ import {
   Medication,
   Consultation,
   ConsultationMessage,
+  ClinicalNote,
   VeterinarianProfile,
   ModelVersion,
   AuditLog,
@@ -180,28 +181,83 @@ export const api = {
 
   // --- Consultations ---
   consultations: {
-    list: () => request<{ consultations: Consultation[] }>('/api/v1/consultations'),
-    getById: (id: string) => request<{ consultation: Consultation }>('/api/v1/consultations/' + id),
-    request: (payload: { animalId: string; subject: string; description: string; veterinarianId?: string; scheduledAt?: Date }) =>
+    list: (status?: ConsultationStatus) =>
+      request<{ consultations: Consultation[] }>(
+        `/api/v1/consultations${status ? `?status=${status}` : ''}`
+      ),
+    getById: (id: string) =>
+      request<{ consultation: Consultation }>('/api/v1/consultations/' + id),
+    request: (payload: {
+      animalId: string;
+      scanId?: string | null;
+      subject: string;
+      description: string;
+      veterinarianId?: string | null;
+      scheduledAt?: Date | string | null;
+    }) =>
       request<{ consultation: Consultation }>('/api/v1/consultations', {
         method: 'POST',
         body: JSON.stringify(payload)
       }),
-    updateStatus: (id: string, status: ConsultationStatus, scheduledAt?: Date) =>
+    updateStatus: (
+      id: string,
+      status: ConsultationStatus,
+      extra?: { declineReason?: string; scheduledAt?: Date | string }
+    ) =>
       request<{ consultation: Consultation }>('/api/v1/consultations/' + id + '/status', {
         method: 'PATCH',
-        body: JSON.stringify({ status, scheduledAt })
+        body: JSON.stringify({ status, ...extra })
+      }),
+    schedule: (id: string, scheduledAt: Date | string) =>
+      request<{ consultation: Consultation }>('/api/v1/consultations/' + id + '/schedule', {
+        method: 'PATCH',
+        body: JSON.stringify({ scheduledAt })
       }),
     sendMessage: (id: string, message: string, attachmentId?: string) =>
       request<{ message: ConsultationMessage }>('/api/v1/consultations/' + id + '/messages', {
         method: 'POST',
         body: JSON.stringify({ message, attachmentId })
       }),
-    createClinicalNote: (id: string, payload: { diagnosis: string; treatment: string; notes?: string }) =>
-      request<{ clinicalNote: HealthRecord }>('/api/v1/consultations/' + id + '/clinical-notes', {
+    getClinicalNotes: (id: string) =>
+      request<{ clinicalNotes: ClinicalNote[] }>('/api/v1/consultations/' + id + '/clinical-notes'),
+    createClinicalNote: (
+      id: string,
+      payload: {
+        presentingConcern: string;
+        historyObservations?: string | null;
+        examinationFindings: string;
+        assessment: string;
+        recommendations: string;
+        followUpDate?: Date | string | null;
+        followUpInstructions?: string | null;
+        isOwnerVisible?: boolean;
+      }
+    ) =>
+      request<{ clinicalNote: ClinicalNote }>('/api/v1/consultations/' + id + '/clinical-notes', {
         method: 'POST',
         body: JSON.stringify(payload)
-      })
+      }),
+    updateClinicalNote: (
+      id: string,
+      noteId: string,
+      payload: Partial<{
+        presentingConcern: string;
+        historyObservations?: string | null;
+        examinationFindings: string;
+        assessment: string;
+        recommendations: string;
+        followUpDate?: Date | string | null;
+        followUpInstructions?: string | null;
+        isOwnerVisible?: boolean;
+      }>
+    ) =>
+      request<{ clinicalNote: ClinicalNote }>(
+        `/api/v1/consultations/${id}/clinical-notes/${noteId}`,
+        {
+          method: 'PATCH',
+          body: JSON.stringify(payload)
+        }
+      )
   },
 
   // --- Veterinarians ---

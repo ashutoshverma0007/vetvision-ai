@@ -4,9 +4,12 @@ import { authenticateSession } from '../middleware/auth.middleware.js';
 import {
   createConsultationSchema,
   updateConsultationStatusSchema,
+  scheduleConsultationSchema,
   createConsultationMessageSchema,
-  createClinicalNoteSchema
+  createClinicalNoteSchema,
+  updateClinicalNoteSchema
 } from '@vetvision/validation';
+import { ConsultationStatus } from '@vetvision/shared-types';
 
 export const consultationRouter = Router();
 
@@ -15,7 +18,8 @@ consultationRouter.use(authenticateSession);
 // GET /api/v1/consultations
 consultationRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const consultations = await consultationService.listConsultations(req.user!);
+    const status = req.query.status as ConsultationStatus | undefined;
+    const consultations = await consultationService.listConsultations(req.user!, status);
     res.status(200).json({ success: true, data: { consultations } });
   } catch (error) {
     next(error);
@@ -49,11 +53,25 @@ consultationRouter.patch('/:id/status', async (req: Request, res: Response, next
   try {
     const id = req.params.id as string;
     const validated = updateConsultationStatusSchema.parse(req.body);
+    const consultation = await consultationService.updateStatus(id, validated, req.user!);
+    res.status(200).json({ success: true, data: { consultation } });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// PATCH /api/v1/consultations/:id/schedule (convenience endpoint)
+consultationRouter.patch('/:id/schedule', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const id = req.params.id as string;
+    const validated = scheduleConsultationSchema.parse(req.body);
     const consultation = await consultationService.updateStatus(
       id,
-      validated.status,
-      req.user!,
-      req.body.scheduledAt ? new Date(req.body.scheduledAt) : undefined
+      {
+        status: ConsultationStatus.SCHEDULED,
+        scheduledAt: validated.scheduledAt
+      },
+      req.user!
     );
     res.status(200).json({ success: true, data: { consultation } });
   } catch (error) {
@@ -73,6 +91,17 @@ consultationRouter.post('/:id/messages', async (req: Request, res: Response, nex
   }
 });
 
+// GET /api/v1/consultations/:id/clinical-notes
+consultationRouter.get('/:id/clinical-notes', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const id = req.params.id as string;
+    const clinicalNotes = await consultationService.getClinicalNotes(id, req.user!);
+    res.status(200).json({ success: true, data: { clinicalNotes } });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // POST /api/v1/consultations/:id/clinical-notes
 consultationRouter.post('/:id/clinical-notes', async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -80,6 +109,19 @@ consultationRouter.post('/:id/clinical-notes', async (req: Request, res: Respons
     const validated = createClinicalNoteSchema.parse(req.body);
     const clinicalNote = await consultationService.createClinicalNote(id, validated, req.user!);
     res.status(201).json({ success: true, data: { clinicalNote } });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// PATCH /api/v1/consultations/:id/clinical-notes/:noteId
+consultationRouter.patch('/:id/clinical-notes/:noteId', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const id = req.params.id as string;
+    const noteId = req.params.noteId as string;
+    const validated = updateClinicalNoteSchema.parse(req.body);
+    const clinicalNote = await consultationService.updateClinicalNote(id, noteId, validated, req.user!);
+    res.status(200).json({ success: true, data: { clinicalNote } });
   } catch (error) {
     next(error);
   }

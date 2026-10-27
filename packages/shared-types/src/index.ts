@@ -254,6 +254,24 @@ export interface Scan {
   animal?: Animal;
 }
 
+export interface ClinicalNote {
+  id: string;
+  consultationId: string;
+  veterinarianId: string;
+  presentingConcern: string;
+  historyObservations?: string | null;
+  examinationFindings: string;
+  assessment: string;
+  recommendations: string;
+  followUpDate?: Date | string | null;
+  followUpInstructions?: string | null;
+  isOwnerVisible: boolean;
+  createdAt: Date | string;
+  updatedAt: Date | string;
+  veterinarian?: UserSummary | null;
+  consultation?: Consultation | null;
+}
+
 export interface ConsultationMessage {
   id: string;
   consultationId: string;
@@ -269,6 +287,7 @@ export interface ConsultationMessage {
 export interface Consultation {
   id: string;
   animalId: string;
+  scanId?: string | null;
   ownerId: string;
   veterinarianId?: string | null;
   subject: string;
@@ -277,11 +296,15 @@ export interface Consultation {
   scheduledAt?: Date | string | null;
   startedAt?: Date | string | null;
   completedAt?: Date | string | null;
+  declineReason?: string | null;
   createdAt: Date | string;
+  updatedAt: Date | string;
   animal?: Animal;
+  scan?: Scan | null;
   owner?: UserSummary;
-  veterinarian?: VeterinarianProfile | null;
+  veterinarian?: (VeterinarianProfile & { user?: UserSummary }) | UserSummary | null;
   messages?: ConsultationMessage[];
+  clinicalNotes?: ClinicalNote[];
 }
 
 export interface AuditLog {
