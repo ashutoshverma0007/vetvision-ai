@@ -251,7 +251,7 @@ async function main() {
       version: 'lsd-efficientnetb0-v1.0.0',
       framework: ModelFramework.ONNX,
       artifactUri: 'services/ai/models/efficientnetb0_lsd_v1.onnx',
-      modelSizeBytes: 16425557,
+      modelSizeBytes: 16035557,
       inputWidth: 224,
       inputHeight: 224,
       accuracy: 0.9054,

@@ -5,7 +5,7 @@ import numpy as np
 from .adapter import ModelAdapter
 
 class PyTorchAdapter(ModelAdapter):
-    def __init__(self, version: str = "lsd-resnet50-v1.0.0"):
+    def __init__(self, version: str = "lsd-efficientnetb0-v1.0.0"):
         self.version = version
         self.framework = "PYTORCH"
         self.model = None

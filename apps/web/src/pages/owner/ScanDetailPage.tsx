@@ -271,7 +271,7 @@ export function ScanDetailPage() {
                 <div>
                   <span className="text-[10px] uppercase font-bold text-muted-foreground block">Model Version</span>
                   <span className="font-mono text-foreground font-semibold">
-                    {prediction?.modelVersion?.version || prediction?.modelVersionId || 'lsd-resnet50-v1.0.0'}
+                    {prediction?.modelVersion?.version || prediction?.modelVersionId || 'N/A'}
                   </span>
                 </div>
                 <div>
