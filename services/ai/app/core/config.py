@@ -13,9 +13,9 @@ class Settings(BaseSettings):
     
     # Model Configuration
     # If weights do not exist at MODEL_ARTIFACT_PATH, the service explicitly returns MODEL_UNAVAILABLE
-    MODEL_ARTIFACT_PATH: Optional[str] = None
-    MODEL_VERSION: str = "lsd-resnet50-v1.0.0"
-    MODEL_FRAMEWORK: str = "PYTORCH"  # PYTORCH or ONNX
+    MODEL_ARTIFACT_PATH: Optional[str] = "services/ai/models/efficientnetb0_lsd_v1.onnx"
+    MODEL_VERSION: str = "lsd-efficientnetb0-v1.0.0"
+    MODEL_FRAMEWORK: str = "ONNX"  # PYTORCH or ONNX
     CONFIDENCE_THRESHOLD: float = 0.65
     
     # Input Tensor Dimensions

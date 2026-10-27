@@ -195,8 +195,33 @@ async function main() {
 
   // 9. Seed Model Versions
   await prisma.modelVersion.upsert({
+    where: { version: 'lsd-efficientnetb0-v1.0.0' },
+    update: {
+      status: ModelStatus.ACTIVE
+    },
+    create: {
+      name: 'Lumpy Skin Disease EfficientNet-B0 (Production ONNX)',
+      version: 'lsd-efficientnetb0-v1.0.0',
+      framework: ModelFramework.ONNX,
+      artifactUri: 'services/ai/models/efficientnetb0_lsd_v1.onnx',
+      modelSizeBytes: 16425557,
+      inputWidth: 224,
+      inputHeight: 224,
+      accuracy: 0.9054,
+      precision: 0.8422,
+      recall: 0.8261,
+      f1Score: 0.8335,
+      validationDataset: 'Leakage-Controlled LSD Dataset Split (Test n=148)',
+      status: ModelStatus.ACTIVE,
+      notes: 'Optimized ONNX Runtime deployment model trained on verified bovine lesions for 3-class screening: Normal, Mild, Severe.'
+    }
+  });
+
+  await prisma.modelVersion.upsert({
     where: { version: 'lsd-resnet50-v1.0.0' },
-    update: {},
+    update: {
+      status: ModelStatus.ARCHIVED
+    },
     create: {
       name: 'Lumpy Skin Disease ResNet-50 Baseline',
       version: 'lsd-resnet50-v1.0.0',
@@ -210,8 +235,8 @@ async function main() {
       recall: 0.925,
       f1Score: 0.909,
       validationDataset: 'BovineDerm-LSD-Val-2024 (n=1200)',
-      status: ModelStatus.ACTIVE,
-      notes: 'Baseline CNN trained for 3-class bovine lesion screening: Normal, Mild, Severe.'
+      status: ModelStatus.ARCHIVED,
+      notes: 'Historical baseline CNN model for reference.'
     }
   });
 

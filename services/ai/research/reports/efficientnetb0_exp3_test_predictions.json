@@ -1,0 +1,2370 @@
+[
+  {
+    "index": 0,
+    "filename": "Mild_1.png",
+    "relative_path": "Mild_1.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9642,
+    "probabilities": {
+      "Normal": 0.0073,
+      "Mild": 0.9642,
+      "Severe": 0.0285
+    }
+  },
+  {
+    "index": 1,
+    "filename": "Mild_11.png",
+    "relative_path": "Mild_11.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.8018,
+    "probabilities": {
+      "Normal": 0.0018,
+      "Mild": 0.8018,
+      "Severe": 0.1963
+    }
+  },
+  {
+    "index": 2,
+    "filename": "Mild_117.png",
+    "relative_path": "Mild_117.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.6651,
+    "probabilities": {
+      "Normal": 0.0086,
+      "Mild": 0.6651,
+      "Severe": 0.3263
+    }
+  },
+  {
+    "index": 3,
+    "filename": "Mild_128.png",
+    "relative_path": "Mild_128.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": false,
+    "confidence": 0.9768,
+    "probabilities": {
+      "Normal": 0.0082,
+      "Mild": 0.015,
+      "Severe": 0.9768
+    }
+  },
+  {
+    "index": 4,
+    "filename": "Mild_129.png",
+    "relative_path": "Mild_129.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9145,
+    "probabilities": {
+      "Normal": 0.0788,
+      "Mild": 0.9145,
+      "Severe": 0.0068
+    }
+  },
+  {
+    "index": 5,
+    "filename": "Mild_13.png",
+    "relative_path": "Mild_13.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.7756,
+    "probabilities": {
+      "Normal": 0.1187,
+      "Mild": 0.7756,
+      "Severe": 0.1057
+    }
+  },
+  {
+    "index": 6,
+    "filename": "Mild_134.png",
+    "relative_path": "Mild_134.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9882,
+    "probabilities": {
+      "Normal": 0.0033,
+      "Mild": 0.9882,
+      "Severe": 0.0084
+    }
+  },
+  {
+    "index": 7,
+    "filename": "Mild_136.png",
+    "relative_path": "Mild_136.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9819,
+    "probabilities": {
+      "Normal": 0.0031,
+      "Mild": 0.9819,
+      "Severe": 0.015
+    }
+  },
+  {
+    "index": 8,
+    "filename": "Mild_137.png",
+    "relative_path": "Mild_137.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9164,
+    "probabilities": {
+      "Normal": 0.0682,
+      "Mild": 0.9164,
+      "Severe": 0.0154
+    }
+  },
+  {
+    "index": 9,
+    "filename": "Mild_150.png",
+    "relative_path": "Mild_150.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": false,
+    "confidence": 0.6053,
+    "probabilities": {
+      "Normal": 0.6053,
+      "Mild": 0.3605,
+      "Severe": 0.0341
+    }
+  },
+  {
+    "index": 10,
+    "filename": "Mild_154.png",
+    "relative_path": "Mild_154.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.5424,
+    "probabilities": {
+      "Normal": 0.1604,
+      "Mild": 0.5424,
+      "Severe": 0.2972
+    }
+  },
+  {
+    "index": 11,
+    "filename": "Mild_157.png",
+    "relative_path": "Mild_157.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9013,
+    "probabilities": {
+      "Normal": 0.0832,
+      "Mild": 0.9013,
+      "Severe": 0.0155
+    }
+  },
+  {
+    "index": 12,
+    "filename": "Mild_171.png",
+    "relative_path": "Mild_171.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": false,
+    "confidence": 0.9756,
+    "probabilities": {
+      "Normal": 0.9756,
+      "Mild": 0.0196,
+      "Severe": 0.0048
+    }
+  },
+  {
+    "index": 13,
+    "filename": "Mild_172.png",
+    "relative_path": "Mild_172.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": false,
+    "confidence": 0.7135,
+    "probabilities": {
+      "Normal": 0.7135,
+      "Mild": 0.2678,
+      "Severe": 0.0187
+    }
+  },
+  {
+    "index": 14,
+    "filename": "Mild_194.png",
+    "relative_path": "Mild_194.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": false,
+    "confidence": 0.8631,
+    "probabilities": {
+      "Normal": 0.8631,
+      "Mild": 0.0716,
+      "Severe": 0.0653
+    }
+  },
+  {
+    "index": 15,
+    "filename": "Mild_201.png",
+    "relative_path": "Mild_201.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.925,
+    "probabilities": {
+      "Normal": 0.0014,
+      "Mild": 0.925,
+      "Severe": 0.0736
+    }
+  },
+  {
+    "index": 16,
+    "filename": "Mild_204.png",
+    "relative_path": "Mild_204.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": false,
+    "confidence": 0.8507,
+    "probabilities": {
+      "Normal": 0.8507,
+      "Mild": 0.1345,
+      "Severe": 0.0148
+    }
+  },
+  {
+    "index": 17,
+    "filename": "Mild_213.png",
+    "relative_path": "Mild_213.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9267,
+    "probabilities": {
+      "Normal": 0.0452,
+      "Mild": 0.9267,
+      "Severe": 0.0281
+    }
+  },
+  {
+    "index": 18,
+    "filename": "Mild_24.png",
+    "relative_path": "Mild_24.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9009,
+    "probabilities": {
+      "Normal": 0.0178,
+      "Mild": 0.9009,
+      "Severe": 0.0812
+    }
+  },
+  {
+    "index": 19,
+    "filename": "Mild_3.png",
+    "relative_path": "Mild_3.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.6367,
+    "probabilities": {
+      "Normal": 0.2825,
+      "Mild": 0.6367,
+      "Severe": 0.0808
+    }
+  },
+  {
+    "index": 20,
+    "filename": "Mild_30.png",
+    "relative_path": "Mild_30.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.5168,
+    "probabilities": {
+      "Normal": 0.0147,
+      "Mild": 0.5168,
+      "Severe": 0.4686
+    }
+  },
+  {
+    "index": 21,
+    "filename": "Mild_50.png",
+    "relative_path": "Mild_50.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.726,
+    "probabilities": {
+      "Normal": 0.0032,
+      "Mild": 0.726,
+      "Severe": 0.2709
+    }
+  },
+  {
+    "index": 22,
+    "filename": "Mild_51.png",
+    "relative_path": "Mild_51.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.4836,
+    "probabilities": {
+      "Normal": 0.4786,
+      "Mild": 0.4836,
+      "Severe": 0.0378
+    }
+  },
+  {
+    "index": 23,
+    "filename": "Mild_55.png",
+    "relative_path": "Mild_55.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.7732,
+    "probabilities": {
+      "Normal": 0.0141,
+      "Mild": 0.7732,
+      "Severe": 0.2127
+    }
+  },
+  {
+    "index": 24,
+    "filename": "Mild_58.png",
+    "relative_path": "Mild_58.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.6483,
+    "probabilities": {
+      "Normal": 0.313,
+      "Mild": 0.6483,
+      "Severe": 0.0387
+    }
+  },
+  {
+    "index": 25,
+    "filename": "Mild_59.png",
+    "relative_path": "Mild_59.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9438,
+    "probabilities": {
+      "Normal": 0.0463,
+      "Mild": 0.9438,
+      "Severe": 0.01
+    }
+  },
+  {
+    "index": 26,
+    "filename": "Mild_64.png",
+    "relative_path": "Mild_64.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9648,
+    "probabilities": {
+      "Normal": 0.0062,
+      "Mild": 0.9648,
+      "Severe": 0.029
+    }
+  },
+  {
+    "index": 27,
+    "filename": "Mild_73.png",
+    "relative_path": "Mild_73.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.7669,
+    "probabilities": {
+      "Normal": 0.1191,
+      "Mild": 0.7669,
+      "Severe": 0.114
+    }
+  },
+  {
+    "index": 28,
+    "filename": "Mild_78.png",
+    "relative_path": "Mild_78.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.9913,
+    "probabilities": {
+      "Normal": 0.0061,
+      "Mild": 0.9913,
+      "Severe": 0.0026
+    }
+  },
+  {
+    "index": 29,
+    "filename": "Mild_83.png",
+    "relative_path": "Mild_83.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": false,
+    "confidence": 0.9559,
+    "probabilities": {
+      "Normal": 0.9559,
+      "Mild": 0.0352,
+      "Severe": 0.0089
+    }
+  },
+  {
+    "index": 30,
+    "filename": "Mild_89.png",
+    "relative_path": "Mild_89.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": false,
+    "confidence": 0.553,
+    "probabilities": {
+      "Normal": 0.0807,
+      "Mild": 0.3663,
+      "Severe": 0.553
+    }
+  },
+  {
+    "index": 31,
+    "filename": "Mild_94.png",
+    "relative_path": "Mild_94.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.5489,
+    "probabilities": {
+      "Normal": 0.3583,
+      "Mild": 0.5489,
+      "Severe": 0.0928
+    }
+  },
+  {
+    "index": 32,
+    "filename": "Mild_97.png",
+    "relative_path": "Mild_97.png",
+    "true_class": "Mild",
+    "true_label_idx": 1,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": true,
+    "confidence": 0.8525,
+    "probabilities": {
+      "Normal": 0.0032,
+      "Mild": 0.8525,
+      "Severe": 0.1443
+    }
+  },
+  {
+    "index": 33,
+    "filename": "Normal_Skin_104.png",
+    "relative_path": "Normal_Skin_104.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9738,
+    "probabilities": {
+      "Normal": 0.9738,
+      "Mild": 0.0167,
+      "Severe": 0.0095
+    }
+  },
+  {
+    "index": 34,
+    "filename": "Normal_Skin_105.png",
+    "relative_path": "Normal_Skin_105.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.944,
+    "probabilities": {
+      "Normal": 0.944,
+      "Mild": 0.0298,
+      "Severe": 0.0262
+    }
+  },
+  {
+    "index": 35,
+    "filename": "Normal_Skin_115.png",
+    "relative_path": "Normal_Skin_115.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9733,
+    "probabilities": {
+      "Normal": 0.9733,
+      "Mild": 0.0139,
+      "Severe": 0.0128
+    }
+  },
+  {
+    "index": 36,
+    "filename": "Normal_Skin_124.png",
+    "relative_path": "Normal_Skin_124.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8089,
+    "probabilities": {
+      "Normal": 0.8089,
+      "Mild": 0.1287,
+      "Severe": 0.0625
+    }
+  },
+  {
+    "index": 37,
+    "filename": "Normal_Skin_129.png",
+    "relative_path": "Normal_Skin_129.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9599,
+    "probabilities": {
+      "Normal": 0.9599,
+      "Mild": 0.0298,
+      "Severe": 0.0103
+    }
+  },
+  {
+    "index": 38,
+    "filename": "Normal_Skin_134.png",
+    "relative_path": "Normal_Skin_134.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9368,
+    "probabilities": {
+      "Normal": 0.9368,
+      "Mild": 0.0455,
+      "Severe": 0.0177
+    }
+  },
+  {
+    "index": 39,
+    "filename": "Normal_Skin_137.png",
+    "relative_path": "Normal_Skin_137.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9074,
+    "probabilities": {
+      "Normal": 0.9074,
+      "Mild": 0.0868,
+      "Severe": 0.0059
+    }
+  },
+  {
+    "index": 40,
+    "filename": "Normal_Skin_147.png",
+    "relative_path": "Normal_Skin_147.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8704,
+    "probabilities": {
+      "Normal": 0.8704,
+      "Mild": 0.0925,
+      "Severe": 0.0372
+    }
+  },
+  {
+    "index": 41,
+    "filename": "Normal_Skin_150.png",
+    "relative_path": "Normal_Skin_150.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7507,
+    "probabilities": {
+      "Normal": 0.7507,
+      "Mild": 0.213,
+      "Severe": 0.0362
+    }
+  },
+  {
+    "index": 42,
+    "filename": "Normal_Skin_155.png",
+    "relative_path": "Normal_Skin_155.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9702,
+    "probabilities": {
+      "Normal": 0.9702,
+      "Mild": 0.0264,
+      "Severe": 0.0034
+    }
+  },
+  {
+    "index": 43,
+    "filename": "Normal_Skin_157.png",
+    "relative_path": "Normal_Skin_157.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9549,
+    "probabilities": {
+      "Normal": 0.9549,
+      "Mild": 0.0431,
+      "Severe": 0.002
+    }
+  },
+  {
+    "index": 44,
+    "filename": "Normal_Skin_161.png",
+    "relative_path": "Normal_Skin_161.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.949,
+    "probabilities": {
+      "Normal": 0.949,
+      "Mild": 0.0302,
+      "Severe": 0.0208
+    }
+  },
+  {
+    "index": 45,
+    "filename": "Normal_Skin_165.png",
+    "relative_path": "Normal_Skin_165.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9448,
+    "probabilities": {
+      "Normal": 0.9448,
+      "Mild": 0.034,
+      "Severe": 0.0212
+    }
+  },
+  {
+    "index": 46,
+    "filename": "Normal_Skin_177.png",
+    "relative_path": "Normal_Skin_177.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9903,
+    "probabilities": {
+      "Normal": 0.9903,
+      "Mild": 0.0062,
+      "Severe": 0.0035
+    }
+  },
+  {
+    "index": 47,
+    "filename": "Normal_Skin_18.png",
+    "relative_path": "Normal_Skin_18.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9888,
+    "probabilities": {
+      "Normal": 0.9888,
+      "Mild": 0.0107,
+      "Severe": 0.0004
+    }
+  },
+  {
+    "index": 48,
+    "filename": "Normal_Skin_181.png",
+    "relative_path": "Normal_Skin_181.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9459,
+    "probabilities": {
+      "Normal": 0.9459,
+      "Mild": 0.0281,
+      "Severe": 0.026
+    }
+  },
+  {
+    "index": 49,
+    "filename": "Normal_Skin_184.png",
+    "relative_path": "Normal_Skin_184.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9699,
+    "probabilities": {
+      "Normal": 0.9699,
+      "Mild": 0.0215,
+      "Severe": 0.0086
+    }
+  },
+  {
+    "index": 50,
+    "filename": "Normal_Skin_197.png",
+    "relative_path": "Normal_Skin_197.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8842,
+    "probabilities": {
+      "Normal": 0.8842,
+      "Mild": 0.0663,
+      "Severe": 0.0495
+    }
+  },
+  {
+    "index": 51,
+    "filename": "Normal_Skin_199.png",
+    "relative_path": "Normal_Skin_199.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9774,
+    "probabilities": {
+      "Normal": 0.9774,
+      "Mild": 0.0153,
+      "Severe": 0.0072
+    }
+  },
+  {
+    "index": 52,
+    "filename": "Normal_Skin_20.png",
+    "relative_path": "Normal_Skin_20.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9845,
+    "probabilities": {
+      "Normal": 0.9845,
+      "Mild": 0.0139,
+      "Severe": 0.0015
+    }
+  },
+  {
+    "index": 53,
+    "filename": "Normal_Skin_201.png",
+    "relative_path": "Normal_Skin_201.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7019,
+    "probabilities": {
+      "Normal": 0.7019,
+      "Mild": 0.281,
+      "Severe": 0.0171
+    }
+  },
+  {
+    "index": 54,
+    "filename": "Normal_Skin_211.png",
+    "relative_path": "Normal_Skin_211.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9288,
+    "probabilities": {
+      "Normal": 0.9288,
+      "Mild": 0.0518,
+      "Severe": 0.0194
+    }
+  },
+  {
+    "index": 55,
+    "filename": "Normal_Skin_214.png",
+    "relative_path": "Normal_Skin_214.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9805,
+    "probabilities": {
+      "Normal": 0.9805,
+      "Mild": 0.017,
+      "Severe": 0.0025
+    }
+  },
+  {
+    "index": 56,
+    "filename": "Normal_Skin_216.png",
+    "relative_path": "Normal_Skin_216.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7806,
+    "probabilities": {
+      "Normal": 0.7806,
+      "Mild": 0.1794,
+      "Severe": 0.0401
+    }
+  },
+  {
+    "index": 57,
+    "filename": "Normal_Skin_230.png",
+    "relative_path": "Normal_Skin_230.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9961,
+    "probabilities": {
+      "Normal": 0.9961,
+      "Mild": 0.002,
+      "Severe": 0.0019
+    }
+  },
+  {
+    "index": 58,
+    "filename": "Normal_Skin_235.png",
+    "relative_path": "Normal_Skin_235.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.967,
+    "probabilities": {
+      "Normal": 0.967,
+      "Mild": 0.0104,
+      "Severe": 0.0226
+    }
+  },
+  {
+    "index": 59,
+    "filename": "Normal_Skin_236.png",
+    "relative_path": "Normal_Skin_236.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": false,
+    "confidence": 0.6693,
+    "probabilities": {
+      "Normal": 0.319,
+      "Mild": 0.6693,
+      "Severe": 0.0117
+    }
+  },
+  {
+    "index": 60,
+    "filename": "Normal_Skin_257.png",
+    "relative_path": "Normal_Skin_257.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8953,
+    "probabilities": {
+      "Normal": 0.8953,
+      "Mild": 0.05,
+      "Severe": 0.0547
+    }
+  },
+  {
+    "index": 61,
+    "filename": "Normal_Skin_261.png",
+    "relative_path": "Normal_Skin_261.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8625,
+    "probabilities": {
+      "Normal": 0.8625,
+      "Mild": 0.096,
+      "Severe": 0.0415
+    }
+  },
+  {
+    "index": 62,
+    "filename": "Normal_Skin_262.png",
+    "relative_path": "Normal_Skin_262.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9759,
+    "probabilities": {
+      "Normal": 0.9759,
+      "Mild": 0.0174,
+      "Severe": 0.0067
+    }
+  },
+  {
+    "index": 63,
+    "filename": "Normal_Skin_267.png",
+    "relative_path": "Normal_Skin_267.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8503,
+    "probabilities": {
+      "Normal": 0.8503,
+      "Mild": 0.1455,
+      "Severe": 0.0042
+    }
+  },
+  {
+    "index": 64,
+    "filename": "Normal_Skin_27.png",
+    "relative_path": "Normal_Skin_27.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9791,
+    "probabilities": {
+      "Normal": 0.9791,
+      "Mild": 0.0185,
+      "Severe": 0.0025
+    }
+  },
+  {
+    "index": 65,
+    "filename": "Normal_Skin_273.png",
+    "relative_path": "Normal_Skin_273.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8469,
+    "probabilities": {
+      "Normal": 0.8469,
+      "Mild": 0.0941,
+      "Severe": 0.059
+    }
+  },
+  {
+    "index": 66,
+    "filename": "Normal_Skin_279.png",
+    "relative_path": "Normal_Skin_279.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9586,
+    "probabilities": {
+      "Normal": 0.9586,
+      "Mild": 0.035,
+      "Severe": 0.0064
+    }
+  },
+  {
+    "index": 67,
+    "filename": "Normal_Skin_280.png",
+    "relative_path": "Normal_Skin_280.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.942,
+    "probabilities": {
+      "Normal": 0.942,
+      "Mild": 0.0277,
+      "Severe": 0.0303
+    }
+  },
+  {
+    "index": 68,
+    "filename": "Normal_Skin_286.png",
+    "relative_path": "Normal_Skin_286.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.4932,
+    "probabilities": {
+      "Normal": 0.4932,
+      "Mild": 0.4541,
+      "Severe": 0.0527
+    }
+  },
+  {
+    "index": 69,
+    "filename": "Normal_Skin_291.png",
+    "relative_path": "Normal_Skin_291.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8211,
+    "probabilities": {
+      "Normal": 0.8211,
+      "Mild": 0.1546,
+      "Severe": 0.0244
+    }
+  },
+  {
+    "index": 70,
+    "filename": "Normal_Skin_293.png",
+    "relative_path": "Normal_Skin_293.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7194,
+    "probabilities": {
+      "Normal": 0.7194,
+      "Mild": 0.2577,
+      "Severe": 0.0229
+    }
+  },
+  {
+    "index": 71,
+    "filename": "Normal_Skin_3.png",
+    "relative_path": "Normal_Skin_3.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9596,
+    "probabilities": {
+      "Normal": 0.9596,
+      "Mild": 0.0259,
+      "Severe": 0.0145
+    }
+  },
+  {
+    "index": 72,
+    "filename": "Normal_Skin_301.png",
+    "relative_path": "Normal_Skin_301.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8451,
+    "probabilities": {
+      "Normal": 0.8451,
+      "Mild": 0.1034,
+      "Severe": 0.0514
+    }
+  },
+  {
+    "index": 73,
+    "filename": "Normal_Skin_303.png",
+    "relative_path": "Normal_Skin_303.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9453,
+    "probabilities": {
+      "Normal": 0.9453,
+      "Mild": 0.0386,
+      "Severe": 0.0161
+    }
+  },
+  {
+    "index": 74,
+    "filename": "Normal_Skin_304.png",
+    "relative_path": "Normal_Skin_304.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7566,
+    "probabilities": {
+      "Normal": 0.7566,
+      "Mild": 0.1403,
+      "Severe": 0.1031
+    }
+  },
+  {
+    "index": 75,
+    "filename": "Normal_Skin_312.png",
+    "relative_path": "Normal_Skin_312.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9879,
+    "probabilities": {
+      "Normal": 0.9879,
+      "Mild": 0.007,
+      "Severe": 0.005
+    }
+  },
+  {
+    "index": 76,
+    "filename": "Normal_Skin_326.png",
+    "relative_path": "Normal_Skin_326.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9207,
+    "probabilities": {
+      "Normal": 0.9207,
+      "Mild": 0.0393,
+      "Severe": 0.0401
+    }
+  },
+  {
+    "index": 77,
+    "filename": "Normal_Skin_330.png",
+    "relative_path": "Normal_Skin_330.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": false,
+    "confidence": 0.5521,
+    "probabilities": {
+      "Normal": 0.4326,
+      "Mild": 0.5521,
+      "Severe": 0.0153
+    }
+  },
+  {
+    "index": 78,
+    "filename": "Normal_Skin_334.png",
+    "relative_path": "Normal_Skin_334.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9573,
+    "probabilities": {
+      "Normal": 0.9573,
+      "Mild": 0.036,
+      "Severe": 0.0067
+    }
+  },
+  {
+    "index": 79,
+    "filename": "Normal_Skin_345.png",
+    "relative_path": "Normal_Skin_345.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7694,
+    "probabilities": {
+      "Normal": 0.7694,
+      "Mild": 0.1654,
+      "Severe": 0.0652
+    }
+  },
+  {
+    "index": 80,
+    "filename": "Normal_Skin_353.png",
+    "relative_path": "Normal_Skin_353.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7235,
+    "probabilities": {
+      "Normal": 0.7235,
+      "Mild": 0.252,
+      "Severe": 0.0245
+    }
+  },
+  {
+    "index": 81,
+    "filename": "Normal_Skin_36.png",
+    "relative_path": "Normal_Skin_36.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.5052,
+    "probabilities": {
+      "Normal": 0.5052,
+      "Mild": 0.0557,
+      "Severe": 0.4391
+    }
+  },
+  {
+    "index": 82,
+    "filename": "Normal_Skin_377.png",
+    "relative_path": "Normal_Skin_377.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9676,
+    "probabilities": {
+      "Normal": 0.9676,
+      "Mild": 0.0187,
+      "Severe": 0.0137
+    }
+  },
+  {
+    "index": 83,
+    "filename": "Normal_Skin_387.png",
+    "relative_path": "Normal_Skin_387.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9931,
+    "probabilities": {
+      "Normal": 0.9931,
+      "Mild": 0.0055,
+      "Severe": 0.0013
+    }
+  },
+  {
+    "index": 84,
+    "filename": "Normal_Skin_391.png",
+    "relative_path": "Normal_Skin_391.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9602,
+    "probabilities": {
+      "Normal": 0.9602,
+      "Mild": 0.0265,
+      "Severe": 0.0132
+    }
+  },
+  {
+    "index": 85,
+    "filename": "Normal_Skin_392.png",
+    "relative_path": "Normal_Skin_392.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9502,
+    "probabilities": {
+      "Normal": 0.9502,
+      "Mild": 0.0272,
+      "Severe": 0.0226
+    }
+  },
+  {
+    "index": 86,
+    "filename": "Normal_Skin_393.png",
+    "relative_path": "Normal_Skin_393.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9682,
+    "probabilities": {
+      "Normal": 0.9682,
+      "Mild": 0.0168,
+      "Severe": 0.015
+    }
+  },
+  {
+    "index": 87,
+    "filename": "Normal_Skin_397.png",
+    "relative_path": "Normal_Skin_397.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9781,
+    "probabilities": {
+      "Normal": 0.9781,
+      "Mild": 0.0201,
+      "Severe": 0.0017
+    }
+  },
+  {
+    "index": 88,
+    "filename": "Normal_Skin_4.png",
+    "relative_path": "Normal_Skin_4.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9938,
+    "probabilities": {
+      "Normal": 0.9938,
+      "Mild": 0.0045,
+      "Severe": 0.0016
+    }
+  },
+  {
+    "index": 89,
+    "filename": "Normal_Skin_403.png",
+    "relative_path": "Normal_Skin_403.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9517,
+    "probabilities": {
+      "Normal": 0.9517,
+      "Mild": 0.0451,
+      "Severe": 0.0031
+    }
+  },
+  {
+    "index": 90,
+    "filename": "Normal_Skin_406.png",
+    "relative_path": "Normal_Skin_406.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9265,
+    "probabilities": {
+      "Normal": 0.9265,
+      "Mild": 0.0684,
+      "Severe": 0.0051
+    }
+  },
+  {
+    "index": 91,
+    "filename": "Normal_Skin_422.png",
+    "relative_path": "Normal_Skin_422.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7204,
+    "probabilities": {
+      "Normal": 0.7204,
+      "Mild": 0.2615,
+      "Severe": 0.0181
+    }
+  },
+  {
+    "index": 92,
+    "filename": "Normal_Skin_436.png",
+    "relative_path": "Normal_Skin_436.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8089,
+    "probabilities": {
+      "Normal": 0.8089,
+      "Mild": 0.1727,
+      "Severe": 0.0184
+    }
+  },
+  {
+    "index": 93,
+    "filename": "Normal_Skin_437.png",
+    "relative_path": "Normal_Skin_437.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9779,
+    "probabilities": {
+      "Normal": 0.9779,
+      "Mild": 0.0181,
+      "Severe": 0.0039
+    }
+  },
+  {
+    "index": 94,
+    "filename": "Normal_Skin_454.png",
+    "relative_path": "Normal_Skin_454.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9052,
+    "probabilities": {
+      "Normal": 0.9052,
+      "Mild": 0.0293,
+      "Severe": 0.0655
+    }
+  },
+  {
+    "index": 95,
+    "filename": "Normal_Skin_455.png",
+    "relative_path": "Normal_Skin_455.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9045,
+    "probabilities": {
+      "Normal": 0.9045,
+      "Mild": 0.0588,
+      "Severe": 0.0368
+    }
+  },
+  {
+    "index": 96,
+    "filename": "Normal_Skin_491.png",
+    "relative_path": "Normal_Skin_491.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9179,
+    "probabilities": {
+      "Normal": 0.9179,
+      "Mild": 0.063,
+      "Severe": 0.019
+    }
+  },
+  {
+    "index": 97,
+    "filename": "Normal_Skin_493.png",
+    "relative_path": "Normal_Skin_493.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9924,
+    "probabilities": {
+      "Normal": 0.9924,
+      "Mild": 0.0062,
+      "Severe": 0.0014
+    }
+  },
+  {
+    "index": 98,
+    "filename": "Normal_Skin_497.png",
+    "relative_path": "Normal_Skin_497.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9482,
+    "probabilities": {
+      "Normal": 0.9482,
+      "Mild": 0.0259,
+      "Severe": 0.0259
+    }
+  },
+  {
+    "index": 99,
+    "filename": "Normal_Skin_51.png",
+    "relative_path": "Normal_Skin_51.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9958,
+    "probabilities": {
+      "Normal": 0.9958,
+      "Mild": 0.0036,
+      "Severe": 0.0006
+    }
+  },
+  {
+    "index": 100,
+    "filename": "Normal_Skin_519.png",
+    "relative_path": "Normal_Skin_519.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8553,
+    "probabilities": {
+      "Normal": 0.8553,
+      "Mild": 0.1267,
+      "Severe": 0.0179
+    }
+  },
+  {
+    "index": 101,
+    "filename": "Normal_Skin_522.png",
+    "relative_path": "Normal_Skin_522.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8502,
+    "probabilities": {
+      "Normal": 0.8502,
+      "Mild": 0.1377,
+      "Severe": 0.0121
+    }
+  },
+  {
+    "index": 102,
+    "filename": "Normal_Skin_523.png",
+    "relative_path": "Normal_Skin_523.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.6742,
+    "probabilities": {
+      "Normal": 0.6742,
+      "Mild": 0.2772,
+      "Severe": 0.0486
+    }
+  },
+  {
+    "index": 103,
+    "filename": "Normal_Skin_525.png",
+    "relative_path": "Normal_Skin_525.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9516,
+    "probabilities": {
+      "Normal": 0.9516,
+      "Mild": 0.0244,
+      "Severe": 0.024
+    }
+  },
+  {
+    "index": 104,
+    "filename": "Normal_Skin_531.png",
+    "relative_path": "Normal_Skin_531.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9742,
+    "probabilities": {
+      "Normal": 0.9742,
+      "Mild": 0.0151,
+      "Severe": 0.0107
+    }
+  },
+  {
+    "index": 105,
+    "filename": "Normal_Skin_534.png",
+    "relative_path": "Normal_Skin_534.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9901,
+    "probabilities": {
+      "Normal": 0.9901,
+      "Mild": 0.0088,
+      "Severe": 0.0011
+    }
+  },
+  {
+    "index": 106,
+    "filename": "Normal_Skin_535.png",
+    "relative_path": "Normal_Skin_535.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.5197,
+    "probabilities": {
+      "Normal": 0.5197,
+      "Mild": 0.2993,
+      "Severe": 0.181
+    }
+  },
+  {
+    "index": 107,
+    "filename": "Normal_Skin_540.png",
+    "relative_path": "Normal_Skin_540.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9509,
+    "probabilities": {
+      "Normal": 0.9509,
+      "Mild": 0.039,
+      "Severe": 0.01
+    }
+  },
+  {
+    "index": 108,
+    "filename": "Normal_Skin_550.png",
+    "relative_path": "Normal_Skin_550.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8957,
+    "probabilities": {
+      "Normal": 0.8957,
+      "Mild": 0.0713,
+      "Severe": 0.0331
+    }
+  },
+  {
+    "index": 109,
+    "filename": "Normal_Skin_553.png",
+    "relative_path": "Normal_Skin_553.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9584,
+    "probabilities": {
+      "Normal": 0.9584,
+      "Mild": 0.0186,
+      "Severe": 0.0229
+    }
+  },
+  {
+    "index": 110,
+    "filename": "Normal_Skin_556.png",
+    "relative_path": "Normal_Skin_556.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8116,
+    "probabilities": {
+      "Normal": 0.8116,
+      "Mild": 0.1235,
+      "Severe": 0.0648
+    }
+  },
+  {
+    "index": 111,
+    "filename": "Normal_Skin_558.png",
+    "relative_path": "Normal_Skin_558.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.931,
+    "probabilities": {
+      "Normal": 0.931,
+      "Mild": 0.0577,
+      "Severe": 0.0113
+    }
+  },
+  {
+    "index": 112,
+    "filename": "Normal_Skin_574.png",
+    "relative_path": "Normal_Skin_574.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9793,
+    "probabilities": {
+      "Normal": 0.9793,
+      "Mild": 0.0132,
+      "Severe": 0.0075
+    }
+  },
+  {
+    "index": 113,
+    "filename": "Normal_Skin_585.png",
+    "relative_path": "Normal_Skin_585.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9375,
+    "probabilities": {
+      "Normal": 0.9375,
+      "Mild": 0.054,
+      "Severe": 0.0084
+    }
+  },
+  {
+    "index": 114,
+    "filename": "Normal_Skin_59.png",
+    "relative_path": "Normal_Skin_59.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9051,
+    "probabilities": {
+      "Normal": 0.9051,
+      "Mild": 0.0932,
+      "Severe": 0.0018
+    }
+  },
+  {
+    "index": 115,
+    "filename": "Normal_Skin_590.png",
+    "relative_path": "Normal_Skin_590.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7813,
+    "probabilities": {
+      "Normal": 0.7813,
+      "Mild": 0.1855,
+      "Severe": 0.0331
+    }
+  },
+  {
+    "index": 116,
+    "filename": "Normal_Skin_598.png",
+    "relative_path": "Normal_Skin_598.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9711,
+    "probabilities": {
+      "Normal": 0.9711,
+      "Mild": 0.0272,
+      "Severe": 0.0017
+    }
+  },
+  {
+    "index": 117,
+    "filename": "Normal_Skin_60.png",
+    "relative_path": "Normal_Skin_60.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9478,
+    "probabilities": {
+      "Normal": 0.9478,
+      "Mild": 0.0205,
+      "Severe": 0.0317
+    }
+  },
+  {
+    "index": 118,
+    "filename": "Normal_Skin_604.png",
+    "relative_path": "Normal_Skin_604.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8858,
+    "probabilities": {
+      "Normal": 0.8858,
+      "Mild": 0.0594,
+      "Severe": 0.0548
+    }
+  },
+  {
+    "index": 119,
+    "filename": "Normal_Skin_616.png",
+    "relative_path": "Normal_Skin_616.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9397,
+    "probabilities": {
+      "Normal": 0.9397,
+      "Mild": 0.0479,
+      "Severe": 0.0124
+    }
+  },
+  {
+    "index": 120,
+    "filename": "Normal_Skin_619.png",
+    "relative_path": "Normal_Skin_619.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": false,
+    "confidence": 0.5021,
+    "probabilities": {
+      "Normal": 0.2875,
+      "Mild": 0.2104,
+      "Severe": 0.5021
+    }
+  },
+  {
+    "index": 121,
+    "filename": "Normal_Skin_639.png",
+    "relative_path": "Normal_Skin_639.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.922,
+    "probabilities": {
+      "Normal": 0.922,
+      "Mild": 0.0395,
+      "Severe": 0.0385
+    }
+  },
+  {
+    "index": 122,
+    "filename": "Normal_Skin_644.png",
+    "relative_path": "Normal_Skin_644.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9967,
+    "probabilities": {
+      "Normal": 0.9967,
+      "Mild": 0.0021,
+      "Severe": 0.0012
+    }
+  },
+  {
+    "index": 123,
+    "filename": "Normal_Skin_650.png",
+    "relative_path": "Normal_Skin_650.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9177,
+    "probabilities": {
+      "Normal": 0.9177,
+      "Mild": 0.0542,
+      "Severe": 0.0281
+    }
+  },
+  {
+    "index": 124,
+    "filename": "Normal_Skin_656.png",
+    "relative_path": "Normal_Skin_656.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.899,
+    "probabilities": {
+      "Normal": 0.899,
+      "Mild": 0.0942,
+      "Severe": 0.0068
+    }
+  },
+  {
+    "index": 125,
+    "filename": "Normal_Skin_66.png",
+    "relative_path": "Normal_Skin_66.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9196,
+    "probabilities": {
+      "Normal": 0.9196,
+      "Mild": 0.0647,
+      "Severe": 0.0156
+    }
+  },
+  {
+    "index": 126,
+    "filename": "Normal_Skin_661.png",
+    "relative_path": "Normal_Skin_661.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.7881,
+    "probabilities": {
+      "Normal": 0.7881,
+      "Mild": 0.0798,
+      "Severe": 0.1322
+    }
+  },
+  {
+    "index": 127,
+    "filename": "Normal_Skin_673.png",
+    "relative_path": "Normal_Skin_673.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8853,
+    "probabilities": {
+      "Normal": 0.8853,
+      "Mild": 0.0659,
+      "Severe": 0.0488
+    }
+  },
+  {
+    "index": 128,
+    "filename": "Normal_Skin_676.png",
+    "relative_path": "Normal_Skin_676.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9307,
+    "probabilities": {
+      "Normal": 0.9307,
+      "Mild": 0.0356,
+      "Severe": 0.0337
+    }
+  },
+  {
+    "index": 129,
+    "filename": "Normal_Skin_677.png",
+    "relative_path": "Normal_Skin_677.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9409,
+    "probabilities": {
+      "Normal": 0.9409,
+      "Mild": 0.0179,
+      "Severe": 0.0412
+    }
+  },
+  {
+    "index": 130,
+    "filename": "Normal_Skin_680.png",
+    "relative_path": "Normal_Skin_680.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9837,
+    "probabilities": {
+      "Normal": 0.9837,
+      "Mild": 0.0087,
+      "Severe": 0.0076
+    }
+  },
+  {
+    "index": 131,
+    "filename": "Normal_Skin_693.png",
+    "relative_path": "Normal_Skin_693.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.5206,
+    "probabilities": {
+      "Normal": 0.5206,
+      "Mild": 0.2226,
+      "Severe": 0.2567
+    }
+  },
+  {
+    "index": 132,
+    "filename": "Normal_Skin_70.png",
+    "relative_path": "Normal_Skin_70.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9897,
+    "probabilities": {
+      "Normal": 0.9897,
+      "Mild": 0.007,
+      "Severe": 0.0033
+    }
+  },
+  {
+    "index": 133,
+    "filename": "Normal_Skin_703.png",
+    "relative_path": "Normal_Skin_703.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.8111,
+    "probabilities": {
+      "Normal": 0.8111,
+      "Mild": 0.085,
+      "Severe": 0.104
+    }
+  },
+  {
+    "index": 134,
+    "filename": "Normal_Skin_8.png",
+    "relative_path": "Normal_Skin_8.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9496,
+    "probabilities": {
+      "Normal": 0.9496,
+      "Mild": 0.0373,
+      "Severe": 0.0131
+    }
+  },
+  {
+    "index": 135,
+    "filename": "Normal_Skin_98.png",
+    "relative_path": "Normal_Skin_98.png",
+    "true_class": "Normal",
+    "true_label_idx": 0,
+    "predicted_class": "Normal",
+    "predicted_label_idx": 0,
+    "is_correct": true,
+    "confidence": 0.9605,
+    "probabilities": {
+      "Normal": 0.9605,
+      "Mild": 0.0339,
+      "Severe": 0.0055
+    }
+  },
+  {
+    "index": 136,
+    "filename": "Severe_10.png",
+    "relative_path": "Severe_10.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": false,
+    "confidence": 0.9227,
+    "probabilities": {
+      "Normal": 0.031,
+      "Mild": 0.9227,
+      "Severe": 0.0463
+    }
+  },
+  {
+    "index": 137,
+    "filename": "Severe_22.png",
+    "relative_path": "Severe_22.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": false,
+    "confidence": 0.9527,
+    "probabilities": {
+      "Normal": 0.0424,
+      "Mild": 0.9527,
+      "Severe": 0.0049
+    }
+  },
+  {
+    "index": 138,
+    "filename": "Severe_24.png",
+    "relative_path": "Severe_24.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.9172,
+    "probabilities": {
+      "Normal": 0.0062,
+      "Mild": 0.0766,
+      "Severe": 0.9172
+    }
+  },
+  {
+    "index": 139,
+    "filename": "Severe_33.png",
+    "relative_path": "Severe_33.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.9488,
+    "probabilities": {
+      "Normal": 0.0005,
+      "Mild": 0.0508,
+      "Severe": 0.9488
+    }
+  },
+  {
+    "index": 140,
+    "filename": "Severe_40.png",
+    "relative_path": "Severe_40.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Mild",
+    "predicted_label_idx": 1,
+    "is_correct": false,
+    "confidence": 0.7237,
+    "probabilities": {
+      "Normal": 0.0092,
+      "Mild": 0.7237,
+      "Severe": 0.2672
+    }
+  },
+  {
+    "index": 141,
+    "filename": "Severe_50.png",
+    "relative_path": "Severe_50.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.9562,
+    "probabilities": {
+      "Normal": 0.0035,
+      "Mild": 0.0403,
+      "Severe": 0.9562
+    }
+  },
+  {
+    "index": 142,
+    "filename": "Severe_53.png",
+    "relative_path": "Severe_53.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.7205,
+    "probabilities": {
+      "Normal": 0.0004,
+      "Mild": 0.2791,
+      "Severe": 0.7205
+    }
+  },
+  {
+    "index": 143,
+    "filename": "Severe_60.png",
+    "relative_path": "Severe_60.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.9768,
+    "probabilities": {
+      "Normal": 0.0084,
+      "Mild": 0.0148,
+      "Severe": 0.9768
+    }
+  },
+  {
+    "index": 144,
+    "filename": "Severe_64.png",
+    "relative_path": "Severe_64.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.7842,
+    "probabilities": {
+      "Normal": 0.0822,
+      "Mild": 0.1336,
+      "Severe": 0.7842
+    }
+  },
+  {
+    "index": 145,
+    "filename": "Severe_68.png",
+    "relative_path": "Severe_68.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.8805,
+    "probabilities": {
+      "Normal": 0.0048,
+      "Mild": 0.1146,
+      "Severe": 0.8805
+    }
+  },
+  {
+    "index": 146,
+    "filename": "Severe_75.png",
+    "relative_path": "Severe_75.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.7081,
+    "probabilities": {
+      "Normal": 0.0056,
+      "Mild": 0.2863,
+      "Severe": 0.7081
+    }
+  },
+  {
+    "index": 147,
+    "filename": "Severe_91.png",
+    "relative_path": "Severe_91.png",
+    "true_class": "Severe",
+    "true_label_idx": 2,
+    "predicted_class": "Severe",
+    "predicted_label_idx": 2,
+    "is_correct": true,
+    "confidence": 0.749,
+    "probabilities": {
+      "Normal": 0.0619,
+      "Mild": 0.1892,
+      "Severe": 0.749
+    }
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "accuracy": 0.9,
+  "macro_precision": 0.8755,
+  "macro_recall": 0.8536,
+  "macro_f1": 0.8562,
+  "weighted_precision": 0.9019,
+  "weighted_recall": 0.9,
+  "weighted_f1": 0.8955,
+  "roc_auc_ovr_macro": 0.9592,
+  "roc_auc_ovr_weighted": 0.9551,
+  "per_class": {
+    "Normal": {
+      "precision": 0.9099,
+      "recall": 0.9712,
+      "f1": 0.9395,
+      "support": 104
+    },
+    "Mild": {
+      "precision": 0.9167,
+      "recall": 0.6667,
+      "f1": 0.7719,
+      "support": 33
+    },
+    "Severe": {
+      "precision": 0.8,
+      "recall": 0.9231,
+      "f1": 0.8571,
+      "support": 13
+    }
+  },
+  "confusion_matrix": [
+    [
+      101,
+      2,
+      1
+    ],
+    [
+      9,
+      22,
+      2
+    ],
+    [
+      1,
+      0,
+      12
+    ]
+  ],
+  "total_samples": 150,
+  "loss": 0.5933,
+  "best_epoch": 34,
+  "best_phase": 2,
+  "training_duration_seconds": 1238.96
+}

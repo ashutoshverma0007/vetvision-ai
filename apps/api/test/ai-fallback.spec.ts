@@ -4,7 +4,7 @@ import { PredictionStatus } from '@vetvision/shared-types';
 
 describe('AIClientService Fallback & Resilience', () => {
   it('returns MODEL_UNAVAILABLE with honest diagnostic message when AI service is offline', async () => {
-    const aiClient = new AIClientService();
+    const aiClient = new AIClientService('http://127.0.0.1:59999');
 
     // Call inference with unreachable port
     const result = await aiClient.infer({
@@ -21,7 +21,7 @@ describe('AIClientService Fallback & Resilience', () => {
   });
 
   it('reports DEGRADED or OFFLINE on health check when Python backend is not running', async () => {
-    const aiClient = new AIClientService();
+    const aiClient = new AIClientService('http://127.0.0.1:59999');
     const health = await aiClient.checkHealth();
     expect(['OFFLINE', 'DEGRADED']).toContain(health.status);
     expect(health.models).toEqual([]);

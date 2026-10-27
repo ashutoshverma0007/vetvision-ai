@@ -1,0 +1,5402 @@
+[
+  {
+    "index": 0,
+    "filename": "Mild_101.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.4838,
+      "probabilities": {
+        "Normal": 0.0705,
+        "Mild": 0.4838,
+        "Severe": 0.4457
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.5215,
+      "probabilities": {
+        "Normal": 0.0602,
+        "Mild": 0.5215,
+        "Severe": 0.4183
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.5108,
+      "probabilities": {
+        "Normal": 0.0596,
+        "Mild": 0.5108,
+        "Severe": 0.4296
+      }
+    }
+  },
+  {
+    "index": 1,
+    "filename": "Mild_107.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7969,
+      "probabilities": {
+        "Normal": 0.0858,
+        "Mild": 0.7969,
+        "Severe": 0.1173
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8142,
+      "probabilities": {
+        "Normal": 0.0858,
+        "Mild": 0.8142,
+        "Severe": 0.0999
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7814,
+      "probabilities": {
+        "Normal": 0.0698,
+        "Mild": 0.7814,
+        "Severe": 0.1488
+      }
+    }
+  },
+  {
+    "index": 2,
+    "filename": "Mild_113.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.5295,
+      "probabilities": {
+        "Normal": 0.5295,
+        "Mild": 0.302,
+        "Severe": 0.1685
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.4729,
+      "probabilities": {
+        "Normal": 0.4729,
+        "Mild": 0.317,
+        "Severe": 0.2101
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.4965,
+      "probabilities": {
+        "Normal": 0.4965,
+        "Mild": 0.2989,
+        "Severe": 0.2047
+      }
+    }
+  },
+  {
+    "index": 3,
+    "filename": "Mild_127.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9835,
+      "probabilities": {
+        "Normal": 0.0026,
+        "Mild": 0.9835,
+        "Severe": 0.0139
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9839,
+      "probabilities": {
+        "Normal": 0.0047,
+        "Mild": 0.9839,
+        "Severe": 0.0114
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9824,
+      "probabilities": {
+        "Normal": 0.0083,
+        "Mild": 0.9824,
+        "Severe": 0.0094
+      }
+    }
+  },
+  {
+    "index": 4,
+    "filename": "Mild_138.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.9403,
+      "probabilities": {
+        "Normal": 0.9403,
+        "Mild": 0.0568,
+        "Severe": 0.0029
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.9238,
+      "probabilities": {
+        "Normal": 0.9238,
+        "Mild": 0.0735,
+        "Severe": 0.0027
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.7202,
+      "probabilities": {
+        "Normal": 0.7202,
+        "Mild": 0.2743,
+        "Severe": 0.0055
+      }
+    }
+  },
+  {
+    "index": 5,
+    "filename": "Mild_145.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7736,
+      "probabilities": {
+        "Normal": 0.0315,
+        "Mild": 0.7736,
+        "Severe": 0.1949
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7588,
+      "probabilities": {
+        "Normal": 0.027,
+        "Mild": 0.7588,
+        "Severe": 0.2141
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7925,
+      "probabilities": {
+        "Normal": 0.0441,
+        "Mild": 0.7925,
+        "Severe": 0.1634
+      }
+    }
+  },
+  {
+    "index": 6,
+    "filename": "Mild_146.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.6913,
+      "probabilities": {
+        "Normal": 0.6913,
+        "Mild": 0.2998,
+        "Severe": 0.0089
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.7214,
+      "probabilities": {
+        "Normal": 0.7214,
+        "Mild": 0.2612,
+        "Severe": 0.0175
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.5815,
+      "probabilities": {
+        "Normal": 0.5815,
+        "Mild": 0.4014,
+        "Severe": 0.017
+      }
+    }
+  },
+  {
+    "index": 7,
+    "filename": "Mild_149.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.943,
+      "probabilities": {
+        "Normal": 0.0227,
+        "Mild": 0.943,
+        "Severe": 0.0343
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9131,
+      "probabilities": {
+        "Normal": 0.0402,
+        "Mild": 0.9131,
+        "Severe": 0.0467
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9332,
+      "probabilities": {
+        "Normal": 0.0293,
+        "Mild": 0.9332,
+        "Severe": 0.0374
+      }
+    }
+  },
+  {
+    "index": 8,
+    "filename": "Mild_153.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7637,
+      "probabilities": {
+        "Normal": 0.1553,
+        "Mild": 0.7637,
+        "Severe": 0.0811
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7555,
+      "probabilities": {
+        "Normal": 0.1846,
+        "Mild": 0.7555,
+        "Severe": 0.0599
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7727,
+      "probabilities": {
+        "Normal": 0.1758,
+        "Mild": 0.7727,
+        "Severe": 0.0515
+      }
+    }
+  },
+  {
+    "index": 9,
+    "filename": "Mild_156.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.3467,
+      "probabilities": {
+        "Normal": 0.3348,
+        "Mild": 0.3467,
+        "Severe": 0.3185
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.3544,
+      "probabilities": {
+        "Normal": 0.3544,
+        "Mild": 0.3446,
+        "Severe": 0.301
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.4037,
+      "probabilities": {
+        "Normal": 0.2947,
+        "Mild": 0.4037,
+        "Severe": 0.3016
+      }
+    }
+  },
+  {
+    "index": 10,
+    "filename": "Mild_158.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.3521,
+      "probabilities": {
+        "Normal": 0.3205,
+        "Mild": 0.3521,
+        "Severe": 0.3274
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": false,
+      "confidence": 0.3809,
+      "probabilities": {
+        "Normal": 0.2642,
+        "Mild": 0.3549,
+        "Severe": 0.3809
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": false,
+      "confidence": 0.3599,
+      "probabilities": {
+        "Normal": 0.2917,
+        "Mild": 0.3484,
+        "Severe": 0.3599
+      }
+    }
+  },
+  {
+    "index": 11,
+    "filename": "Mild_16.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9582,
+      "probabilities": {
+        "Normal": 0.0003,
+        "Mild": 0.9582,
+        "Severe": 0.0416
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9541,
+      "probabilities": {
+        "Normal": 0.0002,
+        "Mild": 0.9541,
+        "Severe": 0.0456
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9347,
+      "probabilities": {
+        "Normal": 0.0003,
+        "Mild": 0.9347,
+        "Severe": 0.0649
+      }
+    }
+  },
+  {
+    "index": 12,
+    "filename": "Mild_164.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8001,
+      "probabilities": {
+        "Normal": 0.1509,
+        "Mild": 0.8001,
+        "Severe": 0.049
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8047,
+      "probabilities": {
+        "Normal": 0.1451,
+        "Mild": 0.8047,
+        "Severe": 0.0502
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8276,
+      "probabilities": {
+        "Normal": 0.1376,
+        "Mild": 0.8276,
+        "Severe": 0.0347
+      }
+    }
+  },
+  {
+    "index": 13,
+    "filename": "Mild_168.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8519,
+      "probabilities": {
+        "Normal": 0.1359,
+        "Mild": 0.8519,
+        "Severe": 0.0123
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7918,
+      "probabilities": {
+        "Normal": 0.1769,
+        "Mild": 0.7918,
+        "Severe": 0.0313
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8266,
+      "probabilities": {
+        "Normal": 0.1511,
+        "Mild": 0.8266,
+        "Severe": 0.0224
+      }
+    }
+  },
+  {
+    "index": 14,
+    "filename": "Mild_170.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.4796,
+      "probabilities": {
+        "Normal": 0.4541,
+        "Mild": 0.4796,
+        "Severe": 0.0663
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.4784,
+      "probabilities": {
+        "Normal": 0.4784,
+        "Mild": 0.4647,
+        "Severe": 0.0569
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.5536,
+      "probabilities": {
+        "Normal": 0.5536,
+        "Mild": 0.4019,
+        "Severe": 0.0445
+      }
+    }
+  },
+  {
+    "index": 15,
+    "filename": "Mild_174.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.8846,
+      "probabilities": {
+        "Normal": 0.8846,
+        "Mild": 0.1045,
+        "Severe": 0.0109
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.8819,
+      "probabilities": {
+        "Normal": 0.8819,
+        "Mild": 0.1069,
+        "Severe": 0.0112
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.8809,
+      "probabilities": {
+        "Normal": 0.8809,
+        "Mild": 0.1106,
+        "Severe": 0.0085
+      }
+    }
+  },
+  {
+    "index": 16,
+    "filename": "Mild_180.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.6509,
+      "probabilities": {
+        "Normal": 0.6509,
+        "Mild": 0.3398,
+        "Severe": 0.0092
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.6611,
+      "probabilities": {
+        "Normal": 0.6611,
+        "Mild": 0.3306,
+        "Severe": 0.0083
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.5166,
+      "probabilities": {
+        "Normal": 0.4759,
+        "Mild": 0.5166,
+        "Severe": 0.0075
+      }
+    }
+  },
+  {
+    "index": 17,
+    "filename": "Mild_20.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.5608,
+      "probabilities": {
+        "Normal": 0.109,
+        "Mild": 0.5608,
+        "Severe": 0.3302
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6295,
+      "probabilities": {
+        "Normal": 0.0909,
+        "Mild": 0.6295,
+        "Severe": 0.2796
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6206,
+      "probabilities": {
+        "Normal": 0.0762,
+        "Mild": 0.6206,
+        "Severe": 0.3033
+      }
+    }
+  },
+  {
+    "index": 18,
+    "filename": "Mild_203.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": false,
+      "confidence": 0.7269,
+      "probabilities": {
+        "Normal": 0.0308,
+        "Mild": 0.2423,
+        "Severe": 0.7269
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": false,
+      "confidence": 0.7755,
+      "probabilities": {
+        "Normal": 0.0295,
+        "Mild": 0.195,
+        "Severe": 0.7755
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": false,
+      "confidence": 0.7572,
+      "probabilities": {
+        "Normal": 0.0292,
+        "Mild": 0.2137,
+        "Severe": 0.7572
+      }
+    }
+  },
+  {
+    "index": 19,
+    "filename": "Mild_207.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9925,
+      "probabilities": {
+        "Normal": 0.0035,
+        "Mild": 0.9925,
+        "Severe": 0.004
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9865,
+      "probabilities": {
+        "Normal": 0.0062,
+        "Mild": 0.9865,
+        "Severe": 0.0074
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9889,
+      "probabilities": {
+        "Normal": 0.0052,
+        "Mild": 0.9889,
+        "Severe": 0.006
+      }
+    }
+  },
+  {
+    "index": 20,
+    "filename": "Mild_217.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8312,
+      "probabilities": {
+        "Normal": 0.1541,
+        "Mild": 0.8312,
+        "Severe": 0.0147
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7753,
+      "probabilities": {
+        "Normal": 0.2114,
+        "Mild": 0.7753,
+        "Severe": 0.0133
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7293,
+      "probabilities": {
+        "Normal": 0.2492,
+        "Mild": 0.7293,
+        "Severe": 0.0215
+      }
+    }
+  },
+  {
+    "index": 21,
+    "filename": "Mild_218.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.4479,
+      "probabilities": {
+        "Normal": 0.4479,
+        "Mild": 0.2859,
+        "Severe": 0.2662
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.4773,
+      "probabilities": {
+        "Normal": 0.4773,
+        "Mild": 0.2817,
+        "Severe": 0.241
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.3903,
+      "probabilities": {
+        "Normal": 0.3903,
+        "Mild": 0.32,
+        "Severe": 0.2897
+      }
+    }
+  },
+  {
+    "index": 22,
+    "filename": "Mild_225.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6729,
+      "probabilities": {
+        "Normal": 0.0029,
+        "Mild": 0.6729,
+        "Severe": 0.3242
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6342,
+      "probabilities": {
+        "Normal": 0.0022,
+        "Mild": 0.6342,
+        "Severe": 0.3636
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6932,
+      "probabilities": {
+        "Normal": 0.0029,
+        "Mild": 0.6932,
+        "Severe": 0.3039
+      }
+    }
+  },
+  {
+    "index": 23,
+    "filename": "Mild_27.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9558,
+      "probabilities": {
+        "Normal": 0.0014,
+        "Mild": 0.9558,
+        "Severe": 0.0428
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9587,
+      "probabilities": {
+        "Normal": 0.0009,
+        "Mild": 0.9587,
+        "Severe": 0.0404
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9593,
+      "probabilities": {
+        "Normal": 0.0009,
+        "Mild": 0.9593,
+        "Severe": 0.0397
+      }
+    }
+  },
+  {
+    "index": 24,
+    "filename": "Mild_34.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.5616,
+      "probabilities": {
+        "Normal": 0.0753,
+        "Mild": 0.5616,
+        "Severe": 0.363
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6383,
+      "probabilities": {
+        "Normal": 0.0804,
+        "Mild": 0.6383,
+        "Severe": 0.2813
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6776,
+      "probabilities": {
+        "Normal": 0.0769,
+        "Mild": 0.6776,
+        "Severe": 0.2456
+      }
+    }
+  },
+  {
+    "index": 25,
+    "filename": "Mild_40.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9854,
+      "probabilities": {
+        "Normal": 0.0036,
+        "Mild": 0.9854,
+        "Severe": 0.011
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9848,
+      "probabilities": {
+        "Normal": 0.0021,
+        "Mild": 0.9848,
+        "Severe": 0.0131
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9845,
+      "probabilities": {
+        "Normal": 0.0019,
+        "Mild": 0.9845,
+        "Severe": 0.0136
+      }
+    }
+  },
+  {
+    "index": 26,
+    "filename": "Mild_49.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.5762,
+      "probabilities": {
+        "Normal": 0.5762,
+        "Mild": 0.3737,
+        "Severe": 0.0501
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": false,
+      "confidence": 0.5274,
+      "probabilities": {
+        "Normal": 0.5274,
+        "Mild": 0.4167,
+        "Severe": 0.0559
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6058,
+      "probabilities": {
+        "Normal": 0.3554,
+        "Mild": 0.6058,
+        "Severe": 0.0388
+      }
+    }
+  },
+  {
+    "index": 27,
+    "filename": "Mild_67.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.835,
+      "probabilities": {
+        "Normal": 0.0447,
+        "Mild": 0.835,
+        "Severe": 0.1203
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8554,
+      "probabilities": {
+        "Normal": 0.0379,
+        "Mild": 0.8554,
+        "Severe": 0.1067
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8387,
+      "probabilities": {
+        "Normal": 0.0493,
+        "Mild": 0.8387,
+        "Severe": 0.112
+      }
+    }
+  },
+  {
+    "index": 28,
+    "filename": "Mild_71.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7957,
+      "probabilities": {
+        "Normal": 0.0897,
+        "Mild": 0.7957,
+        "Severe": 0.1146
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.7809,
+      "probabilities": {
+        "Normal": 0.1052,
+        "Mild": 0.7809,
+        "Severe": 0.1138
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8127,
+      "probabilities": {
+        "Normal": 0.0885,
+        "Mild": 0.8127,
+        "Severe": 0.0988
+      }
+    }
+  },
+  {
+    "index": 29,
+    "filename": "Mild_77.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9207,
+      "probabilities": {
+        "Normal": 0.059,
+        "Mild": 0.9207,
+        "Severe": 0.0202
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9351,
+      "probabilities": {
+        "Normal": 0.0444,
+        "Mild": 0.9351,
+        "Severe": 0.0205
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.952,
+      "probabilities": {
+        "Normal": 0.0314,
+        "Mild": 0.952,
+        "Severe": 0.0166
+      }
+    }
+  },
+  {
+    "index": 30,
+    "filename": "Mild_79.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6457,
+      "probabilities": {
+        "Normal": 0.3468,
+        "Mild": 0.6457,
+        "Severe": 0.0075
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6495,
+      "probabilities": {
+        "Normal": 0.3406,
+        "Mild": 0.6495,
+        "Severe": 0.0099
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.6887,
+      "probabilities": {
+        "Normal": 0.2931,
+        "Mild": 0.6887,
+        "Severe": 0.0182
+      }
+    }
+  },
+  {
+    "index": 31,
+    "filename": "Mild_8.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9556,
+      "probabilities": {
+        "Normal": 0.0292,
+        "Mild": 0.9556,
+        "Severe": 0.0152
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9411,
+      "probabilities": {
+        "Normal": 0.0427,
+        "Mild": 0.9411,
+        "Severe": 0.0161
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.9478,
+      "probabilities": {
+        "Normal": 0.0366,
+        "Mild": 0.9478,
+        "Severe": 0.0156
+      }
+    }
+  },
+  {
+    "index": 32,
+    "filename": "Mild_95.png",
+    "true_class": "Mild",
+    "true_label": 1,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8797,
+      "probabilities": {
+        "Normal": 0.0784,
+        "Mild": 0.8797,
+        "Severe": 0.0419
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8758,
+      "probabilities": {
+        "Normal": 0.0776,
+        "Mild": 0.8758,
+        "Severe": 0.0467
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": true,
+      "confidence": 0.8813,
+      "probabilities": {
+        "Normal": 0.0671,
+        "Mild": 0.8813,
+        "Severe": 0.0516
+      }
+    }
+  },
+  {
+    "index": 33,
+    "filename": "Normal_Skin_10.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8474,
+      "probabilities": {
+        "Normal": 0.8474,
+        "Mild": 0.1484,
+        "Severe": 0.0043
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8487,
+      "probabilities": {
+        "Normal": 0.8487,
+        "Mild": 0.1476,
+        "Severe": 0.0037
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8906,
+      "probabilities": {
+        "Normal": 0.8906,
+        "Mild": 0.1065,
+        "Severe": 0.0029
+      }
+    }
+  },
+  {
+    "index": 34,
+    "filename": "Normal_Skin_101.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4828,
+      "probabilities": {
+        "Normal": 0.4828,
+        "Mild": 0.4651,
+        "Severe": 0.0521
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.5042,
+      "probabilities": {
+        "Normal": 0.5042,
+        "Mild": 0.4512,
+        "Severe": 0.0446
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5347,
+      "probabilities": {
+        "Normal": 0.4338,
+        "Mild": 0.5347,
+        "Severe": 0.0314
+      }
+    }
+  },
+  {
+    "index": 35,
+    "filename": "Normal_Skin_102.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9773,
+      "probabilities": {
+        "Normal": 0.9773,
+        "Mild": 0.0124,
+        "Severe": 0.0102
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9811,
+      "probabilities": {
+        "Normal": 0.9811,
+        "Mild": 0.0111,
+        "Severe": 0.0078
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9825,
+      "probabilities": {
+        "Normal": 0.9825,
+        "Mild": 0.0114,
+        "Severe": 0.0061
+      }
+    }
+  },
+  {
+    "index": 36,
+    "filename": "Normal_Skin_103.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7922,
+      "probabilities": {
+        "Normal": 0.7922,
+        "Mild": 0.1624,
+        "Severe": 0.0454
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7982,
+      "probabilities": {
+        "Normal": 0.7982,
+        "Mild": 0.1559,
+        "Severe": 0.0459
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7496,
+      "probabilities": {
+        "Normal": 0.7496,
+        "Mild": 0.2007,
+        "Severe": 0.0497
+      }
+    }
+  },
+  {
+    "index": 37,
+    "filename": "Normal_Skin_111.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9876,
+      "probabilities": {
+        "Normal": 0.9876,
+        "Mild": 0.0095,
+        "Severe": 0.0029
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9824,
+      "probabilities": {
+        "Normal": 0.9824,
+        "Mild": 0.0135,
+        "Severe": 0.0041
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9741,
+      "probabilities": {
+        "Normal": 0.9741,
+        "Mild": 0.0198,
+        "Severe": 0.0062
+      }
+    }
+  },
+  {
+    "index": 38,
+    "filename": "Normal_Skin_116.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9925,
+      "probabilities": {
+        "Normal": 0.9925,
+        "Mild": 0.0063,
+        "Severe": 0.0012
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9921,
+      "probabilities": {
+        "Normal": 0.9921,
+        "Mild": 0.0066,
+        "Severe": 0.0012
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9645,
+      "probabilities": {
+        "Normal": 0.9645,
+        "Mild": 0.0258,
+        "Severe": 0.0096
+      }
+    }
+  },
+  {
+    "index": 39,
+    "filename": "Normal_Skin_119.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.946,
+      "probabilities": {
+        "Normal": 0.946,
+        "Mild": 0.0506,
+        "Severe": 0.0034
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.926,
+      "probabilities": {
+        "Normal": 0.926,
+        "Mild": 0.0703,
+        "Severe": 0.0037
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8606,
+      "probabilities": {
+        "Normal": 0.8606,
+        "Mild": 0.1344,
+        "Severe": 0.005
+      }
+    }
+  },
+  {
+    "index": 40,
+    "filename": "Normal_Skin_131.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9874,
+      "probabilities": {
+        "Normal": 0.9874,
+        "Mild": 0.0068,
+        "Severe": 0.0058
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9867,
+      "probabilities": {
+        "Normal": 0.9867,
+        "Mild": 0.0068,
+        "Severe": 0.0064
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9889,
+      "probabilities": {
+        "Normal": 0.9889,
+        "Mild": 0.0062,
+        "Severe": 0.0049
+      }
+    }
+  },
+  {
+    "index": 41,
+    "filename": "Normal_Skin_138.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.952,
+      "probabilities": {
+        "Normal": 0.952,
+        "Mild": 0.0446,
+        "Severe": 0.0034
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9371,
+      "probabilities": {
+        "Normal": 0.9371,
+        "Mild": 0.057,
+        "Severe": 0.0059
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8846,
+      "probabilities": {
+        "Normal": 0.8846,
+        "Mild": 0.1036,
+        "Severe": 0.0117
+      }
+    }
+  },
+  {
+    "index": 42,
+    "filename": "Normal_Skin_148.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5831,
+      "probabilities": {
+        "Normal": 0.3527,
+        "Mild": 0.5831,
+        "Severe": 0.0641
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.6041,
+      "probabilities": {
+        "Normal": 0.3281,
+        "Mild": 0.6041,
+        "Severe": 0.0678
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.6442,
+      "probabilities": {
+        "Normal": 0.2791,
+        "Mild": 0.6442,
+        "Severe": 0.0767
+      }
+    }
+  },
+  {
+    "index": 43,
+    "filename": "Normal_Skin_154.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8912,
+      "probabilities": {
+        "Normal": 0.8912,
+        "Mild": 0.1018,
+        "Severe": 0.007
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8506,
+      "probabilities": {
+        "Normal": 0.8506,
+        "Mild": 0.1405,
+        "Severe": 0.0089
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6903,
+      "probabilities": {
+        "Normal": 0.6903,
+        "Mild": 0.2822,
+        "Severe": 0.0275
+      }
+    }
+  },
+  {
+    "index": 44,
+    "filename": "Normal_Skin_169.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9567,
+      "probabilities": {
+        "Normal": 0.9567,
+        "Mild": 0.0298,
+        "Severe": 0.0135
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9549,
+      "probabilities": {
+        "Normal": 0.9549,
+        "Mild": 0.0311,
+        "Severe": 0.014
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9023,
+      "probabilities": {
+        "Normal": 0.9023,
+        "Mild": 0.0717,
+        "Severe": 0.0259
+      }
+    }
+  },
+  {
+    "index": 45,
+    "filename": "Normal_Skin_171.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9774,
+      "probabilities": {
+        "Normal": 0.9774,
+        "Mild": 0.0176,
+        "Severe": 0.0051
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9697,
+      "probabilities": {
+        "Normal": 0.9697,
+        "Mild": 0.0239,
+        "Severe": 0.0063
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8819,
+      "probabilities": {
+        "Normal": 0.8819,
+        "Mild": 0.1109,
+        "Severe": 0.0072
+      }
+    }
+  },
+  {
+    "index": 46,
+    "filename": "Normal_Skin_186.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9885,
+      "probabilities": {
+        "Normal": 0.9885,
+        "Mild": 0.0066,
+        "Severe": 0.0049
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.989,
+      "probabilities": {
+        "Normal": 0.989,
+        "Mild": 0.0064,
+        "Severe": 0.0046
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9633,
+      "probabilities": {
+        "Normal": 0.9633,
+        "Mild": 0.029,
+        "Severe": 0.0076
+      }
+    }
+  },
+  {
+    "index": 47,
+    "filename": "Normal_Skin_19.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9281,
+      "probabilities": {
+        "Normal": 0.9281,
+        "Mild": 0.0564,
+        "Severe": 0.0154
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9417,
+      "probabilities": {
+        "Normal": 0.9417,
+        "Mild": 0.0469,
+        "Severe": 0.0113
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9046,
+      "probabilities": {
+        "Normal": 0.9046,
+        "Mild": 0.078,
+        "Severe": 0.0173
+      }
+    }
+  },
+  {
+    "index": 48,
+    "filename": "Normal_Skin_190.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8408,
+      "probabilities": {
+        "Normal": 0.8408,
+        "Mild": 0.1492,
+        "Severe": 0.01
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8714,
+      "probabilities": {
+        "Normal": 0.8714,
+        "Mild": 0.1202,
+        "Severe": 0.0084
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7478,
+      "probabilities": {
+        "Normal": 0.7478,
+        "Mild": 0.2332,
+        "Severe": 0.0191
+      }
+    }
+  },
+  {
+    "index": 49,
+    "filename": "Normal_Skin_209.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9162,
+      "probabilities": {
+        "Normal": 0.9162,
+        "Mild": 0.0658,
+        "Severe": 0.018
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9272,
+      "probabilities": {
+        "Normal": 0.9272,
+        "Mild": 0.0568,
+        "Severe": 0.016
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9058,
+      "probabilities": {
+        "Normal": 0.9058,
+        "Mild": 0.083,
+        "Severe": 0.0111
+      }
+    }
+  },
+  {
+    "index": 50,
+    "filename": "Normal_Skin_217.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9487,
+      "probabilities": {
+        "Normal": 0.9487,
+        "Mild": 0.0462,
+        "Severe": 0.0051
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9569,
+      "probabilities": {
+        "Normal": 0.9569,
+        "Mild": 0.0389,
+        "Severe": 0.0042
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9159,
+      "probabilities": {
+        "Normal": 0.9159,
+        "Mild": 0.078,
+        "Severe": 0.0061
+      }
+    }
+  },
+  {
+    "index": 51,
+    "filename": "Normal_Skin_22.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9961,
+      "probabilities": {
+        "Normal": 0.9961,
+        "Mild": 0.0031,
+        "Severe": 0.0008
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9924,
+      "probabilities": {
+        "Normal": 0.9924,
+        "Mild": 0.0054,
+        "Severe": 0.0022
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9869,
+      "probabilities": {
+        "Normal": 0.9869,
+        "Mild": 0.0114,
+        "Severe": 0.0017
+      }
+    }
+  },
+  {
+    "index": 52,
+    "filename": "Normal_Skin_229.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9383,
+      "probabilities": {
+        "Normal": 0.9383,
+        "Mild": 0.0548,
+        "Severe": 0.0069
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9441,
+      "probabilities": {
+        "Normal": 0.9441,
+        "Mild": 0.0492,
+        "Severe": 0.0068
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9195,
+      "probabilities": {
+        "Normal": 0.9195,
+        "Mild": 0.0735,
+        "Severe": 0.007
+      }
+    }
+  },
+  {
+    "index": 53,
+    "filename": "Normal_Skin_232.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4028,
+      "probabilities": {
+        "Normal": 0.4028,
+        "Mild": 0.2738,
+        "Severe": 0.3234
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4581,
+      "probabilities": {
+        "Normal": 0.4581,
+        "Mild": 0.2636,
+        "Severe": 0.2783
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.3852,
+      "probabilities": {
+        "Normal": 0.3852,
+        "Mild": 0.2799,
+        "Severe": 0.335
+      }
+    }
+  },
+  {
+    "index": 54,
+    "filename": "Normal_Skin_246.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9515,
+      "probabilities": {
+        "Normal": 0.9515,
+        "Mild": 0.0281,
+        "Severe": 0.0204
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9502,
+      "probabilities": {
+        "Normal": 0.9502,
+        "Mild": 0.0286,
+        "Severe": 0.0212
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8844,
+      "probabilities": {
+        "Normal": 0.8844,
+        "Mild": 0.0963,
+        "Severe": 0.0193
+      }
+    }
+  },
+  {
+    "index": 55,
+    "filename": "Normal_Skin_251.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9725,
+      "probabilities": {
+        "Normal": 0.9725,
+        "Mild": 0.0224,
+        "Severe": 0.005
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9654,
+      "probabilities": {
+        "Normal": 0.9654,
+        "Mild": 0.0296,
+        "Severe": 0.005
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8861,
+      "probabilities": {
+        "Normal": 0.8861,
+        "Mild": 0.1045,
+        "Severe": 0.0093
+      }
+    }
+  },
+  {
+    "index": 56,
+    "filename": "Normal_Skin_254.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9848,
+      "probabilities": {
+        "Normal": 0.9848,
+        "Mild": 0.0123,
+        "Severe": 0.0029
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9755,
+      "probabilities": {
+        "Normal": 0.9755,
+        "Mild": 0.0205,
+        "Severe": 0.004
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.938,
+      "probabilities": {
+        "Normal": 0.938,
+        "Mild": 0.0423,
+        "Severe": 0.0197
+      }
+    }
+  },
+  {
+    "index": 57,
+    "filename": "Normal_Skin_255.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9135,
+      "probabilities": {
+        "Normal": 0.9135,
+        "Mild": 0.0609,
+        "Severe": 0.0256
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8993,
+      "probabilities": {
+        "Normal": 0.8993,
+        "Mild": 0.0704,
+        "Severe": 0.0303
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8963,
+      "probabilities": {
+        "Normal": 0.8963,
+        "Mild": 0.0687,
+        "Severe": 0.035
+      }
+    }
+  },
+  {
+    "index": 58,
+    "filename": "Normal_Skin_259.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8971,
+      "probabilities": {
+        "Normal": 0.8971,
+        "Mild": 0.0971,
+        "Severe": 0.0058
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.871,
+      "probabilities": {
+        "Normal": 0.871,
+        "Mild": 0.1203,
+        "Severe": 0.0087
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8147,
+      "probabilities": {
+        "Normal": 0.8147,
+        "Mild": 0.1639,
+        "Severe": 0.0215
+      }
+    }
+  },
+  {
+    "index": 59,
+    "filename": "Normal_Skin_271.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.6403,
+      "probabilities": {
+        "Normal": 0.2549,
+        "Mild": 0.6403,
+        "Severe": 0.1048
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5761,
+      "probabilities": {
+        "Normal": 0.3108,
+        "Mild": 0.5761,
+        "Severe": 0.1131
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.6229,
+      "probabilities": {
+        "Normal": 0.2702,
+        "Mild": 0.6229,
+        "Severe": 0.1069
+      }
+    }
+  },
+  {
+    "index": 60,
+    "filename": "Normal_Skin_272.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9763,
+      "probabilities": {
+        "Normal": 0.9763,
+        "Mild": 0.0184,
+        "Severe": 0.0053
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9784,
+      "probabilities": {
+        "Normal": 0.9784,
+        "Mild": 0.0163,
+        "Severe": 0.0053
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9144,
+      "probabilities": {
+        "Normal": 0.9144,
+        "Mild": 0.0685,
+        "Severe": 0.017
+      }
+    }
+  },
+  {
+    "index": 61,
+    "filename": "Normal_Skin_281.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9198,
+      "probabilities": {
+        "Normal": 0.9198,
+        "Mild": 0.033,
+        "Severe": 0.0472
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9128,
+      "probabilities": {
+        "Normal": 0.9128,
+        "Mild": 0.0471,
+        "Severe": 0.0401
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7081,
+      "probabilities": {
+        "Normal": 0.7081,
+        "Mild": 0.0745,
+        "Severe": 0.2174
+      }
+    }
+  },
+  {
+    "index": 62,
+    "filename": "Normal_Skin_284.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9098,
+      "probabilities": {
+        "Normal": 0.9098,
+        "Mild": 0.0447,
+        "Severe": 0.0455
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9327,
+      "probabilities": {
+        "Normal": 0.9327,
+        "Mild": 0.0329,
+        "Severe": 0.0344
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8265,
+      "probabilities": {
+        "Normal": 0.8265,
+        "Mild": 0.096,
+        "Severe": 0.0775
+      }
+    }
+  },
+  {
+    "index": 63,
+    "filename": "Normal_Skin_295.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.852,
+      "probabilities": {
+        "Normal": 0.852,
+        "Mild": 0.1412,
+        "Severe": 0.0068
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8668,
+      "probabilities": {
+        "Normal": 0.8668,
+        "Mild": 0.1289,
+        "Severe": 0.0043
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6579,
+      "probabilities": {
+        "Normal": 0.6579,
+        "Mild": 0.3373,
+        "Severe": 0.0048
+      }
+    }
+  },
+  {
+    "index": 64,
+    "filename": "Normal_Skin_308.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.834,
+      "probabilities": {
+        "Normal": 0.834,
+        "Mild": 0.1501,
+        "Severe": 0.0159
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8211,
+      "probabilities": {
+        "Normal": 0.8211,
+        "Mild": 0.1645,
+        "Severe": 0.0145
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8495,
+      "probabilities": {
+        "Normal": 0.8495,
+        "Mild": 0.1389,
+        "Severe": 0.0117
+      }
+    }
+  },
+  {
+    "index": 65,
+    "filename": "Normal_Skin_311.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9405,
+      "probabilities": {
+        "Normal": 0.9405,
+        "Mild": 0.0536,
+        "Severe": 0.0059
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9252,
+      "probabilities": {
+        "Normal": 0.9252,
+        "Mild": 0.0626,
+        "Severe": 0.0122
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9241,
+      "probabilities": {
+        "Normal": 0.9241,
+        "Mild": 0.064,
+        "Severe": 0.0119
+      }
+    }
+  },
+  {
+    "index": 66,
+    "filename": "Normal_Skin_32.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.922,
+      "probabilities": {
+        "Normal": 0.922,
+        "Mild": 0.0718,
+        "Severe": 0.0062
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8533,
+      "probabilities": {
+        "Normal": 0.8533,
+        "Mild": 0.1363,
+        "Severe": 0.0105
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8561,
+      "probabilities": {
+        "Normal": 0.8561,
+        "Mild": 0.1183,
+        "Severe": 0.0256
+      }
+    }
+  },
+  {
+    "index": 67,
+    "filename": "Normal_Skin_324.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.956,
+      "probabilities": {
+        "Normal": 0.956,
+        "Mild": 0.0358,
+        "Severe": 0.0082
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9611,
+      "probabilities": {
+        "Normal": 0.9611,
+        "Mild": 0.031,
+        "Severe": 0.0079
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8671,
+      "probabilities": {
+        "Normal": 0.8671,
+        "Mild": 0.118,
+        "Severe": 0.0148
+      }
+    }
+  },
+  {
+    "index": 68,
+    "filename": "Normal_Skin_328.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9129,
+      "probabilities": {
+        "Normal": 0.9129,
+        "Mild": 0.0722,
+        "Severe": 0.0149
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9156,
+      "probabilities": {
+        "Normal": 0.9156,
+        "Mild": 0.0722,
+        "Severe": 0.0122
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8515,
+      "probabilities": {
+        "Normal": 0.8515,
+        "Mild": 0.1305,
+        "Severe": 0.0181
+      }
+    }
+  },
+  {
+    "index": 69,
+    "filename": "Normal_Skin_33.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9162,
+      "probabilities": {
+        "Normal": 0.9162,
+        "Mild": 0.0753,
+        "Severe": 0.0085
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9258,
+      "probabilities": {
+        "Normal": 0.9258,
+        "Mild": 0.0644,
+        "Severe": 0.0098
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9263,
+      "probabilities": {
+        "Normal": 0.9263,
+        "Mild": 0.0665,
+        "Severe": 0.0072
+      }
+    }
+  },
+  {
+    "index": 70,
+    "filename": "Normal_Skin_333.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8768,
+      "probabilities": {
+        "Normal": 0.8768,
+        "Mild": 0.1039,
+        "Severe": 0.0193
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8187,
+      "probabilities": {
+        "Normal": 0.8187,
+        "Mild": 0.1472,
+        "Severe": 0.0341
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7154,
+      "probabilities": {
+        "Normal": 0.7154,
+        "Mild": 0.1974,
+        "Severe": 0.0873
+      }
+    }
+  },
+  {
+    "index": 71,
+    "filename": "Normal_Skin_346.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9004,
+      "probabilities": {
+        "Normal": 0.9004,
+        "Mild": 0.0502,
+        "Severe": 0.0494
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.882,
+      "probabilities": {
+        "Normal": 0.882,
+        "Mild": 0.0567,
+        "Severe": 0.0613
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7267,
+      "probabilities": {
+        "Normal": 0.7267,
+        "Mild": 0.1381,
+        "Severe": 0.1352
+      }
+    }
+  },
+  {
+    "index": 72,
+    "filename": "Normal_Skin_357.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.736,
+      "probabilities": {
+        "Normal": 0.736,
+        "Mild": 0.1288,
+        "Severe": 0.1352
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7235,
+      "probabilities": {
+        "Normal": 0.7235,
+        "Mild": 0.1439,
+        "Severe": 0.1326
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7017,
+      "probabilities": {
+        "Normal": 0.7017,
+        "Mild": 0.1794,
+        "Severe": 0.1189
+      }
+    }
+  },
+  {
+    "index": 73,
+    "filename": "Normal_Skin_361.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9619,
+      "probabilities": {
+        "Normal": 0.9619,
+        "Mild": 0.0304,
+        "Severe": 0.0077
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9663,
+      "probabilities": {
+        "Normal": 0.9663,
+        "Mild": 0.0265,
+        "Severe": 0.0072
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8808,
+      "probabilities": {
+        "Normal": 0.8808,
+        "Mild": 0.0991,
+        "Severe": 0.02
+      }
+    }
+  },
+  {
+    "index": 74,
+    "filename": "Normal_Skin_383.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8602,
+      "probabilities": {
+        "Normal": 0.8602,
+        "Mild": 0.1005,
+        "Severe": 0.0393
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8741,
+      "probabilities": {
+        "Normal": 0.8741,
+        "Mild": 0.0905,
+        "Severe": 0.0353
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8727,
+      "probabilities": {
+        "Normal": 0.8727,
+        "Mild": 0.1001,
+        "Severe": 0.0271
+      }
+    }
+  },
+  {
+    "index": 75,
+    "filename": "Normal_Skin_398.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7809,
+      "probabilities": {
+        "Normal": 0.7809,
+        "Mild": 0.0646,
+        "Severe": 0.1545
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7918,
+      "probabilities": {
+        "Normal": 0.7918,
+        "Mild": 0.0551,
+        "Severe": 0.1531
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6489,
+      "probabilities": {
+        "Normal": 0.6489,
+        "Mild": 0.0698,
+        "Severe": 0.2813
+      }
+    }
+  },
+  {
+    "index": 76,
+    "filename": "Normal_Skin_41.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4522,
+      "probabilities": {
+        "Normal": 0.4522,
+        "Mild": 0.2169,
+        "Severe": 0.3309
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4536,
+      "probabilities": {
+        "Normal": 0.4536,
+        "Mild": 0.2107,
+        "Severe": 0.3358
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4077,
+      "probabilities": {
+        "Normal": 0.4077,
+        "Mild": 0.2473,
+        "Severe": 0.3449
+      }
+    }
+  },
+  {
+    "index": 77,
+    "filename": "Normal_Skin_413.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9306,
+      "probabilities": {
+        "Normal": 0.9306,
+        "Mild": 0.0458,
+        "Severe": 0.0236
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.944,
+      "probabilities": {
+        "Normal": 0.944,
+        "Mild": 0.0384,
+        "Severe": 0.0175
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9434,
+      "probabilities": {
+        "Normal": 0.9434,
+        "Mild": 0.0366,
+        "Severe": 0.02
+      }
+    }
+  },
+  {
+    "index": 78,
+    "filename": "Normal_Skin_417.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7094,
+      "probabilities": {
+        "Normal": 0.7094,
+        "Mild": 0.1732,
+        "Severe": 0.1174
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7017,
+      "probabilities": {
+        "Normal": 0.7017,
+        "Mild": 0.1883,
+        "Severe": 0.1101
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7505,
+      "probabilities": {
+        "Normal": 0.7505,
+        "Mild": 0.1633,
+        "Severe": 0.0863
+      }
+    }
+  },
+  {
+    "index": 79,
+    "filename": "Normal_Skin_419.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9589,
+      "probabilities": {
+        "Normal": 0.9589,
+        "Mild": 0.0165,
+        "Severe": 0.0246
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9687,
+      "probabilities": {
+        "Normal": 0.9687,
+        "Mild": 0.0136,
+        "Severe": 0.0177
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9462,
+      "probabilities": {
+        "Normal": 0.9462,
+        "Mild": 0.0323,
+        "Severe": 0.0214
+      }
+    }
+  },
+  {
+    "index": 80,
+    "filename": "Normal_Skin_421.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4733,
+      "probabilities": {
+        "Normal": 0.4733,
+        "Mild": 0.1231,
+        "Severe": 0.4037
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.5609,
+      "probabilities": {
+        "Normal": 0.5609,
+        "Mild": 0.1114,
+        "Severe": 0.3277
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6207,
+      "probabilities": {
+        "Normal": 0.6207,
+        "Mild": 0.1392,
+        "Severe": 0.2401
+      }
+    }
+  },
+  {
+    "index": 81,
+    "filename": "Normal_Skin_430.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9361,
+      "probabilities": {
+        "Normal": 0.9361,
+        "Mild": 0.0449,
+        "Severe": 0.019
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9387,
+      "probabilities": {
+        "Normal": 0.9387,
+        "Mild": 0.0406,
+        "Severe": 0.0207
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.822,
+      "probabilities": {
+        "Normal": 0.822,
+        "Mild": 0.1437,
+        "Severe": 0.0343
+      }
+    }
+  },
+  {
+    "index": 82,
+    "filename": "Normal_Skin_434.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.7209,
+      "probabilities": {
+        "Normal": 0.27,
+        "Mild": 0.7209,
+        "Severe": 0.0091
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.6875,
+      "probabilities": {
+        "Normal": 0.3038,
+        "Mild": 0.6875,
+        "Severe": 0.0087
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.6321,
+      "probabilities": {
+        "Normal": 0.3409,
+        "Mild": 0.6321,
+        "Severe": 0.027
+      }
+    }
+  },
+  {
+    "index": 83,
+    "filename": "Normal_Skin_441.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9679,
+      "probabilities": {
+        "Normal": 0.9679,
+        "Mild": 0.0189,
+        "Severe": 0.0132
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9661,
+      "probabilities": {
+        "Normal": 0.9661,
+        "Mild": 0.0195,
+        "Severe": 0.0144
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.942,
+      "probabilities": {
+        "Normal": 0.942,
+        "Mild": 0.0288,
+        "Severe": 0.0292
+      }
+    }
+  },
+  {
+    "index": 84,
+    "filename": "Normal_Skin_457.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8639,
+      "probabilities": {
+        "Normal": 0.8639,
+        "Mild": 0.0691,
+        "Severe": 0.0671
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9087,
+      "probabilities": {
+        "Normal": 0.9087,
+        "Mild": 0.05,
+        "Severe": 0.0414
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9018,
+      "probabilities": {
+        "Normal": 0.9018,
+        "Mild": 0.0648,
+        "Severe": 0.0334
+      }
+    }
+  },
+  {
+    "index": 85,
+    "filename": "Normal_Skin_459.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.963,
+      "probabilities": {
+        "Normal": 0.963,
+        "Mild": 0.0133,
+        "Severe": 0.0237
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9667,
+      "probabilities": {
+        "Normal": 0.9667,
+        "Mild": 0.0123,
+        "Severe": 0.021
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9626,
+      "probabilities": {
+        "Normal": 0.9626,
+        "Mild": 0.0127,
+        "Severe": 0.0247
+      }
+    }
+  },
+  {
+    "index": 86,
+    "filename": "Normal_Skin_462.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7259,
+      "probabilities": {
+        "Normal": 0.7259,
+        "Mild": 0.2531,
+        "Severe": 0.021
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7464,
+      "probabilities": {
+        "Normal": 0.7464,
+        "Mild": 0.2294,
+        "Severe": 0.0242
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6291,
+      "probabilities": {
+        "Normal": 0.6291,
+        "Mild": 0.3457,
+        "Severe": 0.0252
+      }
+    }
+  },
+  {
+    "index": 87,
+    "filename": "Normal_Skin_466.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.4908,
+      "probabilities": {
+        "Normal": 0.3235,
+        "Mild": 0.4908,
+        "Severe": 0.1857
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.4636,
+      "probabilities": {
+        "Normal": 0.3532,
+        "Mild": 0.4636,
+        "Severe": 0.1832
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.4224,
+      "probabilities": {
+        "Normal": 0.3856,
+        "Mild": 0.4224,
+        "Severe": 0.1921
+      }
+    }
+  },
+  {
+    "index": 88,
+    "filename": "Normal_Skin_475.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5594,
+      "probabilities": {
+        "Normal": 0.402,
+        "Mild": 0.5594,
+        "Severe": 0.0386
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5198,
+      "probabilities": {
+        "Normal": 0.4407,
+        "Mild": 0.5198,
+        "Severe": 0.0395
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5717,
+      "probabilities": {
+        "Normal": 0.3891,
+        "Mild": 0.5717,
+        "Severe": 0.0392
+      }
+    }
+  },
+  {
+    "index": 89,
+    "filename": "Normal_Skin_486.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9753,
+      "probabilities": {
+        "Normal": 0.9753,
+        "Mild": 0.0122,
+        "Severe": 0.0125
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9759,
+      "probabilities": {
+        "Normal": 0.9759,
+        "Mild": 0.013,
+        "Severe": 0.0112
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.951,
+      "probabilities": {
+        "Normal": 0.951,
+        "Mild": 0.0258,
+        "Severe": 0.0232
+      }
+    }
+  },
+  {
+    "index": 90,
+    "filename": "Normal_Skin_487.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9081,
+      "probabilities": {
+        "Normal": 0.9081,
+        "Mild": 0.0598,
+        "Severe": 0.0321
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9044,
+      "probabilities": {
+        "Normal": 0.9044,
+        "Mild": 0.0627,
+        "Severe": 0.0329
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8503,
+      "probabilities": {
+        "Normal": 0.8503,
+        "Mild": 0.0967,
+        "Severe": 0.053
+      }
+    }
+  },
+  {
+    "index": 91,
+    "filename": "Normal_Skin_499.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9797,
+      "probabilities": {
+        "Normal": 0.9797,
+        "Mild": 0.0113,
+        "Severe": 0.009
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9727,
+      "probabilities": {
+        "Normal": 0.9727,
+        "Mild": 0.0131,
+        "Severe": 0.0141
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9464,
+      "probabilities": {
+        "Normal": 0.9464,
+        "Mild": 0.0388,
+        "Severe": 0.0148
+      }
+    }
+  },
+  {
+    "index": 92,
+    "filename": "Normal_Skin_500.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8886,
+      "probabilities": {
+        "Normal": 0.8886,
+        "Mild": 0.0822,
+        "Severe": 0.0293
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8936,
+      "probabilities": {
+        "Normal": 0.8936,
+        "Mild": 0.0797,
+        "Severe": 0.0266
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8766,
+      "probabilities": {
+        "Normal": 0.8766,
+        "Mild": 0.0968,
+        "Severe": 0.0266
+      }
+    }
+  },
+  {
+    "index": 93,
+    "filename": "Normal_Skin_501.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9613,
+      "probabilities": {
+        "Normal": 0.9613,
+        "Mild": 0.0305,
+        "Severe": 0.0082
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9541,
+      "probabilities": {
+        "Normal": 0.9541,
+        "Mild": 0.0346,
+        "Severe": 0.0113
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9259,
+      "probabilities": {
+        "Normal": 0.9259,
+        "Mild": 0.0563,
+        "Severe": 0.0177
+      }
+    }
+  },
+  {
+    "index": 94,
+    "filename": "Normal_Skin_504.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9428,
+      "probabilities": {
+        "Normal": 0.9428,
+        "Mild": 0.0438,
+        "Severe": 0.0135
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9533,
+      "probabilities": {
+        "Normal": 0.9533,
+        "Mild": 0.0362,
+        "Severe": 0.0104
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8708,
+      "probabilities": {
+        "Normal": 0.8708,
+        "Mild": 0.1137,
+        "Severe": 0.0155
+      }
+    }
+  },
+  {
+    "index": 95,
+    "filename": "Normal_Skin_506.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9075,
+      "probabilities": {
+        "Normal": 0.9075,
+        "Mild": 0.0498,
+        "Severe": 0.0427
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8963,
+      "probabilities": {
+        "Normal": 0.8963,
+        "Mild": 0.0562,
+        "Severe": 0.0475
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8337,
+      "probabilities": {
+        "Normal": 0.8337,
+        "Mild": 0.1165,
+        "Severe": 0.0498
+      }
+    }
+  },
+  {
+    "index": 96,
+    "filename": "Normal_Skin_516.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8824,
+      "probabilities": {
+        "Normal": 0.8824,
+        "Mild": 0.1091,
+        "Severe": 0.0085
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8663,
+      "probabilities": {
+        "Normal": 0.8663,
+        "Mild": 0.1235,
+        "Severe": 0.0101
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7332,
+      "probabilities": {
+        "Normal": 0.7332,
+        "Mild": 0.2579,
+        "Severe": 0.0088
+      }
+    }
+  },
+  {
+    "index": 97,
+    "filename": "Normal_Skin_524.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.9891,
+      "probabilities": {
+        "Normal": 0.0042,
+        "Mild": 0.9891,
+        "Severe": 0.0067
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.9899,
+      "probabilities": {
+        "Normal": 0.0034,
+        "Mild": 0.9899,
+        "Severe": 0.0067
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.9646,
+      "probabilities": {
+        "Normal": 0.0131,
+        "Mild": 0.9646,
+        "Severe": 0.0223
+      }
+    }
+  },
+  {
+    "index": 98,
+    "filename": "Normal_Skin_527.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9623,
+      "probabilities": {
+        "Normal": 0.9623,
+        "Mild": 0.026,
+        "Severe": 0.0117
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9627,
+      "probabilities": {
+        "Normal": 0.9627,
+        "Mild": 0.0257,
+        "Severe": 0.0116
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8953,
+      "probabilities": {
+        "Normal": 0.8953,
+        "Mild": 0.0742,
+        "Severe": 0.0305
+      }
+    }
+  },
+  {
+    "index": 99,
+    "filename": "Normal_Skin_537.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9248,
+      "probabilities": {
+        "Normal": 0.9248,
+        "Mild": 0.0618,
+        "Severe": 0.0134
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.929,
+      "probabilities": {
+        "Normal": 0.929,
+        "Mild": 0.0561,
+        "Severe": 0.0149
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8198,
+      "probabilities": {
+        "Normal": 0.8198,
+        "Mild": 0.1443,
+        "Severe": 0.0359
+      }
+    }
+  },
+  {
+    "index": 100,
+    "filename": "Normal_Skin_54.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9892,
+      "probabilities": {
+        "Normal": 0.9892,
+        "Mild": 0.009,
+        "Severe": 0.0018
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9862,
+      "probabilities": {
+        "Normal": 0.9862,
+        "Mild": 0.011,
+        "Severe": 0.0029
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9733,
+      "probabilities": {
+        "Normal": 0.9733,
+        "Mild": 0.0243,
+        "Severe": 0.0023
+      }
+    }
+  },
+  {
+    "index": 101,
+    "filename": "Normal_Skin_55.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.856,
+      "probabilities": {
+        "Normal": 0.856,
+        "Mild": 0.1351,
+        "Severe": 0.0089
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8845,
+      "probabilities": {
+        "Normal": 0.8845,
+        "Mild": 0.1096,
+        "Severe": 0.0059
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8843,
+      "probabilities": {
+        "Normal": 0.8843,
+        "Mild": 0.111,
+        "Severe": 0.0048
+      }
+    }
+  },
+  {
+    "index": 102,
+    "filename": "Normal_Skin_555.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9834,
+      "probabilities": {
+        "Normal": 0.9834,
+        "Mild": 0.0149,
+        "Severe": 0.0017
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9837,
+      "probabilities": {
+        "Normal": 0.9837,
+        "Mild": 0.0143,
+        "Severe": 0.002
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9445,
+      "probabilities": {
+        "Normal": 0.9445,
+        "Mild": 0.0528,
+        "Severe": 0.0026
+      }
+    }
+  },
+  {
+    "index": 103,
+    "filename": "Normal_Skin_561.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.731,
+      "probabilities": {
+        "Normal": 0.731,
+        "Mild": 0.1117,
+        "Severe": 0.1573
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6996,
+      "probabilities": {
+        "Normal": 0.6996,
+        "Mild": 0.1406,
+        "Severe": 0.1599
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6674,
+      "probabilities": {
+        "Normal": 0.6674,
+        "Mild": 0.1708,
+        "Severe": 0.1618
+      }
+    }
+  },
+  {
+    "index": 104,
+    "filename": "Normal_Skin_568.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8595,
+      "probabilities": {
+        "Normal": 0.8595,
+        "Mild": 0.0473,
+        "Severe": 0.0932
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8731,
+      "probabilities": {
+        "Normal": 0.8731,
+        "Mild": 0.0424,
+        "Severe": 0.0845
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.829,
+      "probabilities": {
+        "Normal": 0.829,
+        "Mild": 0.0741,
+        "Severe": 0.097
+      }
+    }
+  },
+  {
+    "index": 105,
+    "filename": "Normal_Skin_577.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6182,
+      "probabilities": {
+        "Normal": 0.6182,
+        "Mild": 0.3636,
+        "Severe": 0.0182
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6013,
+      "probabilities": {
+        "Normal": 0.6013,
+        "Mild": 0.3827,
+        "Severe": 0.0161
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5183,
+      "probabilities": {
+        "Normal": 0.4593,
+        "Mild": 0.5183,
+        "Severe": 0.0224
+      }
+    }
+  },
+  {
+    "index": 106,
+    "filename": "Normal_Skin_579.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9953,
+      "probabilities": {
+        "Normal": 0.9953,
+        "Mild": 0.0045,
+        "Severe": 0.0002
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9942,
+      "probabilities": {
+        "Normal": 0.9942,
+        "Mild": 0.0057,
+        "Severe": 0.0002
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9904,
+      "probabilities": {
+        "Normal": 0.9904,
+        "Mild": 0.0094,
+        "Severe": 0.0002
+      }
+    }
+  },
+  {
+    "index": 107,
+    "filename": "Normal_Skin_593.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9187,
+      "probabilities": {
+        "Normal": 0.9187,
+        "Mild": 0.0681,
+        "Severe": 0.0132
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9272,
+      "probabilities": {
+        "Normal": 0.9272,
+        "Mild": 0.058,
+        "Severe": 0.0148
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9054,
+      "probabilities": {
+        "Normal": 0.9054,
+        "Mild": 0.0746,
+        "Severe": 0.0199
+      }
+    }
+  },
+  {
+    "index": 108,
+    "filename": "Normal_Skin_6.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9683,
+      "probabilities": {
+        "Normal": 0.9683,
+        "Mild": 0.0225,
+        "Severe": 0.0092
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9738,
+      "probabilities": {
+        "Normal": 0.9738,
+        "Mild": 0.0186,
+        "Severe": 0.0076
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9636,
+      "probabilities": {
+        "Normal": 0.9636,
+        "Mild": 0.0282,
+        "Severe": 0.0082
+      }
+    }
+  },
+  {
+    "index": 109,
+    "filename": "Normal_Skin_601.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9739,
+      "probabilities": {
+        "Normal": 0.9739,
+        "Mild": 0.0176,
+        "Severe": 0.0085
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9662,
+      "probabilities": {
+        "Normal": 0.9662,
+        "Mild": 0.0234,
+        "Severe": 0.0104
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.951,
+      "probabilities": {
+        "Normal": 0.951,
+        "Mild": 0.0261,
+        "Severe": 0.0229
+      }
+    }
+  },
+  {
+    "index": 110,
+    "filename": "Normal_Skin_607.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.876,
+      "probabilities": {
+        "Normal": 0.876,
+        "Mild": 0.113,
+        "Severe": 0.011
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8705,
+      "probabilities": {
+        "Normal": 0.8705,
+        "Mild": 0.1164,
+        "Severe": 0.0131
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8045,
+      "probabilities": {
+        "Normal": 0.8045,
+        "Mild": 0.1827,
+        "Severe": 0.0128
+      }
+    }
+  },
+  {
+    "index": 111,
+    "filename": "Normal_Skin_621.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9817,
+      "probabilities": {
+        "Normal": 0.9817,
+        "Mild": 0.0165,
+        "Severe": 0.0018
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9828,
+      "probabilities": {
+        "Normal": 0.9828,
+        "Mild": 0.0155,
+        "Severe": 0.0017
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9808,
+      "probabilities": {
+        "Normal": 0.9808,
+        "Mild": 0.0168,
+        "Severe": 0.0023
+      }
+    }
+  },
+  {
+    "index": 112,
+    "filename": "Normal_Skin_626.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9274,
+      "probabilities": {
+        "Normal": 0.9274,
+        "Mild": 0.0678,
+        "Severe": 0.0048
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9412,
+      "probabilities": {
+        "Normal": 0.9412,
+        "Mild": 0.0548,
+        "Severe": 0.004
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8629,
+      "probabilities": {
+        "Normal": 0.8629,
+        "Mild": 0.1234,
+        "Severe": 0.0137
+      }
+    }
+  },
+  {
+    "index": 113,
+    "filename": "Normal_Skin_628.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9643,
+      "probabilities": {
+        "Normal": 0.9643,
+        "Mild": 0.0349,
+        "Severe": 0.0008
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9666,
+      "probabilities": {
+        "Normal": 0.9666,
+        "Mild": 0.0327,
+        "Severe": 0.0007
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9583,
+      "probabilities": {
+        "Normal": 0.9583,
+        "Mild": 0.0406,
+        "Severe": 0.0011
+      }
+    }
+  },
+  {
+    "index": 114,
+    "filename": "Normal_Skin_63.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9687,
+      "probabilities": {
+        "Normal": 0.9687,
+        "Mild": 0.0243,
+        "Severe": 0.007
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9718,
+      "probabilities": {
+        "Normal": 0.9718,
+        "Mild": 0.0219,
+        "Severe": 0.0064
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9721,
+      "probabilities": {
+        "Normal": 0.9721,
+        "Mild": 0.0231,
+        "Severe": 0.0048
+      }
+    }
+  },
+  {
+    "index": 115,
+    "filename": "Normal_Skin_630.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9093,
+      "probabilities": {
+        "Normal": 0.9093,
+        "Mild": 0.0346,
+        "Severe": 0.0561
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8929,
+      "probabilities": {
+        "Normal": 0.8929,
+        "Mild": 0.0405,
+        "Severe": 0.0667
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9171,
+      "probabilities": {
+        "Normal": 0.9171,
+        "Mild": 0.0344,
+        "Severe": 0.0485
+      }
+    }
+  },
+  {
+    "index": 116,
+    "filename": "Normal_Skin_631.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8258,
+      "probabilities": {
+        "Normal": 0.8258,
+        "Mild": 0.102,
+        "Severe": 0.0722
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8399,
+      "probabilities": {
+        "Normal": 0.8399,
+        "Mild": 0.0985,
+        "Severe": 0.0616
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7598,
+      "probabilities": {
+        "Normal": 0.7598,
+        "Mild": 0.155,
+        "Severe": 0.0852
+      }
+    }
+  },
+  {
+    "index": 117,
+    "filename": "Normal_Skin_632.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7782,
+      "probabilities": {
+        "Normal": 0.7782,
+        "Mild": 0.179,
+        "Severe": 0.0429
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7798,
+      "probabilities": {
+        "Normal": 0.7798,
+        "Mild": 0.1753,
+        "Severe": 0.0449
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8177,
+      "probabilities": {
+        "Normal": 0.8177,
+        "Mild": 0.146,
+        "Severe": 0.0363
+      }
+    }
+  },
+  {
+    "index": 118,
+    "filename": "Normal_Skin_633.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8485,
+      "probabilities": {
+        "Normal": 0.8485,
+        "Mild": 0.1031,
+        "Severe": 0.0484
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8403,
+      "probabilities": {
+        "Normal": 0.8403,
+        "Mild": 0.1095,
+        "Severe": 0.0502
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8477,
+      "probabilities": {
+        "Normal": 0.8477,
+        "Mild": 0.1073,
+        "Severe": 0.045
+      }
+    }
+  },
+  {
+    "index": 119,
+    "filename": "Normal_Skin_65.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7413,
+      "probabilities": {
+        "Normal": 0.7413,
+        "Mild": 0.159,
+        "Severe": 0.0998
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7518,
+      "probabilities": {
+        "Normal": 0.7518,
+        "Mild": 0.1572,
+        "Severe": 0.091
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7279,
+      "probabilities": {
+        "Normal": 0.7279,
+        "Mild": 0.1977,
+        "Severe": 0.0744
+      }
+    }
+  },
+  {
+    "index": 120,
+    "filename": "Normal_Skin_651.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9854,
+      "probabilities": {
+        "Normal": 0.9854,
+        "Mild": 0.0129,
+        "Severe": 0.0017
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9788,
+      "probabilities": {
+        "Normal": 0.9788,
+        "Mild": 0.0185,
+        "Severe": 0.0027
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9769,
+      "probabilities": {
+        "Normal": 0.9769,
+        "Mild": 0.019,
+        "Severe": 0.0041
+      }
+    }
+  },
+  {
+    "index": 121,
+    "filename": "Normal_Skin_668.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9833,
+      "probabilities": {
+        "Normal": 0.9833,
+        "Mild": 0.0156,
+        "Severe": 0.0011
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9848,
+      "probabilities": {
+        "Normal": 0.9848,
+        "Mild": 0.0143,
+        "Severe": 0.0009
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9268,
+      "probabilities": {
+        "Normal": 0.9268,
+        "Mild": 0.0654,
+        "Severe": 0.0077
+      }
+    }
+  },
+  {
+    "index": 122,
+    "filename": "Normal_Skin_669.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.5814,
+      "probabilities": {
+        "Normal": 0.5814,
+        "Mild": 0.3764,
+        "Severe": 0.0422
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.6142,
+      "probabilities": {
+        "Normal": 0.6142,
+        "Mild": 0.3463,
+        "Severe": 0.0396
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5174,
+      "probabilities": {
+        "Normal": 0.4514,
+        "Mild": 0.5174,
+        "Severe": 0.0312
+      }
+    }
+  },
+  {
+    "index": 123,
+    "filename": "Normal_Skin_671.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9927,
+      "probabilities": {
+        "Normal": 0.9927,
+        "Mild": 0.0041,
+        "Severe": 0.0033
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9903,
+      "probabilities": {
+        "Normal": 0.9903,
+        "Mild": 0.0051,
+        "Severe": 0.0046
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9901,
+      "probabilities": {
+        "Normal": 0.9901,
+        "Mild": 0.0063,
+        "Severe": 0.0036
+      }
+    }
+  },
+  {
+    "index": 124,
+    "filename": "Normal_Skin_679.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9299,
+      "probabilities": {
+        "Normal": 0.9299,
+        "Mild": 0.0391,
+        "Severe": 0.0309
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9194,
+      "probabilities": {
+        "Normal": 0.9194,
+        "Mild": 0.0455,
+        "Severe": 0.0351
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7763,
+      "probabilities": {
+        "Normal": 0.7763,
+        "Mild": 0.194,
+        "Severe": 0.0297
+      }
+    }
+  },
+  {
+    "index": 125,
+    "filename": "Normal_Skin_685.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9947,
+      "probabilities": {
+        "Normal": 0.9947,
+        "Mild": 0.0045,
+        "Severe": 0.0008
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9949,
+      "probabilities": {
+        "Normal": 0.9949,
+        "Mild": 0.0044,
+        "Severe": 0.0007
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9948,
+      "probabilities": {
+        "Normal": 0.9948,
+        "Mild": 0.0044,
+        "Severe": 0.0008
+      }
+    }
+  },
+  {
+    "index": 126,
+    "filename": "Normal_Skin_691.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9107,
+      "probabilities": {
+        "Normal": 0.9107,
+        "Mild": 0.0722,
+        "Severe": 0.0171
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8714,
+      "probabilities": {
+        "Normal": 0.8714,
+        "Mild": 0.1045,
+        "Severe": 0.0241
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7756,
+      "probabilities": {
+        "Normal": 0.7756,
+        "Mild": 0.175,
+        "Severe": 0.0494
+      }
+    }
+  },
+  {
+    "index": 127,
+    "filename": "Normal_Skin_692.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8514,
+      "probabilities": {
+        "Normal": 0.8514,
+        "Mild": 0.1372,
+        "Severe": 0.0114
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8759,
+      "probabilities": {
+        "Normal": 0.8759,
+        "Mild": 0.1155,
+        "Severe": 0.0087
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.7488,
+      "probabilities": {
+        "Normal": 0.7488,
+        "Mild": 0.2149,
+        "Severe": 0.0364
+      }
+    }
+  },
+  {
+    "index": 128,
+    "filename": "Normal_Skin_698.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.976,
+      "probabilities": {
+        "Normal": 0.976,
+        "Mild": 0.0101,
+        "Severe": 0.0139
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9649,
+      "probabilities": {
+        "Normal": 0.9649,
+        "Mild": 0.0153,
+        "Severe": 0.0198
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9725,
+      "probabilities": {
+        "Normal": 0.9725,
+        "Mild": 0.0122,
+        "Severe": 0.0153
+      }
+    }
+  },
+  {
+    "index": 129,
+    "filename": "Normal_Skin_702.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8022,
+      "probabilities": {
+        "Normal": 0.8022,
+        "Mild": 0.1805,
+        "Severe": 0.0173
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8292,
+      "probabilities": {
+        "Normal": 0.8292,
+        "Mild": 0.1543,
+        "Severe": 0.0165
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8343,
+      "probabilities": {
+        "Normal": 0.8343,
+        "Mild": 0.1496,
+        "Severe": 0.0161
+      }
+    }
+  },
+  {
+    "index": 130,
+    "filename": "Normal_Skin_705.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.5088,
+      "probabilities": {
+        "Normal": 0.5088,
+        "Mild": 0.2714,
+        "Severe": 0.2198
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.5346,
+      "probabilities": {
+        "Normal": 0.5346,
+        "Mild": 0.2528,
+        "Severe": 0.2126
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.5452,
+      "probabilities": {
+        "Normal": 0.5452,
+        "Mild": 0.287,
+        "Severe": 0.1678
+      }
+    }
+  },
+  {
+    "index": 131,
+    "filename": "Normal_Skin_707.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8137,
+      "probabilities": {
+        "Normal": 0.8137,
+        "Mild": 0.1346,
+        "Severe": 0.0517
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.794,
+      "probabilities": {
+        "Normal": 0.794,
+        "Mild": 0.1451,
+        "Severe": 0.0608
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8518,
+      "probabilities": {
+        "Normal": 0.8518,
+        "Mild": 0.105,
+        "Severe": 0.0432
+      }
+    }
+  },
+  {
+    "index": 132,
+    "filename": "Normal_Skin_714.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9254,
+      "probabilities": {
+        "Normal": 0.9254,
+        "Mild": 0.0706,
+        "Severe": 0.004
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9437,
+      "probabilities": {
+        "Normal": 0.9437,
+        "Mild": 0.0532,
+        "Severe": 0.0031
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8014,
+      "probabilities": {
+        "Normal": 0.8014,
+        "Mild": 0.1954,
+        "Severe": 0.0032
+      }
+    }
+  },
+  {
+    "index": 133,
+    "filename": "Normal_Skin_74.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9791,
+      "probabilities": {
+        "Normal": 0.9791,
+        "Mild": 0.0203,
+        "Severe": 0.0006
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9769,
+      "probabilities": {
+        "Normal": 0.9769,
+        "Mild": 0.0224,
+        "Severe": 0.0007
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9525,
+      "probabilities": {
+        "Normal": 0.9525,
+        "Mild": 0.0468,
+        "Severe": 0.0007
+      }
+    }
+  },
+  {
+    "index": 134,
+    "filename": "Normal_Skin_80.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9763,
+      "probabilities": {
+        "Normal": 0.9763,
+        "Mild": 0.018,
+        "Severe": 0.0057
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9575,
+      "probabilities": {
+        "Normal": 0.9575,
+        "Mild": 0.0327,
+        "Severe": 0.0098
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.9457,
+      "probabilities": {
+        "Normal": 0.9457,
+        "Mild": 0.04,
+        "Severe": 0.0143
+      }
+    }
+  },
+  {
+    "index": 135,
+    "filename": "Normal_Skin_91.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8491,
+      "probabilities": {
+        "Normal": 0.8491,
+        "Mild": 0.1409,
+        "Severe": 0.01
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.8582,
+      "probabilities": {
+        "Normal": 0.8582,
+        "Mild": 0.1341,
+        "Severe": 0.0077
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.727,
+      "probabilities": {
+        "Normal": 0.727,
+        "Mild": 0.2442,
+        "Severe": 0.0288
+      }
+    }
+  },
+  {
+    "index": 136,
+    "filename": "Normal_Skin_94.png",
+    "true_class": "Normal",
+    "true_label": 0,
+    "config_a": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.5283,
+      "probabilities": {
+        "Normal": 0.5283,
+        "Mild": 0.4277,
+        "Severe": 0.044
+      }
+    },
+    "config_b": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.4743,
+      "probabilities": {
+        "Normal": 0.4743,
+        "Mild": 0.4708,
+        "Severe": 0.0549
+      }
+    },
+    "config_c": {
+      "predicted_class": "Normal",
+      "is_correct": true,
+      "confidence": 0.553,
+      "probabilities": {
+        "Normal": 0.553,
+        "Mild": 0.4061,
+        "Severe": 0.0409
+      }
+    }
+  },
+  {
+    "index": 137,
+    "filename": "Severe_21.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.741,
+      "probabilities": {
+        "Normal": 0.0211,
+        "Mild": 0.2379,
+        "Severe": 0.741
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.7254,
+      "probabilities": {
+        "Normal": 0.0233,
+        "Mild": 0.2513,
+        "Severe": 0.7254
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.5658,
+      "probabilities": {
+        "Normal": 0.0222,
+        "Mild": 0.412,
+        "Severe": 0.5658
+      }
+    }
+  },
+  {
+    "index": 138,
+    "filename": "Severe_25.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5082,
+      "probabilities": {
+        "Normal": 0.2987,
+        "Mild": 0.5082,
+        "Severe": 0.1932
+      }
+    },
+    "config_b": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.467,
+      "probabilities": {
+        "Normal": 0.3676,
+        "Mild": 0.467,
+        "Severe": 0.1655
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.4994,
+      "probabilities": {
+        "Normal": 0.318,
+        "Mild": 0.4994,
+        "Severe": 0.1826
+      }
+    }
+  },
+  {
+    "index": 139,
+    "filename": "Severe_30.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.5571,
+      "probabilities": {
+        "Normal": 0.0128,
+        "Mild": 0.4301,
+        "Severe": 0.5571
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.5903,
+      "probabilities": {
+        "Normal": 0.0139,
+        "Mild": 0.3958,
+        "Severe": 0.5903
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.5786,
+      "probabilities": {
+        "Normal": 0.0164,
+        "Mild": 0.5786,
+        "Severe": 0.405
+      }
+    }
+  },
+  {
+    "index": 140,
+    "filename": "Severe_38.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.897,
+      "probabilities": {
+        "Normal": 0.0484,
+        "Mild": 0.0546,
+        "Severe": 0.897
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.8998,
+      "probabilities": {
+        "Normal": 0.0529,
+        "Mild": 0.0474,
+        "Severe": 0.8998
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9267,
+      "probabilities": {
+        "Normal": 0.0373,
+        "Mild": 0.036,
+        "Severe": 0.9267
+      }
+    }
+  },
+  {
+    "index": 141,
+    "filename": "Severe_43.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9358,
+      "probabilities": {
+        "Normal": 0.0085,
+        "Mild": 0.0557,
+        "Severe": 0.9358
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9222,
+      "probabilities": {
+        "Normal": 0.0103,
+        "Mild": 0.0674,
+        "Severe": 0.9222
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9274,
+      "probabilities": {
+        "Normal": 0.0097,
+        "Mild": 0.063,
+        "Severe": 0.9274
+      }
+    }
+  },
+  {
+    "index": 142,
+    "filename": "Severe_51.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.5748,
+      "probabilities": {
+        "Normal": 0.0018,
+        "Mild": 0.4234,
+        "Severe": 0.5748
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.5288,
+      "probabilities": {
+        "Normal": 0.0014,
+        "Mild": 0.4697,
+        "Severe": 0.5288
+      }
+    },
+    "config_c": {
+      "predicted_class": "Mild",
+      "is_correct": false,
+      "confidence": 0.6114,
+      "probabilities": {
+        "Normal": 0.0012,
+        "Mild": 0.6114,
+        "Severe": 0.3874
+      }
+    }
+  },
+  {
+    "index": 143,
+    "filename": "Severe_56.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9888,
+      "probabilities": {
+        "Normal": 0.0005,
+        "Mild": 0.0107,
+        "Severe": 0.9888
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9858,
+      "probabilities": {
+        "Normal": 0.0007,
+        "Mild": 0.0134,
+        "Severe": 0.9858
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9405,
+      "probabilities": {
+        "Normal": 0.0008,
+        "Mild": 0.0587,
+        "Severe": 0.9405
+      }
+    }
+  },
+  {
+    "index": 144,
+    "filename": "Severe_65.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.792,
+      "probabilities": {
+        "Normal": 0.0047,
+        "Mild": 0.2033,
+        "Severe": 0.792
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.847,
+      "probabilities": {
+        "Normal": 0.0038,
+        "Mild": 0.1492,
+        "Severe": 0.847
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.8353,
+      "probabilities": {
+        "Normal": 0.0044,
+        "Mild": 0.1603,
+        "Severe": 0.8353
+      }
+    }
+  },
+  {
+    "index": 145,
+    "filename": "Severe_69.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.8176,
+      "probabilities": {
+        "Normal": 0.0454,
+        "Mild": 0.1369,
+        "Severe": 0.8176
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.8545,
+      "probabilities": {
+        "Normal": 0.0422,
+        "Mild": 0.1033,
+        "Severe": 0.8545
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.7928,
+      "probabilities": {
+        "Normal": 0.0607,
+        "Mild": 0.1465,
+        "Severe": 0.7928
+      }
+    }
+  },
+  {
+    "index": 146,
+    "filename": "Severe_71.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9375,
+      "probabilities": {
+        "Normal": 0.0124,
+        "Mild": 0.0501,
+        "Severe": 0.9375
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9325,
+      "probabilities": {
+        "Normal": 0.0128,
+        "Mild": 0.0548,
+        "Severe": 0.9325
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9394,
+      "probabilities": {
+        "Normal": 0.0106,
+        "Mild": 0.05,
+        "Severe": 0.9394
+      }
+    }
+  },
+  {
+    "index": 147,
+    "filename": "Severe_72.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.982,
+      "probabilities": {
+        "Normal": 0.0119,
+        "Mild": 0.0061,
+        "Severe": 0.982
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9713,
+      "probabilities": {
+        "Normal": 0.0182,
+        "Mild": 0.0105,
+        "Severe": 0.9713
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9637,
+      "probabilities": {
+        "Normal": 0.0174,
+        "Mild": 0.0189,
+        "Severe": 0.9637
+      }
+    }
+  },
+  {
+    "index": 148,
+    "filename": "Severe_80.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.7308,
+      "probabilities": {
+        "Normal": 0.0018,
+        "Mild": 0.2674,
+        "Severe": 0.7308
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.7407,
+      "probabilities": {
+        "Normal": 0.0013,
+        "Mild": 0.2579,
+        "Severe": 0.7407
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.6333,
+      "probabilities": {
+        "Normal": 0.0016,
+        "Mild": 0.3652,
+        "Severe": 0.6333
+      }
+    }
+  },
+  {
+    "index": 149,
+    "filename": "Severe_89.png",
+    "true_class": "Severe",
+    "true_label": 2,
+    "config_a": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9869,
+      "probabilities": {
+        "Normal": 0.0061,
+        "Mild": 0.0069,
+        "Severe": 0.9869
+      }
+    },
+    "config_b": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9855,
+      "probabilities": {
+        "Normal": 0.0068,
+        "Mild": 0.0077,
+        "Severe": 0.9855
+      }
+    },
+    "config_c": {
+      "predicted_class": "Severe",
+      "is_correct": true,
+      "confidence": 0.9556,
+      "probabilities": {
+        "Normal": 0.0259,
+        "Mild": 0.0185,
+        "Severe": 0.9556
+      }
+    }
+  }
+]

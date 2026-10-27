@@ -41,6 +41,19 @@ class ONNXAdapter(ModelAdapter):
             self.artifact_path = None
             return False
 
+    @property
+    def model(self):
+        return self.session
+
+    @model.setter
+    def model(self, value):
+        self.session = value
+
+    def unload(self):
+        self.session = None
+        self.artifact_path = None
+        self.input_name = None
+
     def is_available(self) -> bool:
         return self.session is not None
 

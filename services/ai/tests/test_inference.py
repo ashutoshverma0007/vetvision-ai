@@ -65,3 +65,56 @@ def test_inference_engine_confident_prediction(tmp_path):
     assert res.predicted_class == "SEVERE"
     assert res.severe_probability == 0.88
     assert res.inference_time_ms == 42.0
+
+def test_inference_engine_missing_image_file():
+    engine = InferenceEngine()
+    req = InferenceRequest(imagePath="non_existent_folder/missing_image.jpg", imageMimeType="image/jpeg")
+    res = engine.run_inference(req)
+
+    assert res.status == PredictionStatusEnum.FAILED
+    assert "Image file not found" in res.error_message
+
+def test_inference_engine_corrupted_image_file(tmp_path):
+    corrupt_file = tmp_path / "corrupt.jpg"
+    corrupt_file.write_bytes(b"NOT_A_VALID_JPEG_HEADER_RANDOM_CORRUPT_BYTES_XYZ")
+
+    engine = InferenceEngine()
+    req = InferenceRequest(imagePath=str(corrupt_file), imageMimeType="image/jpeg")
+    res = engine.run_inference(req)
+
+    assert res.status == PredictionStatusEnum.FAILED
+    assert "Inference execution failed" in res.error_message
+
+def test_inference_engine_unsupported_image_format(tmp_path):
+    text_file = tmp_path / "document.txt"
+    text_file.write_text("This is plain text, not an image format.")
+
+    engine = InferenceEngine()
+    req = InferenceRequest(imagePath=str(text_file), imageMimeType="text/plain")
+    res = engine.run_inference(req)
+
+    assert res.status == PredictionStatusEnum.FAILED
+    assert "Inference execution failed" in res.error_message
+
+class FailingAdapter(ModelAdapter):
+    def load(self, path): return True
+    def is_available(self): return True
+    def predict(self, tensor):
+        raise RuntimeError("Hardware or runtime failure inside model execution")
+    def get_metadata(self): return {"version": "fail-v1", "framework": "TEST"}
+
+def test_inference_engine_handles_adapter_runtime_failure(tmp_path):
+    from PIL import Image
+    img_path = str(tmp_path / "test.jpg")
+    Image.new("RGB", (100, 100)).save(img_path)
+
+    engine = InferenceEngine()
+    engine.adapter = FailingAdapter()
+
+    req = InferenceRequest(imagePath=img_path, imageMimeType="image/jpeg")
+    res = engine.run_inference(req)
+
+    assert res.status == PredictionStatusEnum.FAILED
+    assert "Inference execution failed" in res.error_message
+    assert "Hardware or runtime failure" in res.error_message
+

@@ -1,0 +1,127 @@
+{
+  "model_artifact": {
+    "onnx_path": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\models\\efficientnetb0_lsd_v1.onnx",
+    "onnx_size_mb": 15.29,
+    "source_checkpoint": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\models\\efficientnetb0_exp3_best.pth",
+    "source_checkpoint_exists": true
+  },
+  "real_cattle_smoke_tests": [
+    {
+      "image_filename": "0fa7f247-a87e-4d18-b28a-c71478ee26b7.jpg",
+      "sha256": "de2eff049cda5ac2039ac4d28319ea41a8481df2e212f6201e5aadccc9a3ed2b",
+      "dimensions": "610x610",
+      "format": "JPEG",
+      "result": {
+        "status": "AVAILABLE",
+        "predicted_class": "SEVERE",
+        "confidence": 0.7305,
+        "normal_probability": 0.0456,
+        "mild_probability": 0.2239,
+        "severe_probability": 0.7305,
+        "inference_time_ms": 9.48,
+        "model_version": "lsd-efficientnetb0-v1.0.0",
+        "preprocessing_version": "1.0.0",
+        "device_type": "cpu",
+        "error_message": null
+      }
+    },
+    {
+      "image_filename": "d463c616-6043-4d44-a34d-7ebc3b26078b.jpg",
+      "sha256": "de2eff049cda5ac2039ac4d28319ea41a8481df2e212f6201e5aadccc9a3ed2b",
+      "dimensions": "610x610",
+      "format": "JPEG",
+      "result": {
+        "status": "AVAILABLE",
+        "predicted_class": "SEVERE",
+        "confidence": 0.7305,
+        "normal_probability": 0.0456,
+        "mild_probability": 0.2239,
+        "severe_probability": 0.7305,
+        "inference_time_ms": 9.7,
+        "model_version": "lsd-efficientnetb0-v1.0.0",
+        "preprocessing_version": "1.0.0",
+        "device_type": "cpu",
+        "error_message": null
+      }
+    }
+  ],
+  "api_verification": {
+    "unauthorized_status": 403,
+    "health_check": {
+      "status": "HEALTHY",
+      "service": "VetVision AI Inference Service",
+      "model_loaded": true,
+      "models": [
+        "lsd-efficientnetb0-v1.0.0"
+      ]
+    },
+    "models_meta": {
+      "active_model": {
+        "version": "lsd-efficientnetb0-v1.0.0",
+        "framework": "ONNX",
+        "is_available": true,
+        "artifact_path": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\models\\efficientnetb0_lsd_v1.onnx",
+        "device": "cpu"
+      },
+      "confidence_threshold": 0.65,
+      "input_dimensions": {
+        "width": 224,
+        "height": 224
+      }
+    },
+    "api_inference_response": {
+      "status": "AVAILABLE",
+      "predictedClass": "SEVERE",
+      "confidence": 0.7305,
+      "normalProbability": 0.0456,
+      "mildProbability": 0.2239,
+      "severeProbability": 0.7305,
+      "inferenceTimeMs": 6.96,
+      "modelVersion": "lsd-efficientnetb0-v1.0.0",
+      "preprocessingVersion": "1.0.0",
+      "deviceType": "cpu",
+      "errorMessage": null
+    }
+  },
+  "fault_tolerance": {
+    "missing_file_handling": {
+      "status": "FAILED",
+      "predicted_class": null,
+      "confidence": null,
+      "normal_probability": null,
+      "mild_probability": null,
+      "severe_probability": null,
+      "inference_time_ms": null,
+      "model_version": null,
+      "preprocessing_version": "1.0.0",
+      "device_type": "cpu",
+      "error_message": "Image file not found on server: data/storage/missing_image_12345.jpg"
+    },
+    "corrupted_file_handling": {
+      "status": "FAILED",
+      "predicted_class": null,
+      "confidence": null,
+      "normal_probability": null,
+      "mild_probability": null,
+      "severe_probability": null,
+      "inference_time_ms": null,
+      "model_version": null,
+      "preprocessing_version": "1.0.0",
+      "device_type": "cpu",
+      "error_message": "Inference execution failed: cannot identify image file 'C:\\\\Users\\\\Ashutosh Verma\\\\OneDrive\\\\Desktop\\\\VET VISION AI\\\\data\\\\storage\\\\temp_corrupt.jpg'"
+    },
+    "unmounted_model_handling": {
+      "status": "MODEL_UNAVAILABLE",
+      "predicted_class": null,
+      "confidence": null,
+      "normal_probability": null,
+      "mild_probability": null,
+      "severe_probability": null,
+      "inference_time_ms": null,
+      "model_version": "lsd-efficientnetb0-v1.0.0",
+      "preprocessing_version": "1.0.0",
+      "device_type": "cpu",
+      "error_message": "Model weights not configured or artifact file missing on host. Real screening offline."
+    }
+  }
+}

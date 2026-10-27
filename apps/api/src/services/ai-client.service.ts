@@ -7,10 +7,10 @@ export class AIClientService {
   private secretToken: string;
   private timeoutMs: number;
 
-  constructor() {
-    this.baseUrl = config.AI_SERVICE_URL;
-    this.secretToken = config.AI_SERVICE_INTERNAL_SECRET;
-    this.timeoutMs = config.AI_SERVICE_TIMEOUT_MS;
+  constructor(baseUrl?: string, secretToken?: string, timeoutMs?: number) {
+    this.baseUrl = baseUrl || config.AI_SERVICE_URL;
+    this.secretToken = secretToken || config.AI_SERVICE_INTERNAL_SECRET;
+    this.timeoutMs = timeoutMs ?? config.AI_SERVICE_TIMEOUT_MS;
   }
 
   public async infer(request: AIInferenceRequest): Promise<AIInferenceResponse> {

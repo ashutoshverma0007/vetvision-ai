@@ -33,14 +33,38 @@ class InferenceEngine:
             logger.info("Initializing PyTorchAdapter...")
             return PyTorchAdapter(version=settings.MODEL_VERSION)
 
+    def _resolve_model_path(self, raw_path: Optional[str]) -> Optional[str]:
+        if not raw_path:
+            return None
+        if os.path.isfile(raw_path):
+            return os.path.abspath(raw_path)
+        # Check relative to services/ai
+        ai_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+        candidate = os.path.join(ai_dir, raw_path)
+        if os.path.isfile(candidate):
+            return candidate
+        # If raw_path has services/ai prefix, check stripped relative to ai_dir
+        for prefix in ("services/ai/", "services\\ai\\"):
+            if raw_path.startswith(prefix):
+                stripped = raw_path[len(prefix):]
+                cand_stripped = os.path.join(ai_dir, stripped)
+                if os.path.isfile(cand_stripped):
+                    return cand_stripped
+        # Check relative to repository root
+        repo_root = os.path.abspath(os.path.join(ai_dir, ".."))
+        candidate_repo = os.path.join(repo_root, raw_path)
+        if os.path.isfile(candidate_repo):
+            return candidate_repo
+        return None
+
     def _load_active_model(self):
-        path = settings.MODEL_ARTIFACT_PATH
-        if path and os.path.isfile(path):
-            success = self.adapter.load(path)
+        resolved_path = self._resolve_model_path(settings.MODEL_ARTIFACT_PATH)
+        if resolved_path and os.path.isfile(resolved_path):
+            success = self.adapter.load(resolved_path)
             if success:
-                logger.info(f"Successfully loaded model weights from: {path}")
+                logger.info(f"Successfully loaded model weights from: {resolved_path}")
             else:
-                logger.warn(f"Failed to parse or load model artifact at: {path}")
+                logger.warning(f"Failed to parse or load model artifact at: {resolved_path}")
         else:
             logger.info("No valid MODEL_ARTIFACT_PATH configured. Operating in MODEL_UNAVAILABLE mode.")
 

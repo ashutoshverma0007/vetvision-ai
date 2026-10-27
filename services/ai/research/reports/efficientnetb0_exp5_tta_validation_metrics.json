@@ -1,0 +1,184 @@
+{
+  "experiment": "Experiment 5: EfficientNet-B0 Validation-Only Test-Time Augmentation (TTA)",
+  "source_checkpoint": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\models\\efficientnetb0_exp3_best.pth",
+  "checkpoint_sha256": "e53c38ab272b2f47356fe4a050f83516f3acdc7056ee79166fad7fe6a134c238",
+  "sample_count": 150,
+  "split_evaluated": "VALIDATION ONLY (Test set quarantined)",
+  "timestamp": "2026-10-15 16:04:26 UTC",
+  "configurations": {
+    "config_a_1view_original": {
+      "accuracy": 0.9,
+      "macro_precision": 0.8792,
+      "macro_recall": 0.8743,
+      "macro_f1": 0.8767,
+      "weighted_precision": 0.899,
+      "weighted_recall": 0.9,
+      "weighted_f1": 0.8994,
+      "roc_auc_ovr_macro": 0.9614,
+      "roc_auc_ovr_weighted": 0.9551,
+      "per_class": {
+        "Normal": {
+          "precision": 0.9333,
+          "recall": 0.9423,
+          "f1": 0.9378,
+          "support": 104
+        },
+        "Mild": {
+          "precision": 0.7812,
+          "recall": 0.7576,
+          "f1": 0.7692,
+          "support": 33
+        },
+        "Severe": {
+          "precision": 0.9231,
+          "recall": 0.9231,
+          "f1": 0.9231,
+          "support": 13
+        }
+      },
+      "confusion_matrix": [
+        [
+          98,
+          6,
+          0
+        ],
+        [
+          7,
+          25,
+          1
+        ],
+        [
+          0,
+          1,
+          12
+        ]
+      ],
+      "total_samples": 150,
+      "latency": {
+        "mean_ms": 29.73,
+        "median_ms": 28.16,
+        "p95_ms": 39.47
+      }
+    },
+    "config_b_2view_hflip_tta": {
+      "accuracy": 0.88,
+      "macro_precision": 0.8439,
+      "macro_recall": 0.844,
+      "macro_f1": 0.8425,
+      "weighted_precision": 0.8762,
+      "weighted_recall": 0.88,
+      "weighted_f1": 0.8772,
+      "roc_auc_ovr_macro": 0.9622,
+      "roc_auc_ovr_weighted": 0.9566,
+      "per_class": {
+        "Normal": {
+          "precision": 0.9159,
+          "recall": 0.9423,
+          "f1": 0.9289,
+          "support": 104
+        },
+        "Mild": {
+          "precision": 0.7586,
+          "recall": 0.6667,
+          "f1": 0.7097,
+          "support": 33
+        },
+        "Severe": {
+          "precision": 0.8571,
+          "recall": 0.9231,
+          "f1": 0.8889,
+          "support": 13
+        }
+      },
+      "confusion_matrix": [
+        [
+          98,
+          6,
+          0
+        ],
+        [
+          9,
+          22,
+          2
+        ],
+        [
+          0,
+          1,
+          12
+        ]
+      ],
+      "total_samples": 150,
+      "latency": {
+        "mean_ms": 57.54,
+        "median_ms": 55.13,
+        "p95_ms": 67.26
+      }
+    },
+    "config_c_3view_hvflip_tta": {
+      "accuracy": 0.8667,
+      "macro_precision": 0.8165,
+      "macro_recall": 0.8134,
+      "macro_f1": 0.8137,
+      "weighted_precision": 0.873,
+      "weighted_recall": 0.8667,
+      "weighted_f1": 0.8691,
+      "roc_auc_ovr_macro": 0.9637,
+      "roc_auc_ovr_weighted": 0.9607,
+      "per_class": {
+        "Normal": {
+          "precision": 0.9406,
+          "recall": 0.9135,
+          "f1": 0.9268,
+          "support": 104
+        },
+        "Mild": {
+          "precision": 0.6757,
+          "recall": 0.7576,
+          "f1": 0.7143,
+          "support": 33
+        },
+        "Severe": {
+          "precision": 0.8333,
+          "recall": 0.7692,
+          "f1": 0.8,
+          "support": 13
+        }
+      },
+      "confusion_matrix": [
+        [
+          95,
+          9,
+          0
+        ],
+        [
+          6,
+          25,
+          2
+        ],
+        [
+          0,
+          3,
+          10
+        ]
+      ],
+      "total_samples": 150,
+      "latency": {
+        "mean_ms": 84.28,
+        "median_ms": 82.8,
+        "p95_ms": 92.93
+      }
+    }
+  },
+  "deltas_relative_to_baseline_config_a": {
+    "config_b_delta_acc": -0.02,
+    "config_b_delta_macro_f1": -0.0342,
+    "config_b_delta_mild_recall": -0.0909,
+    "config_b_delta_severe_recall": 0.0,
+    "config_b_latency_overhead_percent": 93.54,
+    "config_c_delta_acc": -0.0333,
+    "config_c_delta_macro_f1": -0.063,
+    "config_c_delta_mild_recall": 0.0,
+    "config_c_delta_severe_recall": -0.1539,
+    "config_c_latency_overhead_percent": 183.48
+  }
+}

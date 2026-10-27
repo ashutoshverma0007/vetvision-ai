@@ -1,0 +1,87 @@
+{
+  "experiment_name": "mobilenetv3_large_lsd_transfer_learning",
+  "model": {
+    "architecture": "mobilenet_v3_large",
+    "pretrained_weights": "DEFAULT",
+    "num_classes": 3,
+    "input_resolution": [224, 224],
+    "channels": 3,
+    "class_to_idx": {
+      "Normal": 0,
+      "Mild": 1,
+      "Severe": 2
+    },
+    "idx_to_class": {
+      "0": "Normal",
+      "1": "Mild",
+      "2": "Severe"
+    }
+  },
+  "training": {
+    "random_seed": 42,
+    "batch_size": 32,
+    "num_workers": 0,
+    "optimizer": "AdamW",
+    "loss": "weighted_cross_entropy",
+    "early_stopping": {
+      "monitor": "val_macro_f1",
+      "mode": "max",
+      "patience": 8,
+      "min_delta": 0.001
+    },
+    "lr_scheduler": {
+      "type": "ReduceLROnPlateau",
+      "mode": "max",
+      "factor": 0.5,
+      "patience": 3,
+      "min_lr": 1e-6
+    },
+    "phase_1_head_only": {
+      "name": "Phase 1: Feature Extraction (Backbone Frozen)",
+      "max_epochs": 30,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "freeze_backbone": true
+    },
+    "phase_2_fine_tuning": {
+      "name": "Phase 2: Fine-Tuning (Upper Backbone Unfrozen)",
+      "max_epochs": 30,
+      "learning_rate": 0.00005,
+      "weight_decay": 0.0001,
+      "unfreeze_top_blocks": 5
+    }
+  },
+  "augmentation": {
+    "train": {
+      "random_horizontal_flip": {
+        "p": 0.5
+      },
+      "random_rotation": {
+        "degrees": 15
+      },
+      "random_affine": {
+        "translate": [0.05, 0.05],
+        "scale": [0.95, 1.05]
+      },
+      "color_jitter": {
+        "brightness": 0.1,
+        "contrast": 0.1,
+        "saturation": 0.05,
+        "hue": 0.0
+      }
+    },
+    "validation_test": {
+      "description": "Deterministic preprocessing only. No augmentation."
+    },
+    "normalization": {
+      "mean": [0.485, 0.456, 0.406],
+      "std": [0.229, 0.224, 0.225]
+    }
+  },
+  "paths": {
+    "source_manifest": "services/ai/research/reports/dataset_split.csv",
+    "checkpoint_dir": "services/ai/research/models",
+    "best_model_checkpoint": "services/ai/research/models/mobilenetv3_lsd_best.pth",
+    "reports_dir": "services/ai/research/reports"
+  }
+}
