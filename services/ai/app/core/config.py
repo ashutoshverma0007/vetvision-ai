@@ -6,7 +6,11 @@ class Settings(BaseSettings):
     APP_NAME: str = "VetVision AI Inference Service"
     ENVIRONMENT: str = "development"
     HOST: str = "0.0.0.0"
-    PORT: int = 8000
+    AI_PORT: int = 8000
+
+    @property
+    def PORT(self) -> int:
+        return self.AI_PORT
     
     # Internal Authentication
     INTERNAL_SECRET: str = "dev-internal-ai-secret-key-32-bytes-long"
