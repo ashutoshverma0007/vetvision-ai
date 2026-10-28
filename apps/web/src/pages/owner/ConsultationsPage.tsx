@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { api } from '../../lib/api';
 import {
   Consultation,
@@ -30,7 +30,9 @@ import {
 import { formatDate, formatDateTime } from '../../lib/utils';
 
 export function ConsultationsPage() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const hasInitializedParams = useRef(false);
   const [consultations, setConsultations] = useState<Consultation[]>([]);
   const [animals, setAnimals] = useState<Animal[]>([]);
   const [veterinarians, setVeterinarians] = useState<VeterinarianProfile[]>([]);
@@ -67,19 +69,22 @@ export function ConsultationsPage() {
       setAnimals(animalsRes.animals);
       setVeterinarians(vetsRes.veterinarians);
 
-      // Handle search parameters for pre-filling
-      const paramAnimalId = searchParams.get('animalId');
-      const paramScanId = searchParams.get('scanId');
+      // Handle search parameters for pre-filling ONLY ONCE on initial mount
+      if (!hasInitializedParams.current) {
+        hasInitializedParams.current = true;
+        const paramAnimalId = searchParams.get('animalId');
+        const paramScanId = searchParams.get('scanId');
 
-      if (paramAnimalId) {
-        setSelectedAnimalId(paramAnimalId);
-        setIsModalOpen(true);
-      } else if (animalsRes.animals.length > 0 && !selectedAnimalId) {
-        setSelectedAnimalId(animalsRes.animals[0].id);
-      }
+        if (paramAnimalId) {
+          setSelectedAnimalId(paramAnimalId);
+          setIsModalOpen(true);
+        } else if (animalsRes.animals.length > 0 && !selectedAnimalId) {
+          setSelectedAnimalId(animalsRes.animals[0].id);
+        }
 
-      if (paramScanId) {
-        setSelectedScanId(paramScanId);
+        if (paramScanId) {
+          setSelectedScanId(paramScanId);
+        }
       }
     } finally {
       setIsLoading(false);
@@ -116,25 +121,51 @@ export function ConsultationsPage() {
       return;
     }
 
+    const trimmedSubject = subject.trim();
+    const trimmedDescription = description.trim();
+
+    if (trimmedSubject.length < 3) {
+      setError('Consultation subject must be at least 3 characters.');
+      return;
+    }
+
+    if (trimmedDescription.length < 3) {
+      setError('Please provide at least 3 characters describing symptoms and concerns.');
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
     try {
-      await api.consultations.request({
+      const res = await api.consultations.request({
         animalId: selectedAnimalId,
         scanId: selectedScanId || null,
         veterinarianId: selectedVetId || null,
-        subject,
-        description
+        subject: trimmedSubject,
+        description: trimmedDescription
       });
 
       setIsModalOpen(false);
       setSubject('');
       setDescription('');
       setSelectedScanId('');
-      await loadData();
+      setSearchParams({});
+
+      if (res.consultation?.id) {
+        navigate(`/consultations/${res.consultation.id}`);
+      } else {
+        await loadData();
+      }
     } catch (err: any) {
-      setError(err.message || 'Failed to submit consultation request');
+      let msg = err.message || 'Failed to submit consultation request';
+      if (err.details && Array.isArray(err.details) && err.details.length > 0) {
+        msg = err.details
+          .map((d: any) => (d && typeof d === 'object' && d.message ? d.message : String(d)))
+          .filter(Boolean)
+          .join('. ');
+      }
+      setError(msg);
     } finally {
       setIsSubmitting(false);
     }
@@ -346,7 +377,10 @@ export function ConsultationsPage() {
       {/* Request Consultation Modal */}
       <Modal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSearchParams({});
+        }}
         title="Request Veterinary Consultation"
         description="Connect with a licensed veterinarian to evaluate clinical symptoms, scans, and treatment plans"
       >
@@ -428,12 +462,18 @@ export function ConsultationsPage() {
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required
+            minLength={3}
           />
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
-              Detailed Clinical Symptoms & Concern *
-            </label>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Detailed Clinical Symptoms & Concern *
+              </label>
+              <span className="text-[11px] text-muted-foreground font-mono">
+                {description.trim().length} character{description.trim().length === 1 ? '' : 's'} (min 3)
+              </span>
+            </div>
             <textarea
               rows={4}
               placeholder="Describe symptoms, duration, itching, nodule firmness, appetite or behavioral changes..."
@@ -441,11 +481,19 @@ export function ConsultationsPage() {
               onChange={(e) => setDescription(e.target.value)}
               className="w-full px-3 py-2 rounded-lg border border-input bg-card text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
               required
+              minLength={3}
             />
           </div>
 
           <div className="flex justify-end gap-2 pt-2">
-            <Button type="button" variant="outline" onClick={() => setIsModalOpen(false)}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => {
+                setIsModalOpen(false);
+                setSearchParams({});
+              }}
+            >
               Cancel
             </Button>
             <Button type="submit" variant="primary" isLoading={isSubmitting}>

@@ -182,7 +182,7 @@ export const createConsultationSchema = z.object({
   scanId: z.string().uuid().optional().nullable(),
   veterinarianId: z.string().uuid().optional().nullable(),
   subject: z.string().trim().min(3, 'Subject must be at least 3 characters').max(200),
-  description: z.string().trim().min(10, 'Description must be at least 10 characters').max(5000),
+  description: z.string().trim().min(3, 'Description must be at least 3 characters').max(5000),
   scheduledAt: z.coerce.date().optional().nullable()
 });
 

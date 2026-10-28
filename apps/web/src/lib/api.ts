@@ -61,8 +61,19 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   }
 
   if (!response.ok || !data.success) {
+    let message = data.error?.message || `Request failed with HTTP ${response.status}`;
+    if (data.error?.details && Array.isArray(data.error.details) && data.error.details.length > 0) {
+      const issueMessages = data.error.details
+        .map((d: any) => (d && typeof d === 'object' && d.message ? d.message : String(d)))
+        .filter(Boolean)
+        .join('. ');
+      if (issueMessages) {
+        message = issueMessages;
+      }
+    }
+
     throw new ApiError(
-      data.error?.message || `Request failed with HTTP ${response.status}`,
+      message,
       data.error?.code || 'UNKNOWN_ERROR',
       data.error?.details
     );
