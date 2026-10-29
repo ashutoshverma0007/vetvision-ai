@@ -1,0 +1,479 @@
+=== PAGE 1 ===
+Efficient and Explainable Deep Learning for Image
+Based Lumpy Skin Disease Screening in Cattle
+1st Ashutosh Verma
+Department of Computer Science and
+Engineering
+Chandigarh University
+Mohali-140413, Punjab, India
+ashu.akv0007@gmail.com
+2nd Sachin Kumar Gupta
+Department of Computer Science and
+Engineering
+Chandigarh University
+Mohali-140413, Punjab, India
+sachinkumargupta24.2004@gmail.com
+3rd Harshit Dubey
+Department of Computer Science and
+Engineering
+Chandigarh University
+Mohali-140413, Punjab, India
+Harshitdubey63063@gmail.com
+Abstract—Lumpy skin disease (LSD) is a major disease that
+poses a significant threat to the health and agricultural produc-
+tivity of cattle, and rapid, easy screening is needed. Conventional
+diagnosis requires veterinary skills and laboratory confirmation,
+and image-based deep-learning systems can face problems with
+computational efficiency, interpretability and generalization. This
+paper presents VetVision AI, a deep-learning-based system to
+classify cattle skin images as Normal Skin or Lumpy Skin.
+It uses class-weighted learning, evaluation of pretrained con-
+volutional neural networks, and efficient CPU inference with
+ONNX Runtime. Grad-CAM is provided to aid visual analysis of
+predictions. On a held-out test set of 153 images, EfficientNet-B0
+achieved 90.85% accuracy, 89.25% macro-F1 and 91.98% ROC-
+AUC. ONNX optimization reduced the median inference latency
+from 55.78 ms per image to 19.92 ms per image, a 64.29%
+decrease, while preserving prediction accuracy. The proposed
+system is more useful in terms of deployment efficiency while
+maintaining acceptable test accuracy, albeit slightly lower than
+the other MobileNetV3 variant, MobileNetV3-Large. The findings
+suggest the potential for CPU-based veterinary image screening,
+but further studies, including larger datasets, independent farm-
+level validation and prospective clinical assessment, are neces-
+sary before implementation. VetVision AI is intended for initial
+screening and should not be used to diagnose the condition.
+Index Terms—Lumpy skin disease, cattle disease detection,
+deep learning, EfficientNet-B0, MobileNetV3, ONNX Runtime,
+explainable artificial intelligence, veterinary image classification,
+CPU optimization.
+I. INTRODUCTION
+A. Background
+Lumpy skin disease (LSD) is a viral condition of cattle that
+results in skin nodules, loss of productivity and significant eco-
+nomic losses. Its emergence in India has necessitated prompt
+detection and appropriate management [1], [2]. Diagnosis is
+usually made by clinical examination and laboratory tests, the
+latter of which can be difficult to access in low-resource areas.
+Recently, deep learning has been shown to enable automatic
+recognition of LSD from image analysis [3]–[5]. Powerful
+feature extractors such as EfficientNet and MobileNet [7]–
+[9] and residual learning are available, spanning a range of
+computational costs.
+B. Motivation
+Current methods yield promising classification outcomes
+but are hampered by limited labeled datasets, computational
+demands, interpretability and the transferability of classifi-
+cation to different imaging situations [11], [14]. Alternative
+representations, such as those offered by vision transformers,
+can also be used but may be costly to compute, depending on
+their configuration [10]. High classification accuracy does not
+guarantee clinical reliability. Explainability techniques such
+as Grad-CAM can highlight image regions relevant to the
+prediction, aiding transparent assessment of models [12], [20].
+These considerations motivate VetVision AI as an efficient,
+interpretable and CPU-compatible screening system.
+C. Problem Statement
+Techniques currently employed to detect LSD are techni-
+cally viable, but variations in datasets and evaluation protocols
+produce differences in results that make direct comparison
+difficult [3]–[5]. Small test sets, possible data leakage and in-
+adequate external validation can produce inaccurate estimates
+of generalization [14], [18]. A practical screening system
+must therefore balance classification performance, inference
+efficiency, interpretability and a clear distinction between
+preliminary screening predictions and confirmed veterinary
+diagnosis [15], [19].
+D. Objective and Scope
+This research aims to create VetVision AI to classify cattle
+skin images as Normal Skin or Lumpy Skin. It evaluates
+pretrained CNN architectures, explores class-weighted learn-
+ing, studies accuracy, macro-F1 and AUC of classification,
+and optimizes CPU inference using ONNX Runtime. Visual
+interpretation is provided by Grad-CAM. Experimental report-
+ing follows recommendations for transparent evaluation of AI
+[16], [17]. The scope does not include disease-severity grading
+or clinical diagnosis and is limited to image-based screening.
+Real-world implementation of the vet vision involves indepen-
+dent validation at animal level and farm level.
+
+=== PAGE 2 ===
+II. LITERATUREREVIEW
+Lumpy skin disease virus (LSD virus) is an economically
+important cattle disease that has severe implications for animal
+health, as it results in the formation of skin nodules and
+impact on productivity.Gupta et al. discussed the emergence
+of LSD in India, and the importance of early diagnosis,
+laboratory confirmation, and disease control [1]. Outbreak
+investigations thereafter indicated that there are pathological
+and epidemiological differences between the outbreaks, and
+thus, visual screening should be employed in conjunction
+with, and not instead of, veterinary examination and molecular
+testing in India [2].
+With the aid of deep learning, automated interpretation
+of animal-health images is becoming increasingly common.
+Senthilkumar et al. conducted a comparative study of the
+pretrained convolutional neural networks (CNNs) and tested
+several CNN architectures for LSD recognition, concluding
+that MobileNetV2 [3] achieved good classification results to
+be used for LSD recognition. In the field of detecting LSD,
+Pal et al. investigated CNN and transformer approaches, which
+have been a topic of increasing interest in the literature due
+to their ability to extract features and strong representation
+learning [4]. Ullah et al. suggested a vision-transformation
+based mobile application that achieved 98.12% accuracy on
+8,000 cattle images [5]. These findings, however, are not
+directly comparable, due to differences in the composition of
+the datasets, the ways in which they were split, the quality of
+the disease labels, and external validation.
+These systems are based on the methodological foundations
+of hierarchical visual feature learning. AlexNet showed the
+proof of the power of deep CNNs for image classification on
+large scale images [6] and residual connections for optimizing
+deeper network [7]. EfficientNet proposed a compound scaling
+of depth, width and resolution that achieves a good tradeoff be-
+tween accuracy and computation [8]. MobileNetV3 solved the
+problem of resource-concstrained inference by designing the
+architecture based on hardware [9]. Unlike Vision Transform-
+ers, which use self-attention for long-range image relations,
+they are often not more efficient in practice, depending on
+the training data, implementation and computational resources
+[10]. These developments help to compare lightweight CNNs
+with alternatives based on transformers, not the most compli-
+cated network is the best network for the field.
+The benefits of transfer learning, where the number of
+labeled images is limited, have been demonstrated in medical-
+image-analysis studies, though the same studies revealed a
+host of problems, including annotation quality, class imbalance
+and distribution-shift [11]. With Grad-CAM, one can obtain
+spatial explanations, which depict regions of the image that
+the CNN considers relevant, but do not necessarily indicate
+biological relevance [12]. Previous classification studies of
+plant diseases have demonstrated that image-based analysis
+can be effective, but also indicated that these techniques may
+not be generalizable to real-world scenarios if the data is
+carefully chosen [13].
+One of the important points of generalization is particularly
+true for veterinary applications. Zech et al. demonstrated that
+medical-image classifiers can take advantage of the peculiar-
+ities of the institution where they were trained and exhibit
+inconsistent performance on test sets from other institutions
+[14]. Kelly et al. identified workflow integration, reliability
+and prospective evaluation as the challenges to scale AI
+applications to real clinical environments [15]. The key re-
+porting items that are highlighted in CLAIM and TRIPOD+AI
+include well described datasets, the validation process, model
+development and explicitly stated limitations [16] [17]. These
+studies combined suggest that high accuracy does not ensure
+clinical utility.
+A. Research Gap
+Although research already shows that image-based LSD
+classification is technically feasible, gaps remain in compu-
+tational efficiency, clinical interpretability, leakage-resistant
+evaluation, and independent validation across animals, farms
+and imaging conditions. A binary screening system should
+also not be presented as a “severity-grading model” without
+severity labels. To address these challenges, the proposed
+VetVision AI research will combine an efficient pretrained
+CNN, reproducible group-aware evaluation, class-sensitive
+metrics, visual explanations and CPU-oriented deployment.
+Before any clinical claims can be substantiated, independent
+validation and broader field testing are required.
+III. METHODOLOGY
+A. Research Design
+This research introduces VetVision AI, a deep-learning-
+based binary classification model that distinguishes Lumpy
+Skin (LS) from Normal Skin (NS) in photographs of cat-
+tle skin. The approach combines dataset quality assessment,
+transfer learning, comparative model evaluation and infer-
+ence optimization. Transfer learning reduces the training time
+needed by reusing pretrained visual representations [6], [7],
+and lightweight architectures ease deployment in resource-
+limited systems [8], [9].
+Fig. 1. Vertical multiway workflow of the proposed VetVision AI screening
+system, including image preprocessing, EfficientNet-B0 classification, CPU
+inference, and Grad-CAM-based visual explanation.
+
+=== PAGE 3 ===
+B. Data Collection and Preprocessing
+The dataset contained 1,024 RGB/PNG images at256×256
+pixels, with 700 Normal Skin and 324 Lumpy Skin images.
+Six images were excluded because of conflicting class labels
+identified during the dataset audit, leaving 1,018 images for
+analysis. To avoid data leakage, exact duplicates and additional
+near-duplicates were identified through perceptual hashing.
+The final dataset was split into training (711 images),
+validation (154 images) and test (153 images) sets by stratified
+class allocation with a fixed random seed (42). Samples that
+were near-duplicates were kept within the same split. All
+images were resized to224×224pixels and standardized
+with ImageNet statistics. Training used data augmentation with
+random horizontal flipping, random cropping and resizing,
+rotations up to 10 degrees and colour jitter. These procedures
+can increase variation during learning but cannot ensure gen-
+eralization to independent farms and animals [11], [14].
+Fig. 2. Vertical multiway data preprocessing and evaluation workflow.
+C. Model Development and Selection
+Two ImageNet-pretrained architectures were considered:
+EfficientNet-B0 [8] and MobileNetV3-Large [9]. Each archi-
+tecture was trained with both cross-entropy loss and inverse-
+frequency class-weighted cross-entropy loss, giving four con-
+figurations. Training used the AdamW optimizer with a learn-
+ing rate of3×10 −4, weight decay of10 −4, batch size 16 and a
+cosine learning-rate schedule. Training ran for up to 8 epochs,
+with early stopping after 3 epochs without improvement in
+validation macro-F1.
+The model with the highest validation macro-F1 was se-
+lected for further testing. On both validation and test sets,
+classification accuracy, balanced accuracy, macro-F1, class-
+specific precision and recall, ROC-AUC and PR-AUC were
+calculated. Following ongoing explainability research [12],
+Grad-CAM was used to provide visual explanations for pre-
+dictions. The selected PyTorch model was exported to ONNX
+format for CPU-based inference.
+Fig. 3. Training, validation, and model evaluation workflow.
+IV. EXPERIMENTALSETUP
+A. Computational Environment
+GPU dependence was eliminated by using CPU-only exe-
+cution with one CPU thread. The same random seed, prepro-
+cessing pipeline, data splits and optimization parameters were
+used for all configurations. Parameters, checkpoint counts,
+checkpoint sizes and single-image inference latency were
+recorded. Two PyTorch predictions were compared with each
+other and with ONNX Runtime predictions to assess export
+consistency.
+B. Comparative Evaluation
+Each configuration was evaluated on the same held-out
+test set. EfficientNet-B0 with class weighting achieved the
+highest validation macro-F1 (95.46%) and validation accuracy
+(96.10%) and was therefore selected. On the test set, this
+configuration achieved 90.85% accuracy, 89.25% macro-F1,
+88.81% balanced accuracy, 91.98% ROC-AUC and 90.94%
+PR-AUC. Recall for Lumpy Skin was 83.33%, meaning that
+a few disease-positive images were missed.
+The baseline MobileNetV3-Large model without class
+weighting achieved 91.50% test accuracy and a median Py-
+Torch inference time of 14.22 ms, versus 26.27 ms for the
+selected EfficientNet-B0. These results illustrate a trade-off
+between validation performance and computational cost. The
+accuracy differences, however, are small and do not indicate
+any significant superiority in accuracy.
+C. Deployment and Reliability Assessment
+ONNX Runtime inference was evaluated on 307 validation
+and test images. It achieved a median latency of 19.92 ms
+and a 95th-percentile latency of 27.67 ms, compared with
+PyTorch’s median latency of 55.78 ms and 95th-percentile
+latency of 63.74 ms in this benchmark. Predicted classes were
+identical, with a maximum absolute probability difference
+of approximately2.04×10 −6. The findings show numeric
+coherence and faster computation in the test computer, but
+they do not prove better diagnostic precision.
+The findings must be interpreted carefully, adhering to
+clinical-AI reporting recommendations [15]-[17]. The test set
+consisted of only 153 images, and animal/farm independence
+was not tested, neither did the authors conduct any external
+validation. The system is supposed to be used for initial
+screening studies using imaging data only.
+
+=== PAGE 4 ===
+Fig. 4. Multiway ONNX deployment workflow with prediction outputs and
+Grad-CAM explanations.
+V. RESULTS ANDDISCUSSION
+A. Comparative Classification Performance
+VetVision AI was tested on a separate test set of 153 images.
+EfficientNet-B0, trained with a class-weighted loss function,
+was selected to obtain balanced classification during the vali-
+dation process using macro-F1. The classification results and
+evaluation measures are summarized in Table I.
+TABLE I
+CLASSIFICATION PERFORMANCE OF THE PROPOSED SYSTEM AND
+BASELINE.
+Evaluation metric Proposed system MobileNetV3-Large (unweighted)
+Validation accuracy 96.10% Not reported
+Validation F1 95.46% Not reported
+Test accuracy 90.85% 91.50%
+Test micro-F1 33.75% Not reported
+Balanced accuracy 88.81% Not reported
+ROC-AUC 91.98% Not reported
+PR-AUC 90.94% Not reported
+Test samples 153 153
+During the selection step the validation macro-F1 was 95.
+This shows that the model was successful with a score of
+46%. The macro-F1 and balanced accuracy were 90. for the
+test data. 85%, 89. 25% and 88. 81%, respectively. The ROC-
+AUC score was 91. 98%. The test accuracy of the proposed
+model (91.50%) is 0.65 percentage points lower than that
+of the MobileNetV3-Large model. The designed system is
+therefore not necessarily the best in terms of classification
+accuracy. For a meaningful comparison a baseline macro-F1,
+Fig. 5. Test accuracy comparison of EfficientNet-B0 and MobileNetV3-Large.
+sensitivity, specificity and confidence intervals are required.
+This difference in validation and test results may reflect some
+limitation in generalisation, typical across image-based clinical
+AI [11] [14] [18].
+B. Computational Efficiency and Deployment
+The computational comparison covered EfficientNet-B0 in
+PyTorch and EfficientNet-B0 in ONNX Runtime against the
+PyTorch baseline MobileNetV3-Large. Table??shows the
+available latencies.
+ONNX Runtime managed to achieve median latency im-
+provement of 64.29% and P95 latency improvement of 56.61%
+for EfficientNet-B0. Consistency of predictions post-export
+was proven through perfect matching of prediction classes,
+with the maximal probability difference amounting to2.04×
+10−6. The gained efficiency allows running on CPU and is in
+line with the goals of lightweight neural network architecture
+[8], [9]. MobileNetV3-Large was the fastest at 14.22 ms
+median latency. EfficientNet-B0 is not the fastest, but with
+ONNX optimization it offers a practical balance between
+classification performance and inference speed. Baseline P95
+latency, model size, throughput and memory usage should be
+included in a thorough efficiency comparison.
+C. Clinical Interpretation and Limitations
+The findings suggest that VetVision AI may support initial
+image-based screening, but it should not be regarded as a
+confirmed diagnosis by a veterinarian. Although Grad-CAM
+can highlight image regions that influence the predictions, no
+visual explanation can guarantee pathological validity [12],
+[20]. Even when discrimination is high, reliable predictions
+depend on calibration and uncertainty assessment [19]. The
+key strengths demonstrated are efficient ONNX inference,
+consistent exported predictions and good binary classification
+performance. Independent animal-level and farm-level testing,
+validation of false-negative rates and prospective veterinary
+validation are still needed before clinical deployment [15]–
+[17].
+
+=== PAGE 5 ===
+Fig. 6. Training and validation behaviour, classification metrics, and ROC and precision–recall curves for the VetVision AI framework.
+TABLE II
+INFERENCEEFFICIENCY ANDDEPLOYMENTCOMPARISON
+Performance Indicator EfficientNet-B0 (PyTorch) EfficientNet-B0 (ONNX) MobileNetV3-Large (PyTorch)
+Median latency (ms/image) 55.78 19.92 14.22
+P95 latency (ms/image) 63.74 27.67 Not reported
+Median latency reduction vs. PyTorch EfficientNet-B0 – 64.29% 74.51%
+P95 latency reduction vs. PyTorch EfficientNet-B0 – 56.61% Not reported
+Prediction agreement with corresponding PyTorch model Reference 100% Not reported
+Maximum absolute probability difference Reference 2.04×10 −6 Not reported
+Fig. 7. Median and P95 CPU inference latency of the evaluated models.
+VI. CONCLUSION ANDFUTURESCOPE
+A. Conclusion
+This research work presents VetVision AI, which is a
+deep learning-based screening tool that can classify cattle
+skin images into two categories - Normal Skin and Lumpy
+Skin. Two pre-trained CNNs have been compared and ONNX
+Runtime has been used for CPU optimization.Experimental
+Fig. 8. Confusion matrix of the proposed EfficientNet-B0 model on the held-
+out test set.
+results indicated that EfficientNet-B0 achieved 90.85% accu-
+racy on the test set, a macro-F1 score of 89.25% and an
+ROC-AUC score of 91.98%.In this research, a skin image
+screening system based on deep learning called VetVision AI
+was proposed to classify images into two categories as Normal
+Skin or Lumpy Skin. For this purpose, the performance of
+pretrained convolutional neural networks was examined and
+ONNX Runtime was used for the CPU-based inference accel-
+
+=== PAGE 6 ===
+Fig. 9. Grad-CAM visualization of the proposed EfficientNet-B0 model,
+showing the original cattle skin image, activation heatmap, and heatmap
+overlay.
+eration. According to the experimental results, EfficientNet-B0
+reached 90.85% accuracy on the test dataset, 89.25% F1-score
+and 91.98% ROC-AUC. The median inference latency was
+reduced by 64.29% (from 55.78 ms to 19.92 ms per image)
+through ONNX optimization while maintaining prediction
+consistency. The proposed configuration provided a trade-off
+between computation and classification performance, while
+MobileNetV3-Large outperformed it in test accuracy. The test
+set, however, is small, so conclusions regarding real-world
+generalizability are limited. VetVision AI is not intended as
+a diagnostic tool but as a screening-support system.
+B. Future Scope
+Other studies may be carried out which will include more
+breeds of cattle, various stages of disease, geographic location
+and climate. Incorporating individual-level data with farm-
+level data will aid in farm-level evaluations of model gen-
+eralization. The model quantization, pruning and knowledge
+distillation can be performed in order to gain efficiency and
+reduce inference latency on mobile and edge devices. The
+addition of calibration of confidence values and explanation
+techniques will aid in enhancing the clarity of the results
+and may assist in the identification of unreliable results that
+should be considered by a veterinarian. With the availability of
+clinically labeled data, multi-class classification can evaluate
+the severity of the disease and also distinguish between LSD
+and other skin diseases.
+“‘latex
+REFERENCES
+[1] T. Gupta, V . Patial, D. Bali, S. Angaria, M. Sharma, and R. Chahota,
+“A review: Lumpy skin disease and its emergence in India,”Veterinary
+Research Communications, vol. 44, nos. 3–4, pp. 111–118, 2020, doi:
+10.1007/s11259-020-09780-1.
+[2] G. B. Manjunathareddyet al., “Pathological, immunological and molec-
+ular epidemiological analysis of lumpy skin disease virus in Indian cattle
+during a high-mortality epidemic,”Veterinary Quarterly, vol. 44, no. 1,
+pp. 1–22, 2024, doi: 10.1080/01652176.2024.2398211.
+[3] C. Senthilkumar, C. Sindhu, G. Vadivu, and S. Neethirajan, “Early
+detection of lumpy skin disease in cattle using deep learning—A
+comparative analysis of pretrained models,”Veterinary Sciences, vol.
+11, no. 10, Art. no. 510, 2024, doi: 10.3390/vetsci11100510.
+[4] M. Palet al., “Implementation of a deep learning system for detection
+and classification of lumpy skin disease in cattle: Enhancing precision
+and efficiency in veterinary diagnostics,”Veterinary Medicine and Sci-
+ence, vol. 11, no. 6, Art. no. e70664, 2025, doi: 10.1002/vms3.70664.
+[5] A. Ullahet al., “A vision transformer model-integrated mobile applica-
+tion for early and accurate detection of lumpy skin disease in cattle,”
+Scientific Reports, vol. 16, Art. no. 683, 2026, doi: 10.1038/s41598-025-
+30259-z.
+[6] A. Krizhevsky, I. Sutskever, and G. E. Hinton, “ImageNet classifica-
+tion with deep convolutional neural networks,” inAdvances in Neural
+Information Processing Systems, vol. 25, pp. 1097–1105, 2012.
+[7] K. He, X. Zhang, S. Ren, and J. Sun, “Deep residual learning for
+image recognition,” inProc. IEEE Conf. Computer Vision and Pattern
+Recognition (CVPR), 2016, pp. 770–778, doi: 10.1109/CVPR.2016.90.
+[8] M. Tan and Q. V . Le, “EfficientNet: Rethinking model scaling for con-
+volutional neural networks,” inProc. 36th Int. Conf. Machine Learning
+(ICML), PMLR, vol. 97, pp. 6105–6114, 2019.
+[9] A. Howardet al., “Searching for MobileNetV3,” inProc. IEEE/CVF
+Int. Conf. Computer Vision (ICCV), 2019, pp. 1314–1324, doi:
+10.1109/ICCV .2019.00140.
+[10] A. Dosovitskiyet al., “An image is worth 16×16 words: Transformers
+for image recognition at scale,” inProc. Int. Conf. Learning Represen-
+tations (ICLR), 2021.
+[11] G. Litjenset al., “A survey on deep learning in medical image
+analysis,”Medical Image Analysis, vol. 42, pp. 60–88, 2017, doi:
+10.1016/j.media.2017.07.005.
+[12] R. R. Selvarajuet al., “Grad-CAM: Visual explanations from deep
+networks via gradient-based localization,” inProc. IEEE Int. Conf. Com-
+puter Vision (ICCV), 2017, pp. 618–626, doi: 10.1109/ICCV .2017.74.
+[13] S. P. Mohanty, D. P. Hughes, and M. Salath ´e, “Using deep learning for
+image-based plant disease detection,”Frontiers in Plant Science, vol. 7,
+Art. no. 1419, 2016, doi: 10.3389/fpls.2016.01419.
+[14] J. R. Zech, M. A. Badgeley, M. Liu, A. B. Costa, J. J. Titano, and E.
+K. Oermann, “Variable generalization performance of a deep learning
+model to detect pneumonia in chest radiographs: A cross-sectional
+study,”PLOS Medicine, vol. 15, no. 11, Art. no. e1002683, 2018, doi:
+10.1371/journal.pmed.1002683.
+[15] C. J. Kelly, A. Karthikesalingam, M. Suleyman, G. Corrado, and
+D. King, “Key challenges for delivering clinical impact with artifi-
+cial intelligence,”BMC Medicine, vol. 17, Art. no. 195, 2019, doi:
+10.1186/s12916-019-1426-2.
+[16] J. Mongan, L. Moy, and C. E. Kahn, Jr., “Checklist for artificial
+intelligence in medical imaging (CLAIM): A guide for authors and
+reviewers,”Radiology: Artificial Intelligence, vol. 2, no. 2, Art. no.
+e200029, 2020, doi: 10.1148/ryai.2020200029.
+[17] G. S. Collinset al., “TRIPOD+AI statement: Updated guidance for
+reporting clinical prediction models that use regression or machine learn-
+ing methods,”BMJ, vol. 385, Art. no. e078378, 2024, doi: 10.1136/bmj-
+2023-078378.
+[18] S. Kapoor and A. Narayanan, “Leakage and the reproducibility crisis in
+machine-learning-based science,”Patterns, vol. 4, no. 9, Art. no. 100804,
+2023, doi: 10.1016/j.patter.2023.100804.
+[19] B. Van Calsteret al., “Calibration: The Achilles heel of predictive ana-
+lytics,”BMC Medicine, vol. 17, Art. no. 230, 2019, doi: 10.1186/s12916-
+019-1466-7.
+[20] S. Ghassemi, L. Oakden-Rayner, and A. L. Beam, “The false hope of
+current approaches to explainable artificial intelligence in health care,”
+The Lancet Digital Health, vol. 3, no. 11, pp. e745–e750, 2021, doi:
+10.1016/S2589-7500(21)00208-9.

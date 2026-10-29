@@ -71,6 +71,7 @@ export class ScanService {
       : saveResult.storageKey;
 
     const aiResult = await aiClient.infer({
+      imageData: fileBuffer.toString('base64'),
       imagePath: absoluteImagePath,
       imageMimeType: mimeType
     });

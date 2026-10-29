@@ -19,6 +19,7 @@ export class AIClientService {
     logger.event('AI_INFERENCE_STARTED', {
       targetUrl,
       imagePath: request.imagePath,
+      hasImageData: Boolean(request.imageData),
       modelVersionId: request.modelVersionId
     });
 

@@ -1,0 +1,339 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Efficient and Explainable Deep Learning for Three-Class Lumpy Skin Disease Screening in Cattle Using EfficientNet-B0 and ONNX Runtime}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Ashutosh Verma}
+\IEEEauthorblockA{\textit{Department of Computer Science and Engineering} \\
+\textit{Chandigarh University}\\
+Mohali-140413, Punjab, India \\
+ashu.akv0007@gmail.com}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Sachin Kumar Gupta}
+\IEEEauthorblockA{\textit{Department of Computer Science and Engineering} \\
+\textit{Chandigarh University}\\
+Mohali-140413, Punjab, India \\
+sachinkumargupta24.2004@gmail.com}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Harshit Dubey}
+\IEEEauthorblockA{\textit{Department of Computer Science and Engineering} \\
+\textit{Chandigarh University}\\
+Mohali-140413, Punjab, India \\
+Harshitdubey63063@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+Lumpy Skin Disease (LSD) is a high-consequence viral epizootic impacting cattle health and agricultural economies worldwide. Rapid field-level screening is vital to mitigate outbreaks, yet existing automated visual approaches are frequently constrained by binary formulations that fail to differentiate lesion progression, high computational latency on edge hardware, lack of visual interpretability, and methodological vulnerabilities such as data leakage. This paper presents \textbf{VetVision AI}, an efficient, explainable, three-class deep learning screening framework designed to classify cattle skin photographs into \textbf{Normal Skin}, \textbf{Mild Lumpy Skin}, and \textbf{Severe Lumpy Skin}. Following a forensic data curation audit that eliminated 25 duplicate and conflicting label instances, a leakage-resistant dataset of 994 images was partitioned into 696 training, 150 validation, and 148 held-out test samples using group-aware perceptual hashing. We evaluated transfer learning architectures under class-weighted loss formulations to address severe class imbalance. On the held-out test set ($N = 148$), our selected \textbf{EfficientNet-B0} model achieved \textbf{90.54\% overall accuracy} (134/148), \textbf{83.35\% macro-averaged F1-score}, \textbf{90.38\% weighted F1-score}, and \textbf{91.51\% macro ROC-AUC}. Crucially, the model achieved \textbf{zero false negatives from Severe to Normal}, ensuring critical cases receive veterinary attention. To enable resource-constrained rural deployment, the trained network was exported to ONNX Runtime, reducing median single-image CPU inference latency from 25.75~ms to \textbf{6.79~ms} (a \textbf{73.88\% latency reduction}; 146.61 FPS throughput) with 100\% prediction concordance. Visual transparency is provided via authentic \textbf{Grad-CAM} saliency maps generated from the final convolutional block. While these findings demonstrate viable CPU-based veterinary triage, the small size of the Severe test cohort ($N = 12$) and reliance on retrospective single-source images require that VetVision AI be utilized strictly as a preliminary screening decision-support aid, not a definitive veterinary diagnosis.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Lumpy skin disease, three-class screening, EfficientNet-B0, ONNX Runtime, explainable artificial intelligence, Grad-CAM, CPU inference acceleration, veterinary informatics.
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+\subsection{Background and Epidemiological Context}
+Lumpy Skin Disease (LSD) is an economically devastating, vector-borne poxvirus infection of cattle caused by the \textit{Capripoxvirus} genus. Characterized by fever, emaciation, enlarged lymph nodes, and eruption of firm, circumscribed cuticular nodules, LSD induces profound economic losses through plummeting milk yields, permanent hide damage, secondary bacterial infections, and trade restrictions~\cite{gupta2020review, manjunathareddy2024pathological}. The unprecedented resurgence of LSD across South Asia and India has underscored the urgency for accessible, rapid, and accurate preliminary detection tools~\cite{gupta2020review}. Standard confirmatory diagnosis requires specialized veterinary clinical examination and laboratory molecular diagnostics (e.g., real-time PCR)~\cite{manjunathareddy2024pathological}, which remain largely inaccessible in remote, resource-constrained smallholder pastoral settings.
+
+\subsection{Motivation: Moving Beyond Binary Classification}
+Recent advances in computer vision have applied deep convolutional neural networks (CNNs) to photographic screening of cattle skin lesions~\cite{senthilkumar2024early, pal2025implementation, ullah2026vision}. However, the vast majority of prior works treat LSD detection as a monolithic \textbf{binary classification task} (Healthy vs. Diseased). In practical veterinary practice, binary labels offer insufficient clinical utility:
+\begin{enumerate}
+    \item \textbf{Clinical Triage:} Early ``Mild'' localized nodules require prompt supportive therapy, ring vaccination, and vector control to prevent herd transmission, whereas generalized ``Severe'' ulcerated lesions require strict quarantine and emergency antibiotic intervention for secondary myiasis.
+    \item \textbf{Resource Allocation:} In resource-limited pastoral settings, field veterinarians must triage animal treatment based on visual presentation severity rather than binary flags.
+    \item \textbf{Diagnostic Specificity:} Binary classifiers frequently conflate mild dermatological lesions with insect bites or ringworm, generating false positives that undermine farmer compliance.
+\end{enumerate}
+
+Consequently, developing a \textbf{three-class image-based screening model} (distinguishing \textit{Normal Skin}, \textit{Mild Lumpy Skin}, and \textit{Severe Lumpy Skin}) represents a substantial practical step forward, provided the system balances accuracy, computational overhead, and explainability.
+
+\subsection{Problem Statement and Integrity Considerations}
+Despite promising reported accuracies in veterinary computer vision literature (often exceeding 95\%), many published benchmarks suffer from systemic methodological pitfalls:
+\begin{enumerate}
+    \item \textbf{Data Leakage and Duplicate Bias:} Public agricultural datasets frequently contain exact duplicates, near-duplicate burst captures, and identical cattle photographed from multiple angles. Splitting datasets without cryptographic and perceptual hashing causes identical samples to cross into test sets, artificially inflating test metrics~\cite{zech2018variable, kapoor2023leakage}.
+    \item \textbf{Mathematical and Reporting Errors:} Imbalanced classification studies frequently miscalculate or report impossible metrics (such as reporting low micro-F1 alongside high accuracy in single-label tasks, where mathematically $F1_{\mu} \equiv \text{Accuracy}$)~\cite{mongan2020checklist, collins2024tripod}.
+    \item \textbf{Unverified Explainability:} Multiple works claim ``Explainable AI'' without providing verifiable gradient hooks, reproducible code, or provenance tracking~\cite{selvaraju2017gradcam, ghassemi2021false}.
+    \item \textbf{Computational Inefficiency:} Complex Vision Transformers or heavy ensembles cannot run on rural field hardware lacking dedicated GPU acceleration~\cite{dosovitskiy2021image, kelly2019key}.
+\end{enumerate}
+
+\subsection{Objective and Scope}
+This work introduces \textbf{VetVision AI}, addressing these gaps through an auditable, reproducible engineering pipeline:
+\begin{enumerate}
+    \item \textbf{Three-Class Formulation:} Screening cattle skin images into \textit{Normal}, \textit{Mild}, and \textit{Severe} categories.
+    \item \textbf{Leakage-Resistant Data Curation:} Audit of 1,019 raw cattle skin images, excluding 25 conflict/duplicate cases, and partitioning 994 usable images with perceptual hashing into 696 Train, 150 Validation, and 148 Test splits.
+    \item \textbf{Class-Weighted Transfer Learning:} Benchmarking EfficientNet-B0 and MobileNetV3-Large under inverse-frequency weighting to protect minority Severe cases.
+    \item \textbf{Authentic Explainability:} Implementing a standalone, reproducible Grad-CAM utility that hooks directly into the trained model's final convolutional layer (\texttt{features[-1]}).
+    \item \textbf{CPU Inference Acceleration:} Exporting to ONNX Runtime with zero-copy CPU optimization to enable real-time field deployment.
+\end{enumerate}
+
+\textbf{Scope and Limitation Notice:} VetVision AI is explicitly engineered as a preliminary screening decision-support tool. It does not establish definitive histological diagnosis or disease staging, which remain the sole purview of licensed veterinary professionals.
+
+\section{Literature Review}
+
+Automated image-based detection of animal diseases has grown rapidly with deep learning architectures. Gupta et al. reviewed the clinical emergence of LSD in India, emphasizing the critical importance of early visual detection coupled with laboratory surveillance~\cite{gupta2020review}. Manjunathareddy et al. conducted extensive molecular and pathological analyses during high-mortality outbreaks, demonstrating that clinical manifestation varies widely from mild localized nodules to severe systemic necrosis~\cite{manjunathareddy2024pathological}.
+
+In computer vision applications, Senthilkumar et al. compared pretrained CNN architectures (including ResNet, MobileNetV2, and VGG), observing that MobileNetV2 attained reliable screening performance for mobile deployments~\cite{senthilkumar2024early}. Pal et al. explored CNN and transformer architectures for LSD classification, noting strong representational capacity but highlighting the risk of overfitting on small cohorts~\cite{pal2025implementation}. Ullah et al. introduced a mobile application integrating vision transformers that claimed 98.12\% accuracy on 8,000 images~\cite{ullah2026vision}. However, cross-study comparisons remain problematic due to wide discrepancies in dataset curation, unaddressed duplicate images, lack of external validation, and varying evaluation protocols.
+
+The foundational architectures powering these systems rely on hierarchical representation learning. AlexNet established deep CNNs for visual categorization~\cite{krizhevsky2012imagenet}, and He et al. introduced residual connections to train deep networks without degradation~\cite{he2016deep}. Tan and Le developed EfficientNet, demonstrating that compound scaling of network depth, width, and resolution optimizes the accuracy--latency Pareto frontier~\cite{tan2019efficientnet}. Howard et al. introduced MobileNetV3, using hardware-aware neural architecture search and depthwise separable convolutions to maximize mobile CPU efficiency~\cite{howard2019searching}. While Vision Transformers offer global attention mechanisms~\cite{dosovitskiy2021image}, their compute and memory footprints remain prohibitive for resource-constrained veterinary field deployments~\cite{kelly2019key}.
+
+In medical and veterinary image analysis, transfer learning is essential due to limited labeled samples, but it is vulnerable to distribution shifts and dataset artifacts~\cite{litjens2017survey, zech2018variable}. Zech et al. demonstrated that medical classifiers frequently learn institutional confounding features rather than disease pathology~\cite{zech2018variable}. Selvaraju et al. introduced Grad-CAM, enabling visual localization of predictive features through gradient backpropagation into the final convolutional layers~\cite{selvaraju2017gradcam}. However, as Ghassemi et al. cautioned, visual saliency maps must be interpreted with restraint, as heatmaps do not establish biological validity or clinical proof~\cite{ghassemi2021false}. Furthermore, guidelines such as CLAIM (Checklist for Artificial Intelligence in Medical Imaging)~\cite{mongan2020checklist} and TRIPOD+AI~\cite{collins2024tripod} mandate transparent reporting of sample sizes, class distributions, calibration, and reproducible evaluation splits~\cite{kapoor2023leakage, vancalster2019calibration}.
+
+\section{Proposed Methodology}
+
+\subsection{System Architecture}
+The VetVision AI architecture operates across four systematic stages:
+\begin{enumerate}
+    \item \textbf{Input Preprocessing:} Normalization and tensor formatting of photographic cattle skin inputs.
+    \item \textbf{Feature Extraction:} Pretrained EfficientNet-B0 backbone extracting 1,280-dimensional visual feature vectors.
+    \item \textbf{Dual-Head Output:}
+    \begin{itemize}
+        \item \textit{Inference Branch:} Adapted linear classification head ($1280 \to 3$) producing softmax probabilities for \textit{Normal}, \textit{Mild}, and \textit{Severe}.
+        \item \textit{Explainability Branch:} Grad-CAM engine computing gradient-weighted feature activations to generate native-resolution attention heatmaps.
+    \end{itemize}
+    \item \textbf{ONNX Runtime Optimization:} High-efficiency CPU execution engine for low-latency field screening.
+\end{enumerate}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/figure_system_architecture_3class.png}
+\caption{Three-class VetVision AI system architecture and execution pipeline.}
+\label{fig:architecture}
+\end{figure}
+
+\subsection{Dataset Curation, Deduplication, and Partitioning}
+The raw dataset comprised 1,019 images sourced from the Lumpy Skin Disease DataHub repository. Prior to model training, a forensic data integrity audit was conducted:
+\begin{enumerate}
+    \item \textbf{Exclusion of Conflicts:} 25 images were identified and removed due to data contamination:
+    \begin{itemize}
+        \item 17 cross-class near-duplicate label conflicts (identical cattle patches labeled as different severity classes).
+        \item 6 cross-class exact duplicate conflicts (identical SHA-256 hashes with conflicting class labels).
+        \item 2 same-class exact redundant duplicates.
+    \end{itemize}
+    \item \textbf{Curated Usable Dataset:} The remaining \textbf{994 verified images} comprised:
+    \begin{itemize}
+        \item \textbf{Normal Skin:} 691 images (69.52\%)
+        \item \textbf{Mild Lumpy Skin:} 219 images (22.03\%)
+        \item \textbf{Severe Lumpy Skin:} 84 images (8.45\%)
+    \end{itemize}
+    \item \textbf{Leakage-Resistant Partitioning:} Using perceptual difference hashing (dHash) with a Hamming distance threshold $\le 10$, all 97 near-duplicate clusters (comprising 196 images) were strictly partitioned as atomic units into designated splits to prevent cross-split data leakage.
+    \item \textbf{Split Distribution:}
+    \begin{itemize}
+        \item \textbf{Training Set:} 696 images (484 Normal, 153 Mild, 59 Severe) --- 70.02\%
+        \item \textbf{Validation Set:} 150 images (104 Normal, 33 Mild, 13 Severe) --- 15.09\%
+        \item \textbf{Held-Out Test Set:} 148 images (103 Normal, 33 Mild, 12 Severe) --- 14.89\%
+    \end{itemize}
+\end{enumerate}
+Zero SHA-256 or perceptual hash overlap exists across any split.
+
+\subsection{Preprocessing Pipeline}
+All images undergo deterministic preprocessing matching both PyTorch training and ONNX deployment:
+\begin{enumerate}
+    \item Conversion of all non-RGB formats to 3-channel RGB.
+    \item Bilinear spatial interpolation resizing to $224 \times 224$ pixels.
+    \item Pixel scaling to floating-point range $[0.0, 1.0]$.
+    \item Channel-wise standardization using ImageNet statistics:
+    $$\mu = [0.485, 0.456, 0.406], \quad \sigma = [0.229, 0.224, 0.225]$$
+    $$x_{\text{norm}} = \frac{x - \mu}{\sigma}$$
+    \item Transposition from HWC to CHW tensor layout of shape $(1, 3, 224, 224)$.
+\end{enumerate}
+
+\subsection{Model Training and Imbalance Mitigation}
+To mitigate severe class imbalance (8.45\% Severe vs. 69.52\% Normal), we implemented inverse-frequency class-weighted cross-entropy loss:
+\begin{equation}
+w_c = \frac{N_{\text{train}}}{K \cdot N_c}
+\end{equation}
+where $N_{\text{train}} = 696$, $K = 3$ classes, yielding weights:
+$$w_{\text{Normal}} = 0.4793, \quad w_{\text{Mild}} = 1.5163, \quad w_{\text{Severe}} = 3.9322$$
+
+Training followed a two-phase fine-tuning regimen:
+\begin{itemize}
+    \item \textbf{Phase 1 (Classification Head Only):} EfficientNet-B0 backbone frozen; AdamW optimizer ($\text{lr} = 1 \times 10^{-4}$, weight decay $1 \times 10^{-4}$); batch size 32.
+    \item \textbf{Phase 2 (Upper Backbone Fine-Tuning):} Stages 6 through 8 unfrozen ($\text{lr} = 2 \times 10^{-5}$); ReduceLROnPlateau scheduler (factor 0.5, patience 3); early stopping with patience of 8 epochs keyed strictly to Validation Macro-F1.
+    \item \textbf{Model Selection:} The optimal checkpoint was attained at Epoch 51 with a Validation Macro-F1 of \textbf{87.67\%} (Validation Accuracy: 90.00\%, Severe Recall: 92.31\%).
+\end{itemize}
+
+\subsection{Grad-CAM Explainability Implementation}
+To provide visual transparency, we developed a reproducible Grad-CAM utility directly integrated with the trained PyTorch checkpoint. The mathematical operation follows Selvaraju et al.~\cite{selvaraju2017gradcam}:
+\begin{enumerate}
+    \item Forward pass extracts activation maps $A \in \mathbb{R}^{C \times H \times W}$ from \texttt{model.features[-1]} (1,280 channels, $7 \times 7$ grid).
+    \item Backward pass calculates gradients $\frac{\partial Y^c}{\partial A^k}$ with respect to target class $c$.
+    \item Channel importance weights are computed via global average pooling:
+    \begin{equation}
+    \alpha_k^c = \frac{1}{H \cdot W} \sum_{i=1}^H \sum_{j=1}^W \frac{\partial Y^c}{\partial A_{i,j}^k}
+    \end{equation}
+    \item Saliency map is generated by rectifying linear combinations of feature activations:
+    \begin{equation}
+    L_{\text{Grad-CAM}}^c = \text{ReLU}\left(\sum_k \alpha_k^c A^k\right)
+    \end{equation}
+    \item The map is min-max normalized to $[0, 1]$, bilinearly upsampled to the native input image resolution ($256 \times 256$), mapped to the Jet false-color colormap, and blended with the original photo at $\alpha = 0.5$.
+\end{enumerate}
+
+\section{Experimental Results and Discussion}
+
+\subsection{Three-Class Screening Performance}
+The selected EfficientNet-B0 model was evaluated once on the strictly quarantined held-out test set ($N = 148$). The verified results are presented in Table~\ref{tab:model_comparison} alongside baseline experiments.
+
+\begin{table*}[htbp]
+\caption{Experimental Model Comparison on Quarantined Test Set ($N = 148$)}
+\label{tab:model_comparison}
+\centering
+\begin{tabular}{llccccccc}
+\toprule
+\textbf{Experiment} & \textbf{Architecture} & \textbf{Loss Formulation} & \textbf{Accuracy} & \textbf{Macro-F1} & \textbf{Weighted-F1} & \textbf{ROC-AUC} & \textbf{Severe Recall} & \textbf{Severe $\to$ Normal} \\
+\midrule
+Exp 1: Baseline & MobileNetV3-Large & Linear Weights & 87.16\% & 76.49\% & 86.82\% & 88.42\% & 66.67\% & 0 \\
+Exp 2: Sqrt + Smooth & MobileNetV3-Large & Sqrt + $\alpha=0.05$ & 87.84\% & 75.85\% & 86.95\% & 88.10\% & 58.33\% & 0 \\
+\textbf{Exp 3: Selected} & \textbf{EfficientNet-B0} & \textbf{Linear Weights} & \textbf{90.54\%} & \textbf{83.35\%} & \textbf{90.38\%} & \textbf{91.51\%} & \textbf{75.00\%} & \textbf{0} \\
+Exp 4: Ablation & EfficientNet-B0 & Sqrt + $\alpha=0.05$ & Quarantined* & 85.62\% (Val) & 88.94\% (Val) & 94.21\% (Val) & 92.31\% (Val) & \textbf{1 (Critical)} \\
+Exp 5: TTA & EfficientNet-B0 & Multi-View TTA & Quarantined* & 84.25\% (Val) & 87.50\% (Val) & 93.80\% (Val) & 92.31\% (Val) & 0 \\
+\bottomrule
+\end{tabular}
+\flushleft
+\footnotesize{*Experiments 4 and 5 were rejected during validation and never evaluated on the test set to maintain quarantine integrity.}
+\end{table*}
+
+\subsection{Analysis of Experiment 3 Results}
+\begin{itemize}
+    \item \textbf{Test Set Accuracy:} \textbf{90.54\%} (134 out of 148 samples correctly identified).
+    \item \textbf{Macro-Averaged F1-Score:} \textbf{83.35\%} (Macro Precision: 84.22\%, Macro Recall: 82.61\%).
+    \item \textbf{Weighted F1-Score:} \textbf{90.38\%} (Weighted Precision: 90.32\%, Weighted Recall: 90.54\%).
+    \item \textbf{ROC-AUC:} Macro One-vs-Rest ROC-AUC is \textbf{91.51\%} (Weighted ROC-AUC: 93.42\%).
+    \item \textbf{Correction Regarding Micro-F1:} An earlier draft listed a micro-F1 of 33.75\%. In single-label multi-class classification, micro-averaged F1 is mathematically identical to overall accuracy ($F1_{\text{micro}} \equiv \text{Accuracy} = 90.54\%$). We report the verified metric accordingly.
+\end{itemize}
+
+\subsection{Class-Specific Breakdown and Confusion Matrix}
+Table~\ref{tab:per_class} details class-level metrics. The confusion matrix is shown in Fig.~\ref{fig:confusion_matrix}.
+
+\begin{table}[htbp]
+\caption{Class-Specific Test Performance (Experiment 3, $N = 148$)}
+\label{tab:per_class}
+\centering
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Class} & \textbf{Support ($N$)} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Specificity} \\
+\midrule
+Normal Skin & 103 & 94.34\% & 97.09\% & 95.69\% & 86.67\% \\
+Mild Lumpy & 33 & 83.33\% & 75.76\% & 79.37\% & 95.65\% \\
+Severe Lumpy & 12 & 75.00\% & 75.00\% & 75.00\% & 97.79\% \\
+\midrule
+\textbf{Macro Avg} & \textbf{148} & \textbf{84.22\%} & \textbf{82.61\%} & \textbf{83.35\%} & \textbf{93.37\%} \\
+\textbf{Weighted Avg} & \textbf{148} & \textbf{90.32\%} & \textbf{90.54\%} & \textbf{90.38\%} & \textbf{89.58\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\linewidth]{figures/figure_confusion_matrix_3class.png}
+\caption{Three-class confusion matrix on held-out test set ($N=148$). Note zero Severe cases misclassified as Normal.}
+\label{fig:confusion_matrix}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/figure_class_metrics_3class.png}
+\caption{Precision, Recall, and F1-score across disease screening classes.}
+\label{fig:class_metrics}
+\end{figure}
+
+\textbf{Clinical Safety Significance:} In veterinary epidemiology, a false negative that classifies a Severe animal as Normal represents a catastrophic failure mode. VetVision AI achieved \textbf{zero Severe-to-Normal misclassifications}, with all three misclassified Severe animals placed into the Mild category, which still triggers isolation and veterinary review.
+
+\subsection{CPU Inference Efficiency and ONNX Acceleration}
+To evaluate operational feasibility in rural field clinics lacking GPU hardware, benchmark tests were conducted comparing native PyTorch eager execution against ONNX Runtime on a single CPU thread (Table~\ref{tab:latency} and Fig.~\ref{fig:latency}).
+
+\begin{table}[htbp]
+\caption{CPU Inference Benchmark and ONNX Acceleration}
+\label{tab:latency}
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Performance Metric} & \textbf{PyTorch (Float32)} & \textbf{ONNX Runtime} & \textbf{Improvement} \\
+\midrule
+Median Latency (P50) & 25.75~ms & \textbf{6.79~ms} & \textbf{-73.63\%} \\
+Mean Latency & 26.11~ms & \textbf{6.82~ms} & \textbf{-73.88\%} \\
+95th Percentile (P95) & 31.67~ms & \textbf{7.61~ms} & \textbf{-75.97\%} \\
+Throughput (FPS) & 38.30 img/s & \textbf{146.61 img/s} & \textbf{+282.8\% (3.83x)} \\
+Model Disk Size & 39.76 MiB & \textbf{15.29 MiB} & \textbf{-61.54\%} \\
+Class Agreement & Reference & \textbf{100.0\%} & Concordant \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/figure_cpu_latency_comparison.png}
+\caption{CPU latency and throughput comparison between PyTorch and ONNX Runtime.}
+\label{fig:latency}
+\end{figure}
+
+\subsection{Visual Explainability via Grad-CAM}
+Fig.~\ref{fig:gradcam} illustrates authentic Grad-CAM saliency overlays generated by \texttt{explainability.py} across representative validation samples:
+\begin{itemize}
+    \item \textbf{Normal Skin:} Heatmaps show diffuse, low-intensity background activations without concentrated focus.
+    \item \textbf{Mild Lumpy Skin:} Strong focal gradients cluster directly over early, isolated circular cuticular nodules, confirming that the model attends to authentic pathological features rather than image backgrounds.
+    \item \textbf{Severe Lumpy Skin:} High-intensity activation zones encompass widespread, coalescing necrotic plaques and ulcerated lesions across the dermis.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/figure_gradcam_three_class.png}
+\caption{Authentic Grad-CAM visual explanations across Normal, Mild, and Severe cattle skin images.}
+\label{fig:gradcam}
+\end{figure}
+
+\section{Limitations and Ethical Considerations}
+
+In accordance with CLAIM~\cite{mongan2020checklist} and TRIPOD+AI~\cite{collins2024tripod} clinical reporting standards, we explicitly delineate the following scientific limitations:
+\begin{enumerate}
+    \item \textbf{Small Dataset and Severe Cohort Scarcity:} The Severe class contains only 12 test examples. While 75\% recall (9/12) is encouraging, the statistical confidence interval remains broad.
+    \item \textbf{Prior Test Set Exposure:} Because early exploratory experiments evaluated baseline models on the same split partition, this test set cannot be described as a pristine, untouched prospective holdout.
+    \item \textbf{Lack of Farm-Level Independence:} Images originate from public online agricultural archives. Independence at the animal, breed, and farm level cannot be guaranteed. Confounders like lighting, coat color, and mud splatters may affect field performance.
+    \item \textbf{Epistemic Limits of Grad-CAM:} Gradient heatmaps represent mathematical correlations of network activations; they do not constitute histological proof of disease causality~\cite{ghassemi2021false}.
+    \item \textbf{Screening Support vs. Veterinary Diagnosis:} VetVision AI is explicitly not a diagnostic tool. Any animal flagged as Mild or Severe must undergo confirmatory veterinary examination and PCR testing.
+\end{enumerate}
+
+\section{Conclusion and Future Scope}
+
+This study introduced \textbf{VetVision AI}, aligning deep learning research with the practical realities of veterinary triage for Lumpy Skin Disease in cattle. By transitioning from a simplistic binary model to an audited, three-class screening framework (\textit{Normal}, \textit{Mild}, \textit{Severe}), VetVision AI achieved \textbf{90.54\% test accuracy}, \textbf{83.35\% macro-F1}, and \textbf{zero Severe-to-Normal false negatives} on a held-out test set of 148 images. Deployment via ONNX Runtime accelerated CPU inference by \textbf{73.88\%} to \textbf{6.79~ms per image} (146.61 FPS), while authentic Grad-CAM heatmaps provided verifiable visual explanations of predictive attention.
+
+Future investigations will focus on prospective multicenter field trials across diverse cattle breeds, edge INT8 quantization on embedded devices (e.g., Raspberry Pi 5), differential diagnosis against lookalike cutaneous bovine conditions, and conformal prediction uncertainty calibration.
+
+\bibliographystyle{IEEEtran}
+\begin{thebibliography}{00}
+\bibitem{gupta2020review} T. Gupta, V. Patial, D. Bali, S. Angaria, M. Sharma, and R. Chahota, ``A review: Lumpy skin disease and its emergence in India,'' \textit{Veterinary Research Communications}, vol. 44, nos. 3--4, pp. 111--118, 2020.
+\bibitem{manjunathareddy2024pathological} G. B. Manjunathareddy et al., ``Pathological, immunological and molecular epidemiological analysis of lumpy skin disease virus in Indian cattle during a high-mortality epidemic,'' \textit{Veterinary Quarterly}, vol. 44, no. 1, pp. 1--22, 2024.
+\bibitem{senthilkumar2024early} C. Senthilkumar, C. Sindhu, G. Vadivu, and S. Neethirajan, ``Early detection of lumpy skin disease in cattle using deep learning---A comparative analysis of pretrained models,'' \textit{Veterinary Sciences}, vol. 11, no. 10, Art. no. 510, 2024.
+\bibitem{pal2025implementation} M. Pal et al., ``Implementation of a deep learning system for detection and classification of lumpy skin disease in cattle: Enhancing precision and efficiency in veterinary diagnostics,'' \textit{Veterinary Medicine and Science}, vol. 11, no. 6, Art. no. e70664, 2025.
+\bibitem{ullah2026vision} A. Ullah et al., ``A vision transformer model-integrated mobile application for early and accurate detection of lumpy skin disease in cattle,'' \textit{Scientific Reports}, vol. 16, Art. no. 683, 2026.
+\bibitem{krizhevsky2012imagenet} A. Krizhevsky, I. Sutskever, and G. E. Hinton, ``ImageNet classification with deep convolutional neural networks,'' in \textit{Advances in Neural Information Processing Systems (NeurIPS)}, vol. 25, pp. 1097--1105, 2012.
+\bibitem{he2016deep} K. He, X. Zhang, S. Ren, and J. Sun, ``Deep residual learning for image recognition,'' in \textit{Proc. IEEE Conf. Computer Vision and Pattern Recognition (CVPR)}, 2016, pp. 770--778.
+\bibitem{tan2019efficientnet} M. Tan and Q. V. Le, ``EfficientNet: Rethinking model scaling for convolutional neural networks,'' in \textit{Proc. 36th Int. Conf. Machine Learning (ICML)}, PMLR, vol. 97, pp. 6105--6114, 2019.
+\bibitem{howard2019searching} A. Howard et al., ``Searching for MobileNetV3,'' in \textit{Proc. IEEE/CVF Int. Conf. Computer Vision (ICCV)}, 2019, pp. 1314--1324.
+\bibitem{dosovitskiy2021image} A. Dosovitskiy et al., ``An image is worth 16x16 words: Transformers for image recognition at scale,'' in \textit{Proc. Int. Conf. Learning Representations (ICLR)}, 2021.
+\bibitem{litjens2017survey} G. Litjens et al., ``A survey on deep learning in medical image analysis,'' \textit{Medical Image Analysis}, vol. 42, pp. 60--88, 2017.
+\bibitem{selvaraju2017gradcam} R. R. Selvaraju et al., ``Grad-CAM: Visual explanations from deep networks via gradient-based localization,'' in \textit{Proc. IEEE Int. Conf. Computer Vision (ICCV)}, 2017, pp. 618--626.
+\bibitem{mohanty2016using} S. P. Mohanty, D. P. Hughes, and M. Salath\'e, ``Using deep learning for image-based plant disease detection,'' \textit{Frontiers in Plant Science}, vol. 7, Art. no. 1419, 2016.
+\bibitem{zech2018variable} J. R. Zech, M. A. Badgeley, M. Liu, A. B. Costa, J. J. Titano, and E. K. Oermann, ``Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs: A cross-sectional study,'' \textit{PLOS Medicine}, vol. 15, no. 11, Art. no. e1002683, 2018.
+\bibitem{kelly2019key} C. J. Kelly, A. Karthikesalingam, M. Suleyman, G. Corrado, and D. King, ``Key challenges for delivering clinical impact with artificial intelligence,'' \textit{BMC Medicine}, vol. 17, Art. no. 195, 2019.
+\bibitem{mongan2020checklist} J. Mongan, L. Moy, and C. E. Kahn, Jr., ``Checklist for artificial intelligence in medical imaging (CLAIM): A guide for authors and reviewers,'' \textit{Radiology: Artificial Intelligence}, vol. 2, no. 2, Art. no. e200029, 2020.
+\bibitem{collins2024tripod} G. S. Collins et al., ``TRIPOD+AI statement: Updated guidance for reporting clinical prediction models that use regression or machine learning methods,'' \textit{BMJ}, vol. 385, Art. no. e078378, 2024.
+\bibitem{kapoor2023leakage} S. Kapoor and A. Narayanan, ``Leakage and the reproducibility crisis in machine-learning-based science,'' \textit{Patterns}, vol. 4, no. 9, Art. no. 100804, 2023.
+\bibitem{vancalster2019calibration} B. Van Calster et al., ``Calibration: The Achilles heel of predictive analytics,'' \textit{BMC Medicine}, vol. 17, Art. no. 230, 2019.
+\bibitem{ghassemi2021false} S. Ghassemi, L. Oakden-Rayner, and A. L. Beam, ``The false hope of current approaches to explainable artificial intelligence in health care,'' \textit{The Lancet Digital Health}, vol. 3, no. 11, pp. e745--e750, 2021.
+\end{thebibliography}
+
+\end{document}

@@ -118,3 +118,58 @@ def test_inference_engine_handles_adapter_runtime_failure(tmp_path):
     assert "Inference execution failed" in res.error_message
     assert "Hardware or runtime failure" in res.error_message
 
+
+def test_inference_engine_base64_image_data():
+    """Verify that base64 imageData successfully passes through preprocessing and inference."""
+    import base64
+    import io
+    from PIL import Image
+
+    # Create synthetic image bytes
+    buf = io.BytesIO()
+    Image.new("RGB", (64, 64), color=(200, 100, 50)).save(buf, format="JPEG")
+    b64_str = base64.b64encode(buf.getvalue()).decode("ascii")
+
+    engine = InferenceEngine()
+    engine.adapter = MockModelAdapter([0.10, 0.85, 0.05])
+
+    req = InferenceRequest(imageData=b64_str, imageMimeType="image/jpeg")
+    res = engine.run_inference(req)
+
+    assert res.status == PredictionStatusEnum.AVAILABLE
+    assert res.confidence == 0.85
+    assert res.predicted_class == "MILD"
+    assert res.mild_probability == 0.85
+
+
+def test_inference_engine_base64_with_data_uri_prefix():
+    """Verify that data:image/jpeg;base64,... prefix is cleanly stripped and parsed."""
+    import base64
+    import io
+    from PIL import Image
+
+    buf = io.BytesIO()
+    Image.new("RGB", (64, 64), color=(100, 200, 50)).save(buf, format="JPEG")
+    raw_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+    data_uri = f"data:image/jpeg;base64,{raw_b64}"
+
+    engine = InferenceEngine()
+    engine.adapter = MockModelAdapter([0.90, 0.05, 0.05])
+
+    req = InferenceRequest(imageData=data_uri, imageMimeType="image/jpeg")
+    res = engine.run_inference(req)
+
+    assert res.status == PredictionStatusEnum.AVAILABLE
+    assert res.predicted_class == "NORMAL"
+
+
+def test_inference_engine_neither_path_nor_data():
+    """Verify that omitting both imagePath and imageData returns FAILED status."""
+    engine = InferenceEngine()
+    req = InferenceRequest(imageMimeType="image/jpeg")
+    res = engine.run_inference(req)
+
+    assert res.status == PredictionStatusEnum.FAILED
+    assert "Neither imageData nor imagePath" in res.error_message
+
+

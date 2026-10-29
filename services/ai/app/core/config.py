@@ -7,10 +7,16 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"
     HOST: str = "0.0.0.0"
     AI_PORT: int = 8000
+    PORT: int = 8000
 
-    @property
-    def PORT(self) -> int:
-        return self.AI_PORT
+    def model_post_init(self, __context):
+        # Allow dynamic PORT injected by cloud container hosts (e.g. Render, Railway)
+        env_port = os.environ.get("PORT") or os.environ.get("AI_PORT")
+        if env_port:
+            try:
+                self.PORT = int(env_port)
+            except ValueError:
+                pass
     
     # Internal Authentication
     INTERNAL_SECRET: str = "dev-internal-ai-secret-key-32-bytes-long"

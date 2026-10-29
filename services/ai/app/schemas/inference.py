@@ -16,7 +16,8 @@ class PredictedClassEnum(str, Enum):
 class InferenceRequest(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
-    image_path: str = Field(..., alias="imagePath", description="Absolute local path to image asset")
+    image_path: Optional[str] = Field(None, alias="imagePath", description="Absolute local path to image asset (optional if imageData provided)")
+    image_data: Optional[str] = Field(None, alias="imageData", description="Base64-encoded image bytes (optional if imagePath provided)")
     image_mime_type: str = Field("image/jpeg", alias="imageMimeType", description="MIME type of the image")
     model_version_id: Optional[str] = Field(None, alias="modelVersionId", description="Specific model version requested")
 

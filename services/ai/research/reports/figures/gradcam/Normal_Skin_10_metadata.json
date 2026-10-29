@@ -1,0 +1,73 @@
+{
+  "provenance": {
+    "module": "services.ai.research.explainability",
+    "timestamp_utc": "2026-10-28T19:40:43.263054+00:00",
+    "checkpoint_path": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\models\\efficientnetb0_exp3_best.pth",
+    "checkpoint_sha256": "e53c38ab272b2f47356fe4a050f83516f3acdc7056ee79166fad7fe6a134c238",
+    "model_architecture": "EfficientNet-B0 (torchvision)",
+    "target_layer": "model.features[-1] (Conv2dNormActivation, 1280 channels)",
+    "input_image_path": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\data\\lsd\\LumpySkinDisease_DataHub\\LumpySkinDisease_DataHub\\data-processed\\lumpy_unbalanced\\lumpy\\Normal_Skin_10.png",
+    "input_image_sha256": "dbdc01e4c253242a6fdd1c9f5eaba788935b7c72da7b14114bdcb850d4b03227",
+    "environment": {
+      "python": "3.12.3",
+      "torch": "2.14.1+cpu",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2"
+    }
+  },
+  "model_metadata": {
+    "epoch": 51,
+    "phase": 2,
+    "val_macro_f1": 0.8767,
+    "class_names": [
+      "Normal",
+      "Mild",
+      "Severe"
+    ],
+    "class_weights": {
+      "Normal": 0.4793,
+      "Mild": 1.5163,
+      "Severe": 3.9322
+    }
+  },
+  "input_dimensions": {
+    "native_width": 256,
+    "native_height": 256,
+    "model_input_resolution": [
+      224,
+      224
+    ]
+  },
+  "prediction": {
+    "predicted_class_index": 0,
+    "predicted_class": "Normal",
+    "predicted_probability": 0.8473840355873108,
+    "class_probabilities": {
+      "Normal": 0.8474,
+      "Mild": 0.1484,
+      "Severe": 0.0043
+    }
+  },
+  "explanation": {
+    "target_class_index": 0,
+    "target_class": "Normal",
+    "feature_map_grid_resolution": [
+      7,
+      7
+    ],
+    "upsampled_resolution": [
+      256,
+      256
+    ],
+    "colormap": "jet",
+    "blend_alpha": 0.5,
+    "disclaimer": "Grad-CAM visual explanation indicates image regions that positively influenced the model's classification score. It does not establish biological causality or replace professional veterinary histological examination."
+  },
+  "output_artifacts": {
+    "original_image": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\reports\\figures\\gradcam\\Normal_Skin_10_original.png",
+    "grayscale_heatmap": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\reports\\figures\\gradcam\\Normal_Skin_10_heatmap_gray.png",
+    "colored_heatmap": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\reports\\figures\\gradcam\\Normal_Skin_10_heatmap_colored.png",
+    "blended_overlay": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\reports\\figures\\gradcam\\Normal_Skin_10_overlay.png",
+    "three_panel_composite": "C:\\Users\\Ashutosh Verma\\OneDrive\\Desktop\\VET VISION AI\\services\\ai\\research\\reports\\figures\\gradcam\\Normal_Skin_10_composite.png"
+  }
+}

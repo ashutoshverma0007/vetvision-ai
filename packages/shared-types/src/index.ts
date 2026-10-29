@@ -358,7 +358,8 @@ export interface ApiResponse<T = unknown> {
 // Internal AI Service Contracts
 // ==============================================================================
 export interface AIInferenceRequest {
-  imagePath: string;
+  imagePath?: string;
+  imageData?: string; // Base64-encoded image data for decoupled network transfer
   imageMimeType: string;
   modelVersionId?: string;
 }

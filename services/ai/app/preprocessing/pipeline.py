@@ -18,6 +18,11 @@ class PreprocessingPipeline:
         with Image.open(image_path) as img:
             return self.preprocess_pil_image(img)
 
+    def preprocess_image_bytes(self, image_bytes: bytes) -> np.ndarray:
+        import io
+        with Image.open(io.BytesIO(image_bytes)) as img:
+            return self.preprocess_pil_image(img)
+
     def preprocess_pil_image(self, img: Image.Image) -> np.ndarray:
         # Convert to RGB (stripping alpha channel if present)
         if img.mode != "RGB":

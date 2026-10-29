@@ -80,18 +80,41 @@ class InferenceEngine:
                 error_message="Model weights not configured or artifact file missing on host. Real screening offline."
             )
 
-        # Check image exists on disk
-        if not os.path.isfile(request.image_path):
-            logger.error(f"Image asset file not found at: {request.image_path}")
+        # Resolve and preprocess input image (from Base64 or local filesystem path)
+        try:
+            if request.image_data:
+                import base64
+                b64_str = request.image_data.strip()
+                if "," in b64_str:
+                    b64_str = b64_str.split(",", 1)[1]
+                raw_bytes = base64.b64decode(b64_str)
+                if len(raw_bytes) == 0:
+                    return InferenceResponse(
+                        status=PredictionStatusEnum.FAILED,
+                        error_message="Provided base64 imageData is empty"
+                    )
+                tensor = pipeline.preprocess_image_bytes(raw_bytes)
+            elif request.image_path:
+                if not os.path.isfile(request.image_path):
+                    logger.error(f"Image asset file not found at: {request.image_path}")
+                    return InferenceResponse(
+                        status=PredictionStatusEnum.FAILED,
+                        error_message=f"Image file not found on server: {request.image_path}"
+                    )
+                tensor = pipeline.preprocess_image_file(request.image_path)
+            else:
+                return InferenceResponse(
+                    status=PredictionStatusEnum.FAILED,
+                    error_message="Neither imageData nor imagePath was provided in inference request"
+                )
+        except Exception as e:
+            logger.error(f"Image preprocessing failed: {e}")
             return InferenceResponse(
                 status=PredictionStatusEnum.FAILED,
-                error_message=f"Image file not found on server: {request.image_path}"
+                error_message=f"Inference execution failed during image loading: {str(e)}"
             )
 
         try:
-            # 1. Preprocess
-            tensor = pipeline.preprocess_image_file(request.image_path)
-
             # 2. Forward pass with adapter
             prediction_output = self.adapter.predict(tensor)
 
