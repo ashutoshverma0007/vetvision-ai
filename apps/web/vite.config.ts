@@ -6,7 +6,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      '@vetvision/shared-types': path.resolve(__dirname, '../../packages/shared-types/src/index.ts'),
+      '@vetvision/validation': path.resolve(__dirname, '../../packages/validation/src/index.ts')
     }
   },
   server: {
