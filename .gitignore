@@ -50,4 +50,5 @@ uploads/
 *.db
 services/ai/weights/
 services/ai/research/models/
-*.pth
+*.pth
+.neon

@@ -4,6 +4,7 @@
     "api": {
       "root": "apps/api",
       "framework": "express",
+      "entrypoint": "dist/index.js",
       "bindings": [
         {
           "type": "service",

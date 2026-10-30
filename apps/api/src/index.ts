@@ -3,6 +3,13 @@ import { config } from '@vetvision/config';
 import { logger } from './logger.js';
 
 export const app = createApp();
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = app;
+  (module.exports as any).app = app;
+  (module.exports as any).default = app;
+}
+
 export default app;
 
 if (!process.env.VERCEL) {

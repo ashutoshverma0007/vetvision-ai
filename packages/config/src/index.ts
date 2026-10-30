@@ -13,6 +13,7 @@ const envSchema = z.object({
 
   // Database
   DATABASE_URL: z.string().min(1).default('postgresql://postgres:postgres@localhost:5432/vetvision_ai?schema=public'),
+  DATABASE_URL_UNPOOLED: z.string().optional(),
 
   // Session & Security
   SESSION_SECRET: z.string().min(16).default('dev-insecure-secret-replace-in-production-32-chars'),
