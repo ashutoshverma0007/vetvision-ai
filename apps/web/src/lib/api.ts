@@ -50,7 +50,7 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   } catch {
     if (response.status >= 500) {
       throw new ApiError(
-        'Backend API server is unreachable on port 4000. Please ensure the backend server and database are running.',
+        'Backend service is temporarily unavailable. Please try again shortly.',
         'BACKEND_UNAVAILABLE'
       );
     }
