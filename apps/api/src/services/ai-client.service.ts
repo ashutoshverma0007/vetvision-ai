@@ -8,13 +8,14 @@ export class AIClientService {
   private timeoutMs: number;
 
   constructor(baseUrl?: string, secretToken?: string, timeoutMs?: number) {
-    this.baseUrl = baseUrl || config.AI_SERVICE_URL;
+    const rawUrl = baseUrl || process.env.AI_SERVICE_URL || config.AI_SERVICE_URL;
+    this.baseUrl = rawUrl.replace(/\/+$/, '');
     this.secretToken = secretToken || config.AI_SERVICE_INTERNAL_SECRET;
     this.timeoutMs = timeoutMs ?? config.AI_SERVICE_TIMEOUT_MS;
   }
 
   public async infer(request: AIInferenceRequest): Promise<AIInferenceResponse> {
-    const targetUrl = `${this.baseUrl}/internal/v1/inference`;
+    const targetUrl = new URL('internal/v1/inference', this.baseUrl.endsWith('/') ? this.baseUrl : `${this.baseUrl}/`).toString();
 
     logger.event('AI_INFERENCE_STARTED', {
       targetUrl,
@@ -83,7 +84,8 @@ export class AIClientService {
 
   public async checkHealth(): Promise<{ status: string; models: string[] }> {
     try {
-      const response = await fetch(`${this.baseUrl}/internal/v1/health`, {
+      const targetUrl = new URL('internal/v1/health', this.baseUrl.endsWith('/') ? this.baseUrl : `${this.baseUrl}/`).toString();
+      const response = await fetch(targetUrl, {
         headers: { 'X-Internal-Token': this.secretToken }
       });
       if (response.ok) {
